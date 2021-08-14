@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="linux运维排除问题步骤, 一只云辰">
+    <meta name="keywords" content="使用DQL查询数据, 一只云辰">
     <meta name="description" content="本网站是个人兴趣爱好，记录生活点滴的平台">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>linux运维排除问题步骤 | 一只云辰</title>
+    <title>使用DQL查询数据 | 一只云辰</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">linux运维排除问题步骤</h1>
+                    <h1 class="description center-align post-title">使用DQL查询数据</h1>
                 </div>
             </div>
         </div>
@@ -432,12 +432,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -446,28 +459,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-15
+                    2021-08-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-15
+                    2021-08-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    11 分
                 </div>
                 
 
@@ -490,98 +503,443 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux服务器上排除问题的基本步骤"><a href="#Linux服务器上排除问题的基本步骤" class="headerlink" title="Linux服务器上排除问题的基本步骤"></a>Linux服务器上排除问题的基本步骤</h1><p>遇到服务器故障时，需要有条理的从几个方面入手排查</p>
-<p><strong>一、尽可能搞清楚问题的前因后果</strong></p>
-<p>1、故障的表现是什么？无响应？报错？</p>
-<p>2、故障是什么时候发现的？</p>
-<p>3、故障是否可重现？</p>
-<p>4、有没有出现的规律（比如每小时出现一次）</p>
-<p>5、最后一次对整个平台进行更新的内容是什么（代码、服务器等）？</p>
-<p>6、故障影响的特定用户群是什么样的(已登录的, 退出的, 某个地域的…)?</p>
-<p>7、基础架构（物理的、逻辑的）的文档是否能找到?</p>
-<p>8、是否有监控平台可用?（比如Zabbix、 Nagios、 cacti… ）</p>
-<p>9、是否有日志可以查看?（比如Loggly、Airbrake、 Graylog…）</p>
-<p>最后两个是最方便的信息来源。</p>
-<p><strong>二、有谁在?</strong></p>
-<p>用下面两个命令看看都有谁在线，有哪些用户访问过</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ w $ last<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="使用DQL查询数据"><a href="#使用DQL查询数据" class="headerlink" title="使用DQL查询数据"></a>使用DQL查询数据</h2><h3 id="DQL语言"><a href="#DQL语言" class="headerlink" title="DQL语言"></a>DQL语言</h3><p><strong>DQL( Data Query Language 数据查询语言 )</strong></p>
+<ul>
+<li>查询数据库数据 , 如<strong>SELECT</strong>语句</li>
+<li>简单的单表查询或多表的复杂查询和嵌套查询</li>
+<li>是数据库语言中最核心,最重要的语句</li>
+<li>使用频率最高的语句</li>
+</ul>
+<blockquote>
+<p>SELECT语法</p>
+</blockquote>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT [ALL | DISTINCT]
+{* | table.* | [table.field1[as alias1][,table.field2[as alias2]][,...]]}
+FROM table_name [as table_alias]
+  [left | right | inner join table_name2]  -- 联合查询
+  [WHERE ...]  -- 指定结果需满足的条件
+  [GROUP BY ...]  -- 指定结果按照哪几个字段来分组
+  [HAVING]  -- 过滤分组的记录必须满足的次要条件
+  [ORDER BY ...]  -- 指定查询记录按一个或多个条件排序
+  [LIMIT {[offset,]row_count | row_countOFFSET offset}];
+   -- 指定查询的记录从哪条至哪条<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>三、之前发生了什么?</strong></p>
-<p>查看一下之前服务器上执行过的命令</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ history<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>注意 : [ ] 括号代表可选的 , { }括号代表必选得</strong></p>
+<h3 id="指定查询字段"><a href="#指定查询字段" class="headerlink" title="指定查询字段"></a>指定查询字段</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 查询表中所有的数据列结果 , 采用 **" \* "** 符号; 但是效率低，不推荐 .
 
-<p>正常情况我们运行history命令是不会显示命令被执行的时间的。所以我们还需要设置下HISTTIMEFORMAT的环境变量，命令如下：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ export HISTTIMEFORMAT='%F %T'<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+-- 查询所有学生信息
+SELECT * FROM student;
 
-<p><strong>四、现在在运行的进程是啥?</strong></p>
-<p>用下面两个命令可以看到正在运行的进程及相关用户,推荐用pstree</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ pstree -a $ psaux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+-- 查询指定列(学号 , 姓名)
+SELECT studentno,studentname FROM student;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>五、监听的网络服务</strong></p>
-<p>查看所有正在运行的服务，检查它们是否应该运行，下面3个命令可以分开查看，不至于一下子列出一大堆服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ netstat -ntlp $ netstat -nulp $ netstat -nxlp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><strong>六、CPU和内存</strong></p>
-<p>通过下面4个命令检查</p>
-<p>1、还有空余的内存吗? 服务器是否正在内存和硬盘之间进行swap?</p>
-<p>2、还有剩余的CPU吗? 服务器是几核的? 是否有某些CPU核负载过多了?</p>
-<p>3、服务器最大的负载来自什么地方? 平均负载是多少?</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ free -m $ uptime $ top $ htop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><strong>七、硬件</strong></p>
-<p>通过下面3个命令检查</p>
-<p>1、找到RAID卡 (是否带BBU备用电池)、 CPU、空余的内存插槽。根据这些情况可以大致了解硬件问题的来源和性能改进的办法</p>
-<p>2、网卡是否设置好? 是否正运行在半双工状态? 速度是10MBps? 有没有 TX/RX 报错?</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ lspci $ dmidecode $ ethtool<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>AS 子句作为别名</p>
+</blockquote>
+<p>作用：</p>
+<ul>
+<li>可给数据列取一个新别名</li>
+<li>可给表取一个新别名</li>
+<li>可把经计算或总结的结果用另一个新名称来代替</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 这里是为列取别名(当然as关键词可以省略)
+SELECT studentno AS 学号,studentname AS 姓名 FROM student;
 
-<p><strong>八、IO 性能</strong></p>
-<p>通过下面4个命令检查(这些命令对于调试后端性能非常有用)</p>
-<p>1、服务器硬盘是否已满?</p>
-<p>2、是否开启了swap交换模式 (si/so)?</p>
-<p>3、CPU被谁占用：系统进程? 用户进程? 虚拟机?</p>
-<p>4、谁在进行 IO： 是不是数据库吃掉了所有的系统资源? 还是你的PHP或jiva进程?</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ iostat -kx 2 $ vmstat 2 10 $ mpstat 2 10 $ dstat --top-io --top-bi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+-- 使用as也可以为表取别名
+SELECT studentno AS 学号,studentname AS 姓名 FROM student AS s;
 
-<p><strong>九、挂载点和文件系统</strong></p>
-<p>通过下面几个命令检查</p>
-<p>1、一共挂载了多少文件系统?</p>
-<p>2、有没有某个服务专用的文件系统? (比如数据库?)</p>
-<p>3、文件系统的挂载选项是什么： noatime? default? 有没有文件系统被重新挂载为只读模式了？</p>
-<p>4、磁盘空间是否还有剩余?</p>
-<p>5、是否有大文件被删除但没有清空?</p>
-<p>6、如果磁盘空间有问题，你是否还有空间来扩展一个分区？</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ mount $ cat /etc/fstab $ vgs $ pvs $ lvs $ df -h $ lsof+D / /* beware not tokillyour box */<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+-- 使用as,为查询结果取一个新名字
+-- CONCAT()函数拼接字符串
+SELECT CONCAT('姓名:',studentname) AS 新姓名 FROM student;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>十、内核、中断和网络</strong></p>
-<p>通过下面命令检查</p>
-<p>1、你的中断请求是否是均衡地分配给CPU处理，还是会有某个CPU的核因为大量的网络中断请求或者RAID请求而过载了？</p>
-<p>2、SWAP交换的设置是什么？对于工作站来说swappinness 设为 60 就很好, 不过对于服务器就太糟了：你最好永远不要让服务器做SWAP交换，不然对磁盘的读写会锁死SWAP进程</p>
-<p>3、conntrack_max 是否设的足够大，能应付你服务器的流量?</p>
-<p>4、在不同状态下(TIME_WAIT, …)TCP连接时间的设置是怎样的？</p>
-<p>5、如果要显示所有存在的连接，netstat 会比较慢， 你可以先用 ss 看一下总体情况</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ sysctl -a | grep... $ cat /proc/interrupts $ cat /proc/net/ip_conntrack  /* may take sometimeon busy servers */ $ netstat $ ss -s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><strong>十一、系统日志和内核消息</strong></p>
-<p>通过下面命令检查</p>
-<p>1、查看错误和警告消息，比如看看是不是很多关于连接数过多导致？</p>
-<p>2、看看是否有硬件错误或文件系统错误?</p>
-<p>3、分析是否能将这些错误事件和前面发现的疑点进行时间上的比对</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ dmesg $ less /var/log/messages $ less /var/log/secure $ less /var/log/auth<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><strong>十二、定时任务</strong></p>
-<p>通过下面命令检查</p>
-<p>1、是否有某个定时任务运行过于频繁?</p>
-<p>2、是否有些用户提交了隐藏的定时任务?</p>
-<p>3、在出现故障的时候，是否正好有某个备份任务在执行？</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ ls  /etc/cron* +cat $ foruserin$(cat /etc/passwd|cut-f1 -d:);docrontab -l -u $user;done<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>DISTINCT关键字的使用</p>
+</blockquote>
+<p>作用 : 去掉SELECT查询返回的记录结果中重复的记录 ( 返回所有列的值都相同 ) , 只返回一条</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- # 查看哪些同学参加了考试(学号) 去除重复项
+SELECT * FROM result; -- 查看考试成绩
+SELECT studentno FROM result; -- 查看哪些同学参加了考试
+SELECT DISTINCT studentno FROM result; -- 了解:DISTINCT 去除重复项 , (默认是ALL)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>十三、应用系统日志</strong></p>
-<p>这边以LAMP（Linux+Apache+Mysql+Perl）应用环境举例：</p>
-<p>1、Apache &amp; Nginx; 查找访问和错误日志, 直接找 5xx 错误, 再看看是否有 limit_zone 错误</p>
-<p>2、MySQL; 在mysql.log找错误消息，看看有没有结构损坏的表， 是否有innodb修复进程在运行，是否有disk/index/query 问题</p>
-<p>3、PHP-FPM; 如果设定了 php-slow 日志, 直接找错误信息 (php, mysql, memcache, …)，如果没设定，赶紧设定</p>
-<p>4、Varnish; 在varnishlog 和 varnishstat 里, 检查 hit/miss比. 看看配置信息里是否遗漏了什么规则，使最终用户可以直接攻击你的后端？</p>
-<p>5、HA-Proxy; 后端的状况如何？健康状况检查是否成功？是前端还是后端的队列大小达到最大值了？</p>
+
+
+<blockquote>
+<p>使用表达式的列</p>
+</blockquote>
+<p>数据库中的表达式 : 一般由文本值 , 列值 , NULL , 函数和操作符等组成</p>
+<p>应用场景 :</p>
+<ul>
+<li><p>SELECT语句返回结果列中使用</p>
+</li>
+<li><p>SELECT语句中的ORDER BY , HAVING等子句中使用</p>
+</li>
+<li><p>DML语句中的 where 条件语句中使用表达式</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- selcet查询中可以使用表达式
+SELECT @@auto_increment_increment; -- 查询自增步长
+SELECT VERSION(); -- 查询版本号
+SELECT 100*3-1 AS 计算结果; -- 表达式
+
+-- 学员考试成绩集体提分一分查看
+SELECT studentno,StudentResult+1 AS '提分后' FROM result;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>避免SQL返回结果中包含 ‘ . ‘ , ‘ * ‘ 和括号等干扰开发语言程序.</p>
+</li>
+</ul>
+<h3 id="where条件语句"><a href="#where条件语句" class="headerlink" title="where条件语句"></a>where条件语句</h3><p>作用：用于检索数据表中 符合条件 的记录</p>
+<p>搜索条件可由一个或多个逻辑表达式组成 , 结果一般为真或假.</p>
+<blockquote>
+<p>逻辑操作符</p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LwfjFbCQXic0pcE21lUFGvDT2GTsOdcj7nOuoXTIgEfrNMN8YGygWdrFUTLe41xNqchhfGdq6CHtw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>测试</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 满足条件的查询(where)
+SELECT Studentno,StudentResult FROM result;
+
+-- 查询考试成绩在95-100之间的
+SELECT Studentno,StudentResult
+FROM result
+WHERE StudentResult&gt;=95 AND StudentResult&lt;=100;
+
+-- AND也可以写成 &amp;&amp;
+SELECT Studentno,StudentResult
+FROM result
+WHERE StudentResult&gt;=95 &amp;&amp; StudentResult&lt;=100;
+
+-- 模糊查询(对应的词:精确查询)
+SELECT Studentno,StudentResult
+FROM result
+WHERE StudentResult BETWEEN 95 AND 100;
+
+-- 除了1000号同学,要其他同学的成绩
+SELECT studentno,studentresult
+FROM result
+WHERE studentno!=1000;
+
+-- 使用NOT
+SELECT studentno,studentresult
+FROM result
+WHERE NOT studentno=1000;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<blockquote>
+<p>模糊查询 ：比较操作符</p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LwfjFbCQXic0pcE21lUFGvDk8xl58oP6ch67ZibicU1fn2O7Lk4uLZyiaG8p8Zhkl4oF1GUibbPF0iaxIQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>注意：</p>
+<ul>
+<li>数值数据类型的记录之间才能进行算术运算 ;</li>
+<li>相同数据类型的数据之间才能进行比较 ;</li>
+</ul>
+<p>测试：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 模糊查询 between and \ like \ in \ null
+
+-- =============================================
+-- LIKE
+-- =============================================
+-- 查询姓刘的同学的学号及姓名
+-- like结合使用的通配符 : % (代表0到任意个字符) _ (一个字符)
+SELECT studentno,studentname FROM student
+WHERE studentname LIKE '刘%';
+
+-- 查询姓刘的同学,后面只有一个字的
+SELECT studentno,studentname FROM student
+WHERE studentname LIKE '刘_';
+
+-- 查询姓刘的同学,后面只有两个字的
+SELECT studentno,studentname FROM student
+WHERE studentname LIKE '刘__';
+
+-- 查询姓名中含有 嘉 字的
+SELECT studentno,studentname FROM student
+WHERE studentname LIKE '%嘉%';
+
+-- 查询姓名中含有特殊字符的需要使用转义符号 '\'
+-- 自定义转义符关键字: ESCAPE ':'
+
+-- =============================================
+-- IN
+-- =============================================
+-- 查询学号为1000,1001,1002的学生姓名
+SELECT studentno,studentname FROM student
+WHERE studentno IN (1000,1001,1002);
+
+-- 查询地址在北京,南京,河南洛阳的学生
+SELECT studentno,studentname,address FROM student
+WHERE address IN ('北京','南京','河南洛阳');
+
+-- =============================================
+-- NULL 空
+-- =============================================
+-- 查询出生日期没有填写的同学
+-- 不能直接写=NULL , 这是代表错误的 , 用 is null
+SELECT studentname FROM student
+WHERE BornDate IS NULL;
+
+-- 查询出生日期填写的同学
+SELECT studentname FROM student
+WHERE BornDate IS NOT NULL;
+
+-- 查询没有写家庭住址的同学(空字符串不等于null)
+SELECT studentname FROM student
+WHERE Address='' OR Address IS NULL;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h3><blockquote>
+<p>JOIN 对比</p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LwfjFbCQXic0pcE21lUFGvDowQf1HHaYIicELYKnU9kDeaFHnfx0GYW6AsEwoTySywn91ia8Wz2sXiaA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>七种Join：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LwfjFbCQXic0pcE21lUFGvDw5aZLehIYzwLprCfqdxSjsm2wficHrSEzJiaJBGaKWpatQ7sISib9MgCQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>测试</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">/*
+连接查询
+   如需要多张数据表的数据进行查询,则可通过连接运算符实现多个查询
+内连接 inner join
+   查询两个表中的结果集中的交集
+外连接 outer join
+   左外连接 left join
+       (以左表作为基准,右边表来一一匹配,匹配不上的,返回左表的记录,右表以NULL填充)
+   右外连接 right join
+       (以右表作为基准,左边表来一一匹配,匹配不上的,返回右表的记录,左表以NULL填充)
+       
+等值连接和非等值连接
+
+自连接
+*/
+
+-- 查询参加了考试的同学信息(学号,学生姓名,科目编号,分数)
+SELECT * FROM student;
+SELECT * FROM result;
+
+/*思路:
+(1):分析需求,确定查询的列来源于两个类,student result,连接查询
+(2):确定使用哪种连接查询?(内连接)
+*/
+SELECT s.studentno,studentname,subjectno,StudentResult
+FROM student s
+INNER JOIN result r
+ON r.studentno = s.studentno
+
+-- 右连接(也可实现)
+SELECT s.studentno,studentname,subjectno,StudentResult
+FROM student s
+RIGHT JOIN result r
+ON r.studentno = s.studentno
+
+-- 等值连接
+SELECT s.studentno,studentname,subjectno,StudentResult
+FROM student s , result r
+WHERE r.studentno = s.studentno
+
+-- 左连接 (查询了所有同学,不考试的也会查出来)
+SELECT s.studentno,studentname,subjectno,StudentResult
+FROM student s
+LEFT JOIN result r
+ON r.studentno = s.studentno
+
+-- 查一下缺考的同学(左连接应用场景)
+SELECT s.studentno,studentname,subjectno,StudentResult
+FROM student s
+LEFT JOIN result r
+ON r.studentno = s.studentno
+WHERE StudentResult IS NULL
+
+-- 思考题:查询参加了考试的同学信息(学号,学生姓名,科目名,分数)
+SELECT s.studentno,studentname,subjectname,StudentResult
+FROM student s
+INNER JOIN result r
+ON r.studentno = s.studentno
+INNER JOIN `subject` sub
+ON sub.subjectno = r.subjectno<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<blockquote>
+<p>自连接</p>
+</blockquote>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">/*
+自连接
+   数据表与自身进行连接
+
+需求:从一个包含栏目ID , 栏目名称和父栏目ID的表中
+    查询父栏目名称和其他子栏目名称
+*/
+
+-- 创建一个表
+CREATE TABLE `category` (
+`categoryid` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主题id',
+`pid` INT(10) NOT NULL COMMENT '父id',
+`categoryName` VARCHAR(50) NOT NULL COMMENT '主题名字',
+PRIMARY KEY (`categoryid`)
+) ENGINE=INNODB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8
+
+-- 插入数据
+INSERT INTO `category` (`categoryid`, `pid`, `categoryName`)
+VALUES('2','1','信息技术'),
+('3','1','软件开发'),
+('4','3','数据库'),
+('5','1','美术设计'),
+('6','3','web开发'),
+('7','5','ps技术'),
+('8','2','办公信息');
+
+-- 编写SQL语句,将栏目的父子关系呈现出来 (父栏目名称,子栏目名称)
+-- 核心思想:把一张表看成两张一模一样的表,然后将这两张表连接查询(自连接)
+SELECT a.categoryName AS '父栏目',b.categoryName AS '子栏目'
+FROM category AS a,category AS b
+WHERE a.`categoryid`=b.`pid`
+
+-- 思考题:查询参加了考试的同学信息(学号,学生姓名,科目名,分数)
+SELECT s.studentno,studentname,subjectname,StudentResult
+FROM student s
+INNER JOIN result r
+ON r.studentno = s.studentno
+INNER JOIN `subject` sub
+ON sub.subjectno = r.subjectno
+
+-- 查询学员及所属的年级(学号,学生姓名,年级名)
+SELECT studentno AS 学号,studentname AS 学生姓名,gradename AS 年级名称
+FROM student s
+INNER JOIN grade g
+ON s.`GradeId` = g.`GradeID`
+
+-- 查询科目及所属的年级(科目名称,年级名称)
+SELECT subjectname AS 科目名称,gradename AS 年级名称
+FROM SUBJECT sub
+INNER JOIN grade g
+ON sub.gradeid = g.gradeid
+
+-- 查询 数据库结构-1 的所有考试结果(学号 学生姓名 科目名称 成绩)
+SELECT s.studentno,studentname,subjectname,StudentResult
+FROM student s
+INNER JOIN result r
+ON r.studentno = s.studentno
+INNER JOIN `subject` sub
+ON r.subjectno = sub.subjectno
+WHERE subjectname='数据库结构-1'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="排序和分页"><a href="#排序和分页" class="headerlink" title="排序和分页"></a>排序和分页</h3><p>测试</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">/*============== 排序 ================
+语法 : ORDER BY
+   ORDER BY 语句用于根据指定的列对结果集进行排序。
+   ORDER BY 语句默认按照ASC升序对记录进行排序。
+   如果您希望按照降序对记录进行排序，可以使用 DESC 关键字。
+   
+*/
+
+-- 查询 数据库结构-1 的所有考试结果(学号 学生姓名 科目名称 成绩)
+-- 按成绩降序排序
+SELECT s.studentno,studentname,subjectname,StudentResult
+FROM student s
+INNER JOIN result r
+ON r.studentno = s.studentno
+INNER JOIN `subject` sub
+ON r.subjectno = sub.subjectno
+WHERE subjectname='数据库结构-1'
+ORDER BY StudentResult DESC
+
+/*============== 分页 ================
+语法 : SELECT * FROM table LIMIT [offset,] rows | rows OFFSET offset
+好处 : (用户体验,网络传输,查询压力)
+
+推导:
+   第一页 : limit 0,5
+   第二页 : limit 5,5
+   第三页 : limit 10,5
+   ......
+   第N页 : limit (pageNo-1)*pageSzie,pageSzie
+   [pageNo:页码,pageSize:单页面显示条数]
+   
+*/
+
+-- 每页显示5条数据
+SELECT s.studentno,studentname,subjectname,StudentResult
+FROM student s
+INNER JOIN result r
+ON r.studentno = s.studentno
+INNER JOIN `subject` sub
+ON r.subjectno = sub.subjectno
+WHERE subjectname='数据库结构-1'
+ORDER BY StudentResult DESC , studentno
+LIMIT 0,5
+
+-- 查询 JAVA第一学年 课程成绩前10名并且分数大于80的学生信息(学号,姓名,课程名,分数)
+SELECT s.studentno,studentname,subjectname,StudentResult
+FROM student s
+INNER JOIN result r
+ON r.studentno = s.studentno
+INNER JOIN `subject` sub
+ON r.subjectno = sub.subjectno
+WHERE subjectname='JAVA第一学年'
+ORDER BY StudentResult DESC
+LIMIT 0,10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">/*============== 子查询 ================
+什么是子查询?
+   在查询语句中的WHERE条件子句中,又嵌套了另一个查询语句
+   嵌套查询可由多个子查询组成,求解的方式是由里及外;
+   子查询返回的结果一般都是集合,故而建议使用IN关键字;
+*/
+
+-- 查询 数据库结构-1 的所有考试结果(学号,科目编号,成绩),并且成绩降序排列
+-- 方法一:使用连接查询
+SELECT studentno,r.subjectno,StudentResult
+FROM result r
+INNER JOIN `subject` sub
+ON r.`SubjectNo`=sub.`SubjectNo`
+WHERE subjectname = '数据库结构-1'
+ORDER BY studentresult DESC;
+
+-- 方法二:使用子查询(执行顺序:由里及外)
+SELECT studentno,subjectno,StudentResult
+FROM result
+WHERE subjectno=(
+   SELECT subjectno FROM `subject`
+   WHERE subjectname = '数据库结构-1'
+)
+ORDER BY studentresult DESC;
+
+-- 查询课程为 高等数学-2 且分数不小于80分的学生的学号和姓名
+-- 方法一:使用连接查询
+SELECT s.studentno,studentname
+FROM student s
+INNER JOIN result r
+ON s.`StudentNo` = r.`StudentNo`
+INNER JOIN `subject` sub
+ON sub.`SubjectNo` = r.`SubjectNo`
+WHERE subjectname = '高等数学-2' AND StudentResult&gt;=80
+
+-- 方法二:使用连接查询+子查询
+-- 分数不小于80分的学生的学号和姓名
+SELECT r.studentno,studentname FROM student s
+INNER JOIN result r ON s.`StudentNo`=r.`StudentNo`
+WHERE StudentResult&gt;=80
+
+-- 在上面SQL基础上,添加需求:课程为 高等数学-2
+SELECT r.studentno,studentname FROM student s
+INNER JOIN result r ON s.`StudentNo`=r.`StudentNo`
+WHERE StudentResult&gt;=80 AND subjectno=(
+   SELECT subjectno FROM `subject`
+   WHERE subjectname = '高等数学-2'
+)
+
+-- 方法三:使用子查询
+-- 分步写简单sql语句,然后将其嵌套起来
+SELECT studentno,studentname FROM student WHERE studentno IN(
+   SELECT studentno FROM result WHERE StudentResult&gt;=80 AND subjectno=(
+       SELECT subjectno FROM `subject` WHERE subjectname = '高等数学-2'
+  )
+)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -608,7 +966,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z3942.github.io/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/">https://z3942.github.io/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/</a>
+                    <a href="https://z3942.github.io/2021/08/14/shi-yong-dql-cha-xun-shu-ju/">https://z3942.github.io/2021/08/14/shi-yong-dql-cha-xun-shu-ju/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -645,7 +1003,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -815,18 +1177,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/">
+                <a href="/2021/08/14/mysql-han-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="linux运维排除问题步骤">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="MySQL函数">
                         
-                        <span class="card-title">linux运维排除问题步骤</span>
+                        <span class="card-title">MySQL函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -836,18 +1197,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            一只云辰
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -858,13 +1230,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/15/nginx/">
+                <a href="/2021/08/14/dml-yu-yan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Nginx">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="DML语言">
                         
-                        <span class="card-title">Nginx</span>
+                        <span class="card-title">DML语言</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -875,15 +1247,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            一只云辰
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1086,7 +1470,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">15.3k</span>
+                        class="white-color">14.3k</span>
             
             
             

@@ -6,7 +6,7 @@
   <link href="https://z3942.github.io/atom.xml" rel="self"/>
   
   <link href="https://z3942.github.io/"/>
-  <updated>2021-08-14T18:31:58.904Z</updated>
+  <updated>2021-08-14T17:47:37.990Z</updated>
   <id>https://z3942.github.io/</id>
   
   <author>
@@ -15,48 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>linux运维排除问题步骤</title>
-    <link href="https://z3942.github.io/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/"/>
-    <id>https://z3942.github.io/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/</id>
-    <published>2021-08-14T18:31:23.000Z</published>
-    <updated>2021-08-14T18:31:58.904Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux服务器上排除问题的基本步骤&quot;&gt;&lt;a href=&quot;#Linux服务器上排除问题的基本步骤&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Nginx</title>
-    <link href="https://z3942.github.io/2021/08/15/nginx/"/>
-    <id>https://z3942.github.io/2021/08/15/nginx/</id>
-    <published>2021-08-14T18:31:02.000Z</published>
-    <updated>2021-08-14T18:32:24.891Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Nginx&quot;&gt;&lt;a href=&quot;#Nginx&quot; class=&quot;headerlink&quot; title=&quot;Nginx&quot;&gt;&lt;/a&gt;Nginx&lt;/h2&gt;&lt;h3 id=&quot;配置管理nginx-conf&quot;&gt;&lt;a href=&quot;#配置管理nginx-conf&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -80,128 +38,177 @@
   </entry>
   
   <entry>
-    <title>云计算面试题</title>
-    <link href="https://z3942.github.io/2021/08/14/yun-ji-suan-mian-shi-ti/"/>
-    <id>https://z3942.github.io/2021/08/14/yun-ji-suan-mian-shi-ti/</id>
-    <published>2021-08-14T08:44:27.000Z</published>
-    <updated>2021-08-14T08:47:24.929Z</updated>
+    <title>权限及如何设计数据库</title>
+    <link href="https://z3942.github.io/2021/08/14/quan-xian-ji-ru-he-she-ji-shu-ju-ku/"/>
+    <id>https://z3942.github.io/2021/08/14/quan-xian-ji-ru-he-she-ji-shu-ju-ku/</id>
+    <published>2021-08-14T12:08:07.000Z</published>
+    <updated>2021-08-14T12:18:39.362Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h5 id=&quot;1、简述raid0、raid1、raid5三种工作模式的工作原理及特点&quot;&gt;&lt;a href=&quot;#1、简述raid0、raid1、raid5三种工作模式的工作原理及特点&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;权限及如何设计数据库&quot;&gt;&lt;a href=&quot;#权限及如何设计数据库&quot; class=&quot;headerlink&quot; title=&quot;权限及如何设计数据库&quot;&gt;&lt;/a&gt;权限及如何设计数据库&lt;/h2&gt;&lt;h3 id=&quot;用户管理&quot;&gt;&lt;a href=&quot;#用户管理&quot;</summary>
         
       
     
     
     
+    <category term="MySQL" scheme="https://z3942.github.io/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
-    <title>Markdown语法</title>
-    <link href="https://z3942.github.io/2021/08/14/markdown-yu-fa/"/>
-    <id>https://z3942.github.io/2021/08/14/markdown-yu-fa/</id>
-    <published>2021-08-14T08:44:15.000Z</published>
-    <updated>2021-08-14T17:48:13.994Z</updated>
+    <title>事务和索引</title>
+    <link href="https://z3942.github.io/2021/08/14/shi-wu-he-suo-yin/"/>
+    <id>https://z3942.github.io/2021/08/14/shi-wu-he-suo-yin/</id>
+    <published>2021-08-14T12:07:54.000Z</published>
+    <updated>2021-08-14T12:19:07.938Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;markdown语法&quot;&gt;&lt;a href=&quot;#markdown语法&quot; class=&quot;headerlink&quot; title=&quot;markdown语法&quot;&gt;&lt;/a&gt;markdown语法&lt;/h1&gt;&lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;事务和索引&quot;&gt;&lt;a href=&quot;#事务和索引&quot; class=&quot;headerlink&quot; title=&quot;事务和索引&quot;&gt;&lt;/a&gt;事务和索引&lt;/h2&gt;&lt;h2 id=&quot;事务&quot;&gt;&lt;a href=&quot;#事务&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
+    <category term="MySQL" scheme="https://z3942.github.io/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
-    <title>linux基础优化</title>
-    <link href="https://z3942.github.io/2021/08/14/linux-ji-chu-you-hua/"/>
-    <id>https://z3942.github.io/2021/08/14/linux-ji-chu-you-hua/</id>
-    <published>2021-08-14T08:43:59.000Z</published>
-    <updated>2021-08-14T17:41:23.206Z</updated>
+    <title>MySQL函数</title>
+    <link href="https://z3942.github.io/2021/08/14/mysql-han-shu/"/>
+    <id>https://z3942.github.io/2021/08/14/mysql-han-shu/</id>
+    <published>2021-08-14T12:07:44.000Z</published>
+    <updated>2021-08-14T12:19:20.069Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;基础优化&quot;&gt;&lt;a href=&quot;#基础优化&quot; class=&quot;headerlink&quot; title=&quot;基础优化&quot;&gt;&lt;/a&gt;基础优化&lt;/h1&gt;&lt;p&gt;安装centos7</summary>
+    <summary type="html">&lt;h2 id=&quot;MySQL函数&quot;&gt;&lt;a href=&quot;#MySQL函数&quot; class=&quot;headerlink&quot; title=&quot;MySQL函数&quot;&gt;&lt;/a&gt;MySQL函数&lt;/h2&gt;&lt;h3 id=&quot;常用函数&quot;&gt;&lt;a href=&quot;#常用函数&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
+    <category term="MySQL" scheme="https://z3942.github.io/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
-    <title>linux</title>
-    <link href="https://z3942.github.io/2021/08/14/linux/"/>
-    <id>https://z3942.github.io/2021/08/14/linux/</id>
-    <published>2021-08-14T08:43:51.000Z</published>
-    <updated>2021-08-14T17:40:36.919Z</updated>
+    <title>使用DQL查询数据</title>
+    <link href="https://z3942.github.io/2021/08/14/shi-yong-dql-cha-xun-shu-ju/"/>
+    <id>https://z3942.github.io/2021/08/14/shi-yong-dql-cha-xun-shu-ju/</id>
+    <published>2021-08-14T12:06:44.000Z</published>
+    <updated>2021-08-14T12:19:32.512Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Linux-https-www-linuxprobe-com-basic-learning-00-html&quot;&gt;&lt;a href=&quot;#Linux-https-www-linuxprobe-com-basic-learning-00-html&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;使用DQL查询数据&quot;&gt;&lt;a href=&quot;#使用DQL查询数据&quot; class=&quot;headerlink&quot; title=&quot;使用DQL查询数据&quot;&gt;&lt;/a&gt;使用DQL查询数据&lt;/h2&gt;&lt;h3 id=&quot;DQL语言&quot;&gt;&lt;a href=&quot;#DQL语言&quot;</summary>
         
       
     
     
     
+    <category term="MySQL" scheme="https://z3942.github.io/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
-    <title>LVS</title>
-    <link href="https://z3942.github.io/2021/08/14/lvs/"/>
-    <id>https://z3942.github.io/2021/08/14/lvs/</id>
-    <published>2021-08-14T08:43:45.000Z</published>
-    <updated>2021-08-14T17:42:53.893Z</updated>
+    <title>DML语言</title>
+    <link href="https://z3942.github.io/2021/08/14/dml-yu-yan/"/>
+    <id>https://z3942.github.io/2021/08/14/dml-yu-yan/</id>
+    <published>2021-08-14T12:06:13.000Z</published>
+    <updated>2021-08-14T12:20:03.689Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;查询内核是编译IPVS&quot;&gt;&lt;a href=&quot;#查询内核是编译IPVS&quot; class=&quot;headerlink&quot; title=&quot;查询内核是编译IPVS&quot;&gt;&lt;/a&gt;查询内核是编译IPVS&lt;/h2&gt;&lt;pre class=&quot;line-numbers</summary>
+    <summary type="html">&lt;h2 id=&quot;DML语言&quot;&gt;&lt;a href=&quot;#DML语言&quot; class=&quot;headerlink&quot; title=&quot;DML语言&quot;&gt;&lt;/a&gt;DML语言&lt;/h2&gt;&lt;h3 id=&quot;外键&quot;&gt;&lt;a href=&quot;#外键&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
+    <category term="MySQL" scheme="https://z3942.github.io/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
-    <title>GoolGle Chrome默认非安全端口</title>
-    <link href="https://z3942.github.io/2021/08/14/goolgle-chrome-mo-ren-fei-an-quan-duan-kou/"/>
-    <id>https://z3942.github.io/2021/08/14/goolgle-chrome-mo-ren-fei-an-quan-duan-kou/</id>
-    <published>2021-08-14T08:43:34.000Z</published>
-    <updated>2021-08-14T17:46:17.746Z</updated>
+    <title>数据库操作</title>
+    <link href="https://z3942.github.io/2021/08/14/shu-ju-ku-cao-zuo/"/>
+    <id>https://z3942.github.io/2021/08/14/shu-ju-ku-cao-zuo/</id>
+    <published>2021-08-14T12:06:05.000Z</published>
+    <updated>2021-08-14T12:20:16.731Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Google-Chrome-默认非安全端口列表&quot;&gt;&lt;a href=&quot;#Google-Chrome-默认非安全端口列表&quot; class=&quot;headerlink&quot; title=&quot;Google Chrome 默认非安全端口列表&quot;&gt;&lt;/a&gt;Google Chrome</summary>
+    <summary type="html">&lt;h2 id=&quot;数据库操作&quot;&gt;&lt;a href=&quot;#数据库操作&quot; class=&quot;headerlink&quot; title=&quot;数据库操作&quot;&gt;&lt;/a&gt;数据库操作&lt;/h2&gt;&lt;h3 id=&quot;结构化查询语句分类&quot;&gt;&lt;a href=&quot;#结构化查询语句分类&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
+    <category term="MySQL" scheme="https://z3942.github.io/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初识MySQL</title>
+    <link href="https://z3942.github.io/2021/08/14/chu-shi-mysql/"/>
+    <id>https://z3942.github.io/2021/08/14/chu-shi-mysql/</id>
+    <published>2021-08-14T12:04:27.000Z</published>
+    <updated>2021-08-14T12:20:46.078Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;初识MySQL&quot;&gt;&lt;a href=&quot;#初识MySQL&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="https://z3942.github.io/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
     
   </entry>
   
@@ -210,7 +217,7 @@
     <link href="https://z3942.github.io/2021/08/14/docker/"/>
     <id>https://z3942.github.io/2021/08/14/docker/</id>
     <published>2021-08-14T08:32:17.000Z</published>
-    <updated>2021-08-14T17:44:03.844Z</updated>
+    <updated>2021-08-14T12:17:57.897Z</updated>
     
     
       
@@ -223,6 +230,12 @@
     
     
     
+    <category term="Docker" scheme="https://z3942.github.io/categories/Docker/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+    <category term="Docker" scheme="https://z3942.github.io/tags/Docker/"/>
     
   </entry>
   

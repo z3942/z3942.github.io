@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="云计算面试题, 一只云辰">
+    <meta name="keywords" content="数据库操作, 一只云辰">
     <meta name="description" content="本网站是个人兴趣爱好，记录生活点滴的平台">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>云计算面试题 | 一只云辰</title>
+    <title>数据库操作 | 一只云辰</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">云计算面试题</h1>
+                    <h1 class="description center-align post-title">数据库操作</h1>
                 </div>
             </div>
         </div>
@@ -432,12 +432,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -460,14 +473,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    5 分
                 </div>
                 
 
@@ -490,223 +503,210 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="1、简述raid0、raid1、raid5三种工作模式的工作原理及特点"><a href="#1、简述raid0、raid1、raid5三种工作模式的工作原理及特点" class="headerlink" title="1、简述raid0、raid1、raid5三种工作模式的工作原理及特点"></a>1、简述raid0、raid1、raid5三种工作模式的工作原理及特点</h5><ul>
-<li>作用：容错、提升读写速率<ul>
-<li>Raid0：条带集、磁盘使用2+ 利用率100% 优缺点：读写速度快、不容错</li>
-<li>Raid1：镜像集、磁盘使用2+ 利用率50%    优缺点：读写速率一般，容错</li>
-<li>Raid5：带奇偶检验的条带集、磁盘使用3+    利用率（n-1）/n    优缺点：读写速度快，容错、允许坏1块盘</li>
-</ul>
-</li>
-</ul>
-<h5 id="2、将-url-local-test目录下大于100k小于500k的文件转移到-tmp目录下"><a href="#2、将-url-local-test目录下大于100k小于500k的文件转移到-tmp目录下" class="headerlink" title="2、将/url/local/test目录下大于100k小于500k的文件转移到/tmp目录下"></a>2、将/url/local/test目录下大于100k小于500k的文件转移到/tmp目录下</h5><ul>
-<li>find /url/local/test  -size +100k -a -size -500k  -exec mv -r{} /tmp;</li>
-</ul>
-<h5 id="3、软链接和硬链接的区别"><a href="#3、软链接和硬链接的区别" class="headerlink" title="3、软链接和硬链接的区别"></a>3、软链接和硬链接的区别</h5><ul>
-<li>1.定义不同<ul>
-<li>软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。</li>
-<li>硬链接就是一个文件的一个或多个文件名。把文件名和计算机文件系统使用的节点号链接起来。因此我们可以用多个文件名与同一个文件进行链接，这些文件名可以载同一目录或不同目录。</li>
-</ul>
-</li>
-<li>2.限制不同<ul>
-<li>硬链接只能对已存在的文件进行创建，不能交叉文件系统进行硬链接的创建</li>
-<li>软链接可对不存在的文件或目录创建软链接；可交叉文件系统；</li>
-</ul>
-</li>
-<li>3.创建的方式不同<ul>
-<li>​    硬链接不能对目录进行创建，只可对文件创建</li>
-<li>软链接可对文件或目录创建</li>
-</ul>
-</li>
-<li>4.影响不同<ul>
-<li>删除一个硬链接文件并不影响其他有相同inode号的文件。</li>
-<li>删除软链接并不影响被指向的文件，但若被指向的原文件被删除，则相关软链接被称为死链接</li>
-</ul>
-</li>
-</ul>
-<h5 id="4、ps-aux-中的VSZ代表什么意思？RSS代表什么意思？"><a href="#4、ps-aux-中的VSZ代表什么意思？RSS代表什么意思？" class="headerlink" title="4、ps aux 中的VSZ代表什么意思？RSS代表什么意思？"></a>4、ps aux 中的VSZ代表什么意思？RSS代表什么意思？</h5><ul>
-<li>USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND<ul>
-<li>VSZ：显示进程使用的虚拟内存量（KB）</li>
-<li>RSS：表示该进程占用的固定内存量（KB）<ul>
-<li>驻留中叶的的数量</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="5、保存当前磁盘分区的分区表，dd命令是个强大的命令，在复制的同时进行转换，请写出具体命令"><a href="#5、保存当前磁盘分区的分区表，dd命令是个强大的命令，在复制的同时进行转换，请写出具体命令" class="headerlink" title="5、保存当前磁盘分区的分区表，dd命令是个强大的命令，在复制的同时进行转换，请写出具体命令"></a>5、保存当前磁盘分区的分区表，dd命令是个强大的命令，在复制的同时进行转换，请写出具体命令</h5><ul>
-<li>dd if=/dev/sda of=/test.txt bs=1M count=512</li>
-</ul>
-<h5 id="6、6块300G的硬盘做RAID5，新的设备容量是多大？"><a href="#6、6块300G的硬盘做RAID5，新的设备容量是多大？" class="headerlink" title="6、6块300G的硬盘做RAID5，新的设备容量是多大？"></a>6、6块300G的硬盘做RAID5，新的设备容量是多大？</h5><ul>
-<li>raid5    1    当备用盘</li>
-<li>（6-1）*300G = 1500G</li>
-</ul>
-<h5 id="7、假设服务器具有6块900G本地磁盘，单块磁盘IO约为150M-S，现对此盘进行RAID划分，简述理论6块盘做成RAID5级别后实际存储大小、实际IO为多少？"><a href="#7、假设服务器具有6块900G本地磁盘，单块磁盘IO约为150M-S，现对此盘进行RAID划分，简述理论6块盘做成RAID5级别后实际存储大小、实际IO为多少？" class="headerlink" title="7、假设服务器具有6块900G本地磁盘，单块磁盘IO约为150M/S，现对此盘进行RAID划分，简述理论6块盘做成RAID5级别后实际存储大小、实际IO为多少？"></a>7、假设服务器具有6块900G本地磁盘，单块磁盘IO约为150M/S，现对此盘进行RAID划分，简述理论6块盘做成RAID5级别后实际存储大小、实际IO为多少？</h5><ul>
-<li>实际大小：900*（6-2） = 3600G</li>
-<li>实际IO：写的速率 150M/S  （小于。理论上写的过程中，RAID5会进行校验耗费时间） 150M/S*4 = 600M/S</li>
-<li>因为读取数据的时候校验位的盘是需要读取的所以实际：读的速率是（6-1）*150 = 750M/S </li>
-</ul>
-<h5 id="8、请简要描述linux系统下源代码编译方式安装软件的大致步骤"><a href="#8、请简要描述linux系统下源代码编译方式安装软件的大致步骤" class="headerlink" title="8、请简要描述linux系统下源代码编译方式安装软件的大致步骤"></a>8、请简要描述linux系统下源代码编译方式安装软件的大致步骤</h5><ol>
-<li>基础环境部署：<ul>
-<li>关闭防火墙、selinux、相关环境（php、java、编译环境）</li>
-</ul>
-</li>
-<li>下载、解压相关安装包</li>
-<li>配置相关的软件安装路径</li>
-<li>编译</li>
-<li>安装</li>
-</ol>
-<h5 id="9、列出当前系统中所有的网络连接（包含进程名），请写出完整操作命令"><a href="#9、列出当前系统中所有的网络连接（包含进程名），请写出完整操作命令" class="headerlink" title="9、列出当前系统中所有的网络连接（包含进程名），请写出完整操作命令"></a>9、列出当前系统中所有的网络连接（包含进程名），请写出完整操作命令</h5><ul>
-<li>netstart -antupl<ul>
-<li>a        all        所有</li>
-<li>n        name  名称</li>
-<li>t         tcp</li>
-<li>u         udp</li>
-<li>p        pid</li>
-<li>l         监听（list  列出）</li>
-</ul>
-</li>
-</ul>
-<h5 id="10、实时抓取并显示当前系统中tcp80端口的网络数据信息，请写出完整操作命令"><a href="#10、实时抓取并显示当前系统中tcp80端口的网络数据信息，请写出完整操作命令" class="headerlink" title="10、实时抓取并显示当前系统中tcp80端口的网络数据信息，请写出完整操作命令"></a>10、实时抓取并显示当前系统中tcp80端口的网络数据信息，请写出完整操作命令</h5><ul>
-<li>tcpdump  host 127.0.0.1 tcp prot 80</li>
-</ul>
-<h5 id="11、linux中你常用的系统命令说5个"><a href="#11、linux中你常用的系统命令说5个" class="headerlink" title="11、linux中你常用的系统命令说5个"></a>11、linux中你常用的系统命令说5个</h5><ul>
-<li>ls</li>
-<li>mkdir</li>
-<li>touch</li>
-<li>cat</li>
-<li>useradd ….</li>
-</ul>
-<h5 id="12、关闭swap分区"><a href="#12、关闭swap分区" class="headerlink" title="12、关闭swap分区"></a>12、关闭swap分区</h5><ul>
-<li>swapoff -a        关闭所有的交换分区</li>
-<li>swapoff /dev/sde 关闭sde交换分区</li>
-<li>/etc/fstab  注释掉改文件中swap分区相关信息</li>
-</ul>
-<h5 id="13、系统安全加固"><a href="#13、系统安全加固" class="headerlink" title="13、系统安全加固"></a>13、系统安全加固</h5><ol>
-<li><p>密码策略</p>
-<p>修改密码（相对复杂、定时修改密码、密码不要轻易告诉别人）</p>
-</li>
-<li><p>权限ugo</p>
-<p>锁定系统中不必要的用户和密码（锁定之前需要去备份/etc/password  /etc/shadow）禁用无关组 禁止root用户远程登录</p>
-</li>
-<li><p>加固tcp/ip协议的设置</p>
-<p>/etc/systcl.conf 文件的相应权限</p>
-</li>
-<li><p>默认权限和umask权限</p>
-<p>​    022</p>
-</li>
-</ol>
-<h5 id="14、硬件性能测试用过什么"><a href="#14、硬件性能测试用过什么" class="headerlink" title="14、硬件性能测试用过什么"></a>14、硬件性能测试用过什么</h5><ul>
-<li><p>df -h 查看磁盘使用情况</p>
+                <h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="结构化查询语句分类"><a href="#结构化查询语句分类" class="headerlink" title="结构化查询语句分类"></a>结构化查询语句分类</h3><p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15QOGpDicLzwS6NJVAeLECu2rx2qboGU36S9hXLov0x0c5vzZAceySSXnA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<h3 id="数据库操作-1"><a href="#数据库操作-1" class="headerlink" title="数据库操作"></a>数据库操作</h3><blockquote>
+<p>命令行操作数据库</p>
+</blockquote>
+<p>创建数据库 :  create database [if not exists] 数据库名;</p>
+<p>删除数据库 : drop database [if exists] 数据库名;</p>
+<p>查看数据库 : show databases;</p>
+<p>使用数据库 : use 数据库名;</p>
+<blockquote>
+<p>对比工具操作数据库</p>
+</blockquote>
+<p><strong>学习方法：</strong></p>
 <ul>
-<li>hdparm 命令测试读写的速率<ul>
-<li>hdparm -T /dev/sda</li>
-<li>linux中几块盘求平均值就是磁盘的平均读取速率</li>
+<li>对照SQLyog工具自动生成的语句学习</li>
+<li>固定语法中的单词需要记忆</li>
+<li><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15Q2ITxibRRsQuuqibHorhqzYI83QYKRUVpMLCPA1chKQ39eUFQibJ2fwWFg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>对IO进行简单的测试 top/iostat    查看wa% 及写硬盘的速率</p>
+<h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><p>属于DDL的一种，语法 :</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">create table <span class="token punctuation">[</span>if not exists<span class="token punctuation">]</span> <span class="token variable"><span class="token variable">`</span>表名<span class="token variable">`</span></span><span class="token punctuation">(</span>
+   <span class="token string">'字段名1'</span> 列类型 <span class="token punctuation">[</span>属性<span class="token punctuation">]</span><span class="token punctuation">[</span>索引<span class="token punctuation">]</span><span class="token punctuation">[</span>注释<span class="token punctuation">]</span>,
+   <span class="token string">'字段名2'</span> 列类型 <span class="token punctuation">[</span>属性<span class="token punctuation">]</span><span class="token punctuation">[</span>索引<span class="token punctuation">]</span><span class="token punctuation">[</span>注释<span class="token punctuation">]</span>,
+  <span class="token comment">#...</span>
+   <span class="token string">'字段名n'</span> 列类型 <span class="token punctuation">[</span>属性<span class="token punctuation">]</span><span class="token punctuation">[</span>索引<span class="token punctuation">]</span><span class="token punctuation">[</span>注释<span class="token punctuation">]</span>
+<span class="token punctuation">)</span><span class="token punctuation">[</span>表类型<span class="token punctuation">]</span><span class="token punctuation">[</span>表字符集<span class="token punctuation">]</span><span class="token punctuation">[</span>注释<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>说明 :</strong> 反引号用于区别MySQL保留字与普通字符而引入的 (键盘esc下面的键).</p>
+<h3 id="数据值和列类型"><a href="#数据值和列类型" class="headerlink" title="数据值和列类型"></a>数据值和列类型</h3><p>列类型 : 规定数据库中该列存放的数据类型</p>
+<blockquote>
+<p>数值类型</p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15QLXRrfmQjbUt3O7sLw0KKv9UtriaTr60JspXIZ69HkeOiagz86CE3a9Wg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<blockquote>
+<p>字符串类型</p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15QsjOPftNfn1ibXSP8OIYnsJaaPC8da61jCzcbdkqbApibQWgQ7KBjYbuw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<blockquote>
+<p>日期和时间型数值类型</p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15Qcib3OwGtWEJkEE2biaa4jT3xokY1UicPT1MQcQNsa1EsjiaIqM1vvyUPjg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<blockquote>
+<p>NULL值</p>
+</blockquote>
 <ul>
-<li>dd if=dev/zore of=test bs=1M count=4096</li>
-<li>wa  等待输入输出的CPU时间百分比</li>
-<li>top -n1  每秒cpu</li>
+<li>理解为 “没有值” 或 “未知值”</li>
+<li>不要用NULL进行算术运算 , 结果仍为NULL</li>
 </ul>
-</li>
-</ul>
-<h5 id="15、临时调整和永久生效系统内核参数在哪里调"><a href="#15、临时调整和永久生效系统内核参数在哪里调" class="headerlink" title="15、临时调整和永久生效系统内核参数在哪里调"></a>15、临时调整和永久生效系统内核参数在哪里调</h5><ul>
-<li><p>1.临时调整</p>
+<h3 id="数据字段属性"><a href="#数据字段属性" class="headerlink" title="数据字段属性"></a>数据字段属性</h3><p><strong>UnSigned</strong></p>
 <ul>
-<li>开启路由转发功能 设置1/0    echo”1”&gt;/proc/sys/net/ipv4/ip_forward</li>
-<li>禁止所有的icmp回包（禁止其他主机ping本机）<ul>
-<li>echo”1”&gt;/proc/sys/net/ipv4/icmp_echo_ignore_all</li>
-<li>调整所有进程可以打开的文件总数ps：如果大量用户访问时，可以因为该数字太小而导致错误    echo”108248”&gt;/proc/sys/fs/file-max</li>
+<li>无符号的</li>
+<li>声明该数据列不允许负数 .</li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>2.永久调整</p>
-<p>​        vim/etc/sysctl.conf</p>
-<p>开启内核路由转发功能，通过01设置开关</p>
-<p>​        net.ipv4.ip_forward=1</p>
-<p>禁止所有的icmp回包（禁止其他主机ping本机）</p>
-<p>​        net.ipv4.icmp_echo_ignnore_all-=1</p>
-<p>调整所有进程可以打开的文件总</p>
-<p>​        fs.file-max=108248</p>
-</li>
-</ul>
-<h5 id="16、如何查看当前linux系统的状态，如cpu使用，内存使用，负载情况"><a href="#16、如何查看当前linux系统的状态，如cpu使用，内存使用，负载情况" class="headerlink" title="16、如何查看当前linux系统的状态，如cpu使用，内存使用，负载情况"></a>16、如何查看当前linux系统的状态，如cpu使用，内存使用，负载情况</h5><ul>
-<li><p>系统版本</p>
+<p><strong>ZEROFILL</strong></p>
 <ul>
-<li>uname -a</li>
-<li>cat /etc/redhat-release</li>
+<li>0填充的</li>
+<li>不足位数的用0来填充 , 如int(3),5则为005</li>
 </ul>
-</li>
-<li><p>内存：</p>
+<p><strong>Auto_InCrement</strong></p>
 <ul>
-<li>free</li>
+<li><p>自动增长的 , 每添加一条数据 , 自动在上一个记录数上加 1(默认)</p>
+</li>
+<li><p>通常用于设置<strong>主键</strong> , 且为整数类型</p>
+</li>
+<li><p>可定义起始值和步长</p>
+</li>
+<li><ul>
+<li>当前表设置步长(AUTO_INCREMENT=100) : 只影响当前表</li>
+<li>SET @@auto_increment_increment=5 ; 影响所有使用自增的表(全局)</li>
 </ul>
 </li>
-<li><p>CPU 利用率:</p>
+</ul>
+<p><strong>NULL 和 NOT NULL</strong></p>
 <ul>
-<li>top/sar</li>
+<li>默认为NULL , 即没有插入该列的数值</li>
+<li>如果设置为NOT NULL , 则该列必须有值</li>
+</ul>
+<p><strong>DEFAULT</strong></p>
+<ul>
+<li>默认的</li>
+<li>用于设置默认值</li>
+<li>例如,性别字段,默认为”男” , 否则为 “女” ; 若无指定该列的值 , 则默认值为”男”的值</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">-- 目标 <span class="token builtin class-name">:</span> 创建一个school数据库
+-- 创建学生表<span class="token punctuation">(</span>列,字段<span class="token punctuation">)</span>
+-- 学号int 登录密码varchar<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> 姓名,性别varchar<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>,出生日期<span class="token punctuation">(</span>datatime<span class="token punctuation">)</span>,家庭住址,email
+-- 创建表之前 , 一定要先选择数据库
+
+CREATE TABLE IF NOT EXISTS <span class="token variable"><span class="token variable">`</span>student<span class="token variable">`</span></span> <span class="token punctuation">(</span>
+<span class="token variable"><span class="token variable">`</span><span class="token function">id</span><span class="token variable">`</span></span> int<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> NOT NULL AUTO_INCREMENT COMMENT <span class="token string">'学号'</span>,
+<span class="token variable"><span class="token variable">`</span>name<span class="token variable">`</span></span> varchar<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> NOT NULL DEFAULT <span class="token string">'匿名'</span> COMMENT <span class="token string">'姓名'</span>,
+<span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span> varchar<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> NOT NULL DEFAULT <span class="token string">'123456'</span> COMMENT <span class="token string">'密码'</span>,
+<span class="token variable"><span class="token variable">`</span>sex<span class="token variable">`</span></span> varchar<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> NOT NULL DEFAULT <span class="token string">'男'</span> COMMENT <span class="token string">'性别'</span>,
+<span class="token variable"><span class="token variable">`</span>birthday<span class="token variable">`</span></span> datetime DEFAULT NULL COMMENT <span class="token string">'生日'</span>,
+<span class="token variable"><span class="token variable">`</span>address<span class="token variable">`</span></span> varchar<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> DEFAULT NULL COMMENT <span class="token string">'地址'</span>,
+<span class="token variable"><span class="token variable">`</span>email<span class="token variable">`</span></span> varchar<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> DEFAULT NULL COMMENT <span class="token string">'邮箱'</span>,
+PRIMARY KEY <span class="token punctuation">(</span><span class="token variable"><span class="token variable">`</span><span class="token function">id</span><span class="token variable">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token assign-left variable">ENGINE</span><span class="token operator">=</span>InnoDB DEFAULT <span class="token assign-left variable">CHARSET</span><span class="token operator">=</span>utf8
+
+-- 查看数据库的定义
+SHOW CREATE DATABASE school<span class="token punctuation">;</span>
+-- 查看数据表的定义
+SHOW CREATE TABLE student<span class="token punctuation">;</span>
+-- 显示表结构
+DESC student<span class="token punctuation">;</span>  -- 设置严格检查模式<span class="token punctuation">(</span>不能容错了<span class="token punctuation">)</span>SET <span class="token assign-left variable">sql_mode</span><span class="token operator">=</span><span class="token string">'STRICT_TRANS_TABLES'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="数据表的类型"><a href="#数据表的类型" class="headerlink" title="数据表的类型"></a>数据表的类型</h3><blockquote>
+<p>设置数据表的类型</p>
+</blockquote>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE 表名(
+   -- 省略一些代码
+   -- Mysql注释
+   -- 1. # 单行注释
+   -- 2. /*...*/ 多行注释
+)ENGINE = MyISAM (or InnoDB)
+
+-- 查看mysql所支持的引擎类型 (表类型)
+SHOW ENGINES;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>MySQL的数据表的类型 : <strong>MyISAM</strong> , <strong>InnoDB</strong> , HEAP , BOB , CSV等…</p>
+<p>常见的 MyISAM 与 InnoDB 类型：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15QpmSFMlJ4fDFdGoWOsTuNfFZq0XKW1GyibdZHU2F73DTezMYM1K0dc2A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>经验 ( 适用场合 )  :</p>
+<ul>
+<li>适用 MyISAM : 节约空间及相应速度</li>
+<li>适用 InnoDB : 安全性 , 事务处理及多用户操作数据表</li>
+</ul>
+<blockquote>
+<p>数据表的存储位置</p>
+</blockquote>
+<ul>
+<li><p>MySQL数据表以文件方式存放在磁盘中</p>
+</li>
+<li><ul>
+<li>包括表文件 , 数据文件 , 以及数据库的选项文件</li>
+<li>位置 : Mysql安装目录\data\下存放数据表 . 目录名对应数据库名 , 该目录下文件名对应数据表 .</li>
+</ul>
+</li>
+<li><p>注意 :</p>
+</li>
+<li><ul>
+<li><p>* . frm – 表结构定义文件</p>
+</li>
+<li><p>* . MYD – 数据文件 ( data )</p>
+</li>
+<li><p>* . MYI – 索引文件 ( index )</p>
+</li>
+<li><p>InnoDB类型数据表只有一个 *.frm文件 , 以及上一级目录的ibdata1文件</p>
+</li>
+<li><p>MyISAM类型数据表对应三个文件 :</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15Q5tk8XtNtNGnUgevhFSzwTUrO7AmbXZFumTibt43SDII9nOQY97OtQdQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+</li>
 </ul>
 </li>
 </ul>
-<h5 id="17、查看网卡历史流量实时查看网卡流量"><a href="#17、查看网卡历史流量实时查看网卡流量" class="headerlink" title="17、查看网卡历史流量实时查看网卡流量"></a>17、查看网卡历史流量实时查看网卡流量</h5><p>查看网卡流量密令：sar   安装包：sysstat   查看帮助  sar -h</p>
-<p>网卡历史流量：sar  -nDEV -f/var/log/sa/saxx</p>
-<p>实时查看网卡流量：sar - n DEV 1 5 （每一秒刷新五次）</p>
-<h5 id="18、如何查看当前系统每个ip的连接数"><a href="#18、如何查看当前系统每个ip的连接数" class="headerlink" title="18、如何查看当前系统每个ip的连接数"></a>18、如何查看当前系统每个ip的连接数</h5><ul>
-<li>netstat -n | awk’/^tcp/{print $5}’ | awk -F ‘{print $1}’ | sort | uniq -c</li>
+<blockquote>
+<p>设置数据表字符集</p>
+</blockquote>
+<p>我们可为数据库,数据表,数据列设定不同的字符集，设定方法 :</p>
+<ul>
+<li>创建时通过命令来设置 , 如 : CREATE TABLE 表名()CHARSET = utf8;</li>
+<li>如无设定 , 则根据MySQL数据库配置文件 my.ini 中的参数设定</li>
 </ul>
-<h5 id="19、找出-home下所有7天以前，以-ok结尾的文件列"><a href="#19、找出-home下所有7天以前，以-ok结尾的文件列" class="headerlink" title="19、找出/home下所有7天以前，以.ok结尾的文件列"></a>19、找出/home下所有7天以前，以.ok结尾的文件列</h5><ul>
-<li>find /home -name “*.ok” -mtime +7</li>
+<h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><blockquote>
+<p>修改表 ( ALTER TABLE )</p>
+</blockquote>
+<p>修改表名 :ALTER TABLE 旧表名 RENAME AS 新表名</p>
+<p>添加字段 : ALTER TABLE 表名 ADD字段名 列属性[属性]</p>
+<p>修改字段 :</p>
+<ul>
+<li>ALTER TABLE 表名 MODIFY 字段名 列类型[属性]</li>
+<li>ALTER TABLE 表名 CHANGE 旧字段名 新字段名 列属性[属性]</li>
 </ul>
-<h5 id="20、快速生成一个10G的文件"><a href="#20、快速生成一个10G的文件" class="headerlink" title="20、快速生成一个10G的文件"></a>20、快速生成一个10G的文件</h5><ul>
-<li>dd if=/dev/zero of=test bs=10M count=1024</li>
+<p>删除字段 :  ALTER TABLE 表名 DROP 字段名</p>
+<blockquote>
+<p>删除数据表</p>
+</blockquote>
+<p>语法：DROP TABLE [IF EXISTS] 表名</p>
+<ul>
+<li>IF EXISTS为可选 , 判断是否存在该数据表</li>
+<li>如删除不存在的数据表会抛出错误</li>
 </ul>
-<h5 id="21、列出linux常见打包工具并写出相应解压缩参数（至少三种）"><a href="#21、列出linux常见打包工具并写出相应解压缩参数（至少三种）" class="headerlink" title="21、列出linux常见打包工具并写出相应解压缩参数（至少三种）"></a>21、列出linux常见打包工具并写出相应解压缩参数（至少三种）</h5><ul>
-<li>压缩打包<ul>
-<li>tar -cvf file.txt  tar.test.txt.gz</li>
-<li>zip test.zip</li>
-<li>Gzip file.txt</li>
-<li>bzip2 -z file.txt</li>
-</ul>
-</li>
-<li>解压缩<ul>
-<li>tar -xf </li>
-<li>unzip</li>
-<li>gzip -d</li>
-<li>bzip2 -d</li>
-</ul>
-</li>
-</ul>
-<h5 id="22、标准端口的范围是？"><a href="#22、标准端口的范围是？" class="headerlink" title="22、标准端口的范围是？"></a>22、标准端口的范围是？</h5><p>1-65535</p>
-<h5 id="23、常见协议（http、https、ftp、mysql、redis）默认端口。"><a href="#23、常见协议（http、https、ftp、mysql、redis）默认端口。" class="headerlink" title="23、常见协议（http、https、ftp、mysql、redis）默认端口。"></a>23、常见协议（http、https、ftp、mysql、redis）默认端口。</h5><ul>
-<li>http 80</li>
-<li>https 443</li>
-<li>ftp 21/20</li>
-<li>mysql 3306</li>
-<li>redis  6379</li>
-</ul>
-<h5 id="24、请写出下列端口所运行的服务21、22、23、3306、6379"><a href="#24、请写出下列端口所运行的服务21、22、23、3306、6379" class="headerlink" title="24、请写出下列端口所运行的服务21、22、23、3306、6379"></a>24、请写出下列端口所运行的服务21、22、23、3306、6379</h5><ul>
-<li>21  ftp</li>
-<li>22  ssh</li>
-<li>23  telnet</li>
-<li>3306  mysql</li>
-<li>6379  redis</li>
-</ul>
-<h5 id="25、写出下面服务的常用端口：ftp、http、dns、smtp、pop3、dhcp、tftp、mysql、ssh、https"><a href="#25、写出下面服务的常用端口：ftp、http、dns、smtp、pop3、dhcp、tftp、mysql、ssh、https" class="headerlink" title="25、写出下面服务的常用端口：ftp、http、dns、smtp、pop3、dhcp、tftp、mysql、ssh、https"></a>25、写出下面服务的常用端口：ftp、http、dns、smtp、pop3、dhcp、tftp、mysql、ssh、https</h5><ul>
-<li>ftp    21/20</li>
-<li>http    80</li>
-<li>dns    53</li>
-<li>smtp    25（简单的邮件传输协议）</li>
-<li>pop3    110（邮局协议版本3）</li>
-<li>dhcp    服务器 udp 67 客户端  udp 68</li>
-<li>tftp    69</li>
-<li>mysql  3306</li>
-<li>ssh    22</li>
-<li>https    443</li>
-</ul>
+<blockquote>
+<p>其他</p>
+</blockquote>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">1</span>. 可用反引号（`）为标识符（库名、表名、字段名、索引、别名）包裹，以避免与关键字重名！中文也可以作为标识符！
+
+<span class="token number">2</span>. 每个库目录存在一个保存当前数据库的选项文件db.opt。
+
+<span class="token number">3</span>. 注释：
+  单行注释 <span class="token comment"># 注释内容</span>
+  多行注释 /* 注释内容 */
+  单行注释 -- 注释内容       <span class="token punctuation">(</span>标准SQL注释风格，要求双破折号后加一空格符（空格、TAB、换行等）<span class="token punctuation">)</span>
+   
+<span class="token number">4</span>. 模式通配符：
+  _   任意单个字符
+  %   任意多个字符，甚至包括零字符
+  单引号需要进行转义 <span class="token punctuation">\</span>'
+   
+<span class="token number">5</span>. CMD命令行内的语句结束符可以为 <span class="token string">";"</span>, <span class="token string">"\G"</span>, <span class="token string">"\g"</span>，仅影响显示结果。其他地方还是用分号结束。delimiter 可修改当前对话的语句结束符。
+
+<span class="token number">6</span>. SQL对大小写不敏感 （关键字）
+
+<span class="token number">7</span>. 清除已有语句：<span class="token punctuation">\</span>c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -733,7 +733,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z3942.github.io/2021/08/14/yun-ji-suan-mian-shi-ti/">https://z3942.github.io/2021/08/14/yun-ji-suan-mian-shi-ti/</a>
+                    <a href="https://z3942.github.io/2021/08/14/shu-ju-ku-cao-zuo/">https://z3942.github.io/2021/08/14/shu-ju-ku-cao-zuo/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -770,7 +770,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -944,13 +948,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/15/hello-world/">
+                <a href="/2021/08/14/dml-yu-yan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="DML语言">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">DML语言</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -961,15 +965,27 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            一只云辰
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -981,13 +997,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/14/markdown-yu-fa/">
+                <a href="/2021/08/14/chu-shi-mysql/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Markdown语法">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="初识MySQL">
                         
-                        <span class="card-title">Markdown语法</span>
+                        <span class="card-title">初识MySQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1002,11 +1018,23 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            一只云辰
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1209,7 +1237,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">15.3k</span>
+                        class="white-color">14.3k</span>
             
             
             
