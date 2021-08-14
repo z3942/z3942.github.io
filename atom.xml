@@ -6,7 +6,7 @@
   <link href="https://z3942.github.io/atom.xml" rel="self"/>
   
   <link href="https://z3942.github.io/"/>
-  <updated>2021-08-14T17:47:37.990Z</updated>
+  <updated>2021-08-14T12:52:43.845Z</updated>
   <id>https://z3942.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux运维排除问题步骤</title>
+    <link href="https://z3942.github.io/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/"/>
+    <id>https://z3942.github.io/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/</id>
+    <published>2021-08-14T18:31:23.000Z</published>
+    <updated>2021-08-14T12:52:43.845Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux服务器上排除问题的基本步骤&quot;&gt;&lt;a href=&quot;#Linux服务器上排除问题的基本步骤&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx</title>
+    <link href="https://z3942.github.io/2021/08/15/nginx/"/>
+    <id>https://z3942.github.io/2021/08/15/nginx/</id>
+    <published>2021-08-14T18:31:02.000Z</published>
+    <updated>2021-08-14T12:51:48.712Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Nginx&quot;&gt;&lt;a href=&quot;#Nginx&quot; class=&quot;headerlink&quot; title=&quot;Nginx&quot;&gt;&lt;/a&gt;Nginx&lt;/h2&gt;&lt;h3 id=&quot;配置管理nginx-conf&quot;&gt;&lt;a href=&quot;#配置管理nginx-conf&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    <category term="Nginx" scheme="https://z3942.github.io/categories/Linux/Nginx/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+    <category term="Nginx" scheme="https://z3942.github.io/tags/Nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -42,7 +96,7 @@
     <link href="https://z3942.github.io/2021/08/14/quan-xian-ji-ru-he-she-ji-shu-ju-ku/"/>
     <id>https://z3942.github.io/2021/08/14/quan-xian-ji-ru-he-she-ji-shu-ju-ku/</id>
     <published>2021-08-14T12:08:07.000Z</published>
-    <updated>2021-08-14T12:18:39.362Z</updated>
+    <updated>2021-08-14T21:36:01.725Z</updated>
     
     
       
@@ -67,7 +121,7 @@
     <link href="https://z3942.github.io/2021/08/14/shi-wu-he-suo-yin/"/>
     <id>https://z3942.github.io/2021/08/14/shi-wu-he-suo-yin/</id>
     <published>2021-08-14T12:07:54.000Z</published>
-    <updated>2021-08-14T12:19:07.938Z</updated>
+    <updated>2021-08-14T21:34:57.026Z</updated>
     
     
       
@@ -92,7 +146,7 @@
     <link href="https://z3942.github.io/2021/08/14/mysql-han-shu/"/>
     <id>https://z3942.github.io/2021/08/14/mysql-han-shu/</id>
     <published>2021-08-14T12:07:44.000Z</published>
-    <updated>2021-08-14T12:19:20.069Z</updated>
+    <updated>2021-08-14T21:32:30.569Z</updated>
     
     
       
@@ -117,7 +171,7 @@
     <link href="https://z3942.github.io/2021/08/14/shi-yong-dql-cha-xun-shu-ju/"/>
     <id>https://z3942.github.io/2021/08/14/shi-yong-dql-cha-xun-shu-ju/</id>
     <published>2021-08-14T12:06:44.000Z</published>
-    <updated>2021-08-14T12:19:32.512Z</updated>
+    <updated>2021-08-14T21:35:32.534Z</updated>
     
     
       
@@ -142,7 +196,7 @@
     <link href="https://z3942.github.io/2021/08/14/dml-yu-yan/"/>
     <id>https://z3942.github.io/2021/08/14/dml-yu-yan/</id>
     <published>2021-08-14T12:06:13.000Z</published>
-    <updated>2021-08-14T12:20:03.689Z</updated>
+    <updated>2021-08-14T21:34:20.684Z</updated>
     
     
       
@@ -192,7 +246,7 @@
     <link href="https://z3942.github.io/2021/08/14/chu-shi-mysql/"/>
     <id>https://z3942.github.io/2021/08/14/chu-shi-mysql/</id>
     <published>2021-08-14T12:04:27.000Z</published>
-    <updated>2021-08-14T12:20:46.078Z</updated>
+    <updated>2021-08-14T21:33:51.362Z</updated>
     
     
       
@@ -209,6 +263,165 @@
     
     
     <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>云计算面试题</title>
+    <link href="https://z3942.github.io/2021/08/14/yun-ji-suan-mian-shi-ti/"/>
+    <id>https://z3942.github.io/2021/08/14/yun-ji-suan-mian-shi-ti/</id>
+    <published>2021-08-14T08:44:27.000Z</published>
+    <updated>2021-08-14T12:51:27.208Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h5 id=&quot;1、简述raid0、raid1、raid5三种工作模式的工作原理及特点&quot;&gt;&lt;a href=&quot;#1、简述raid0、raid1、raid5三种工作模式的工作原理及特点&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="面试题" scheme="https://z3942.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+    <category term="云计算" scheme="https://z3942.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown语法</title>
+    <link href="https://z3942.github.io/2021/08/14/markdown-yu-fa/"/>
+    <id>https://z3942.github.io/2021/08/14/markdown-yu-fa/</id>
+    <published>2021-08-14T08:44:15.000Z</published>
+    <updated>2021-08-14T12:53:31.306Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;markdown语法&quot;&gt;&lt;a href=&quot;#markdown语法&quot; class=&quot;headerlink&quot; title=&quot;markdown语法&quot;&gt;&lt;/a&gt;markdown语法&lt;/h1&gt;&lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Typora" scheme="https://z3942.github.io/categories/Typora/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+    <category term="Typora" scheme="https://z3942.github.io/tags/Typora/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux基础优化</title>
+    <link href="https://z3942.github.io/2021/08/14/linux-ji-chu-you-hua/"/>
+    <id>https://z3942.github.io/2021/08/14/linux-ji-chu-you-hua/</id>
+    <published>2021-08-14T08:43:59.000Z</published>
+    <updated>2021-08-14T12:53:09.044Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;Linux&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;基础优化&quot;&gt;&lt;a href=&quot;#基础优化&quot; class=&quot;headerlink&quot; title=&quot;基础优化&quot;&gt;&lt;/a&gt;基础优化&lt;/h1&gt;&lt;p&gt;安装centos7</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux</title>
+    <link href="https://z3942.github.io/2021/08/14/linux/"/>
+    <id>https://z3942.github.io/2021/08/14/linux/</id>
+    <published>2021-08-14T08:43:51.000Z</published>
+    <updated>2021-08-14T12:50:20.706Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux-https-www-linuxprobe-com-basic-learning-00-html&quot;&gt;&lt;a href=&quot;#Linux-https-www-linuxprobe-com-basic-learning-00-html&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LVS</title>
+    <link href="https://z3942.github.io/2021/08/14/lvs/"/>
+    <id>https://z3942.github.io/2021/08/14/lvs/</id>
+    <published>2021-08-14T08:43:45.000Z</published>
+    <updated>2021-08-14T12:52:15.088Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;查询内核是编译IPVS&quot;&gt;&lt;a href=&quot;#查询内核是编译IPVS&quot; class=&quot;headerlink&quot; title=&quot;查询内核是编译IPVS&quot;&gt;&lt;/a&gt;查询内核是编译IPVS&lt;/h2&gt;&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GoolGle Chrome默认非安全端口</title>
+    <link href="https://z3942.github.io/2021/08/14/goolgle-chrome-mo-ren-fei-an-quan-duan-kou/"/>
+    <id>https://z3942.github.io/2021/08/14/goolgle-chrome-mo-ren-fei-an-quan-duan-kou/</id>
+    <published>2021-08-14T08:43:34.000Z</published>
+    <updated>2021-08-14T12:50:39.217Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Google-Chrome-默认非安全端口列表&quot;&gt;&lt;a href=&quot;#Google-Chrome-默认非安全端口列表&quot; class=&quot;headerlink&quot; title=&quot;Google Chrome 默认非安全端口列表&quot;&gt;&lt;/a&gt;Google Chrome</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
     
   </entry>
   

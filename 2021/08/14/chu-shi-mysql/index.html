@@ -466,14 +466,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-14
+                    2021-08-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.1k
                 </div>
                 
 
@@ -539,13 +539,11 @@
 </blockquote>
 <p>数据库管理系统 ( <strong>D</strong>ata<strong>B</strong>ase <strong>M</strong>anagement <strong>S</strong>ystem )</p>
 <p>数据库管理软件 , 科学组织和存储数据 , 高效地获取和维护数据</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JDAlgEhicQfyUeklefrUhYibIew3vo8N1zoy9ic2nOVVJWtjZsXg7TWsDDGhAI5rSGZ0tnQ6OIO8MBg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
 <p>为什么要说这个呢?</p>
 <p>因为我们要学习的MySQL应该算是一个数据库管理系统.</p>
 <blockquote>
 <p>MySQL简介</p>
 </blockquote>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JDAlgEhicQfyUeklefrUhYibkYI5jfkYj8hphYv7GEdQSczjb1icQwjWGlWqhG26VO1y5tgM2OcStaA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
 <p><strong>概念 :</strong> 是现在<strong>流行</strong>的<strong>开源</strong>的,<strong>免费</strong>的 <strong>关系型</strong>数据库</p>
 <p><strong>历史 :</strong> 由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。</p>
 <p><strong>特点 :</strong> </p>
@@ -595,35 +593,15 @@ skip-grant-tables<span aria-hidden="true" class="line-numbers-rows"><span></span
 net start mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>12、连接上测试出现以下结果就安装好了</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JDAlgEhicQfyUeklefrUhYib5jn0ggWLtIrViavAcBpOXW2ick2ibI2un63gLrFMdtviamYxttX2knoPibQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql -uroot -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
 <p>一步步去做 , 理论上是没有任何问题的 .</p>
 <p>如果您以前装过,现在需要重装,一定要将环境清理干净 .</p>
 <p>好了,到这里大家都装好了,因为刚接触,所以我们先不学习命令.</p>
 <p>这里给大家推荐一个工具 : <strong>SQLyog</strong> .</p>
 <p>即便有了可视化工具,可是基本的DOS命名大家还是要记住!</p>
-<blockquote>
-<p>SQLyog</p>
-</blockquote>
-<p>可手动操作,管理MySQL数据库的软件工具</p>
-<p>特点 : 简洁 , 易用 , 图形化</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JDAlgEhicQfyUeklefrUhYibEvvP8V27JN1wk2BDkph6PCOj45JfcnhJaibHsV6jVewwZZumapwTibicg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JDAlgEhicQfyUeklefrUhYibXng7TQzNhPmic2H3wByaUhebwTKoVDVkHjeRxGx67YxGjlgd13axWVg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<p>使用SQLyog管理工具自己完成以下操作 :</p>
-<ul>
-<li><p>连接本地MySQL数据库</p>
-</li>
-<li><p>新建MySchool数据库</p>
-</li>
-<li><ul>
-<li>字段</li>
-<li>GradeID : int(11) , Primary Key (pk)</li>
-<li>GradeName : varchar(50)</li>
-<li>数据库名称MySchool</li>
-<li>新建数据库表(grade)</li>
-</ul>
-</li>
-</ul>
-<p>在历史记录中可以看到相对应的数据库操作的语句 .</p>
 <blockquote>
 <p>连接数据库</p>
 </blockquote>
@@ -647,6 +625,8 @@ use databasename<span class="token punctuation">;</span> 选择数据库
 <span class="token builtin class-name">exit</span><span class="token punctuation">;</span> 退出Mysql
 ? 命令关键词 <span class="token builtin class-name">:</span> 寻求帮助
 -- 表示注释<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 
 
@@ -939,13 +919,13 @@ use databasename<span class="token punctuation">;</span> 选择数据库
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/14/docker/">
+                <a href="/2021/08/14/yun-ji-suan-mian-shi-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Docker">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="云计算面试题">
                         
-                        <span class="card-title">Docker</span>
+                        <span class="card-title">云计算面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -962,8 +942,12 @@ use databasename<span class="token punctuation">;</span> 选择数据库
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Docker/" class="post-category">
-                                    Docker
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -977,8 +961,8 @@ use databasename<span class="token punctuation">;</span> 选择数据库
                         <span class="chip bg-color">Linux</span>
                     </a>
                     
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
+                    <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">
+                        <span class="chip bg-color">云计算</span>
                     </a>
                     
                 </div>
@@ -1183,7 +1167,7 @@ use databasename<span class="token punctuation">;</span> 选择数据库
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">14.3k</span>
+                        class="white-color">63k</span>
             
             
             

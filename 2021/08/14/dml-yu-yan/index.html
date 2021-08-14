@@ -466,14 +466,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-14
+                    2021-08-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
@@ -550,7 +550,6 @@ ADD CONSTRAINT `FK_gradeid` FOREIGN KEY (`gradeid`) REFERENCES `grade` (`gradeid
 <p>删除外键</p>
 </blockquote>
 <p>操作：删除 grade 表，发现报错</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LCI6xGKJ7bKiaBudOSBHd9dAFiaLn6yfOjQtCB0o2bo5uaJH6GKpmGXVCbrFKSzQOeMKpPbG57dIgA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
 <p><strong>注意</strong> : 删除具有主外键关系的表时 , 要先删子表 , 后删主表</p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 删除外键
 ALTER TABLE student DROP FOREIGN KEY FK_gradeid;
@@ -624,7 +623,71 @@ INSERT INTO grade(gradename) VALUES ('大三'),('大四');<span aria-hidden="tru
 <p>where条件子句</p>
 </blockquote>
 <p>可以简单的理解为 : 有条件地从表中筛选数据</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LCI6xGKJ7bKiaBudOSBHd9dyJWPxp3H9GicphPXMEvCwtUyKX3vibUCESqSaDnKnLzlwYpcRTJsdUIg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">测试：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>含义</th>
+<th>范围</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>等于</td>
+<td>5=6</td>
+<td>false</td>
+</tr>
+<tr>
+<td>&lt;&gt;或 ！ =</td>
+<td>不等于</td>
+<td>5!=6</td>
+<td>true</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+<td>5&gt;6</td>
+<td>false</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+<td>5&lt;6</td>
+<td>true</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+<td>5&lt;=6</td>
+<td>false</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+<td>BETWEEN 5 AND 10</td>
+<td>true</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>在某个范围之间</td>
+<td>5 &gt;1 AND 1 &gt; 2</td>
+<td></td>
+</tr>
+<tr>
+<td>AND</td>
+<td>并且</td>
+<td>5 &gt; 1 OR 1 &gt; 2</td>
+<td>false</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>或</td>
+<td></td>
+<td>true</td>
+</tr>
+</tbody></table>
+<p>测试：</p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 修改年级信息
 UPDATE grade SET gradename = '高中' WHERE gradeid = 1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -1216,7 +1279,7 @@ TRUNCATE TABLE test;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">14.3k</span>
+                        class="white-color">63k</span>
             
             
             
