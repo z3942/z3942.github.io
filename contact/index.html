@@ -355,7 +355,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    var bannerUrl = "/medias/banner/" + new Date().getMinutes() + '.jpg';
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
@@ -385,7 +385,8 @@
                 <div class="tag-title center-align">
                     <i class="fas fa-comments"></i>&nbsp;&nbsp;留言板
                 </div>
-                
+                <p>第一个评论</p>
+
             </div>
             <!--valine评论弹幕-->
             
