@@ -453,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-14
+                    2021-08-15
                 </div>
                 
 
@@ -482,268 +482,352 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="查询内核是编译IPVS"><a href="#查询内核是编译IPVS" class="headerlink" title="查询内核是编译IPVS"></a>查询内核是编译IPVS</h2><pre><code class="shell">[root@node1 ~]# cat /boot/config-3.10.0-862.el7.x86_64 | grep -i ipvs -A 10
-#/boot/config-* 根据内核版本不同定义名称，内核配置文件，y表示已编译模块，m表示可加载的模块
-# grep 根据关键词查询内容
-#-i：查询内容不区分大小写 
-#-A -B -C 后面都跟阿拉伯数字
-#-A:是显示匹配后和它后面的n行。
-#-B:是显示匹配行和它前面的n行。
-#-C:是匹配行和它前后各n行。
-CONFIG_NETFILTER_XT_MATCH_IPVS=m
-#ipvs
-#此处应显示10行内容，但与IPVS不相关，就删除了
-....
+                <h2 id="查询内核是编译IPVS"><a href="#查询内核是编译IPVS" class="headerlink" title="查询内核是编译IPVS"></a>查询内核是编译IPVS</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># cat /boot/config-3.10.0-862.el7.x86_64 | grep -i ipvs -A 10</span>
+<span class="token comment">#/boot/config-* 根据内核版本不同定义名称，内核配置文件，y表示已编译模块，m表示可加载的模块</span>
+<span class="token comment"># grep 根据关键词查询内容</span>
+<span class="token comment">#-i：查询内容不区分大小写 </span>
+<span class="token comment">#-A -B -C 后面都跟阿拉伯数字</span>
+<span class="token comment">#-A:是显示匹配后和它后面的n行。</span>
+<span class="token comment">#-B:是显示匹配行和它前面的n行。</span>
+<span class="token comment">#-C:是匹配行和它前后各n行。</span>
+<span class="token assign-left variable">CONFIG_NETFILTER_XT_MATCH_IPVS</span><span class="token operator">=</span>m
+<span class="token comment">#ipvs</span>
+<span class="token comment">#此处应显示10行内容，但与IPVS不相关，就删除了</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span>
 --
-# IPVS transport protocol load balancing support
-#IPVS支持的协议
-CONFIG_IP_VS_PROTO_TCP=y
-CONFIG_IP_VS_PROTO_UDP=y
-CONFIG_IP_VS_PROTO_AH_ESP=y
-CONFIG_IP_VS_PROTO_ESP=y
-CONFIG_IP_VS_PROTO_AH=y
-CONFIG_IP_VS_PROTO_SCTP=y
+<span class="token comment"># IPVS transport protocol load balancing support</span>
+<span class="token comment">#IPVS支持的协议</span>
+<span class="token assign-left variable">CONFIG_IP_VS_PROTO_TCP</span><span class="token operator">=</span>y
+<span class="token assign-left variable">CONFIG_IP_VS_PROTO_UDP</span><span class="token operator">=</span>y
+<span class="token assign-left variable">CONFIG_IP_VS_PROTO_AH_ESP</span><span class="token operator">=</span>y
+<span class="token assign-left variable">CONFIG_IP_VS_PROTO_ESP</span><span class="token operator">=</span>y
+<span class="token assign-left variable">CONFIG_IP_VS_PROTO_AH</span><span class="token operator">=</span>y
+<span class="token assign-left variable">CONFIG_IP_VS_PROTO_SCTP</span><span class="token operator">=</span>y
 
-#
-# IPVS scheduler
-#IPVS调度算法
-CONFIG_IP_VS_RR=m
-CONFIG_IP_VS_WRR=m
-CONFIG_IP_VS_LC=m
-CONFIG_IP_VS_WLC=m
-CONFIG_IP_VS_LBLC=m
-CONFIG_IP_VS_LBLCR=m
-CONFIG_IP_VS_DH=m
-CONFIG_IP_VS_SH=m
-CONFIG_IP_VS_SED=m
+<span class="token comment">#</span>
+<span class="token comment"># IPVS scheduler</span>
+<span class="token comment">#IPVS调度算法</span>
+<span class="token assign-left variable">CONFIG_IP_VS_RR</span><span class="token operator">=</span>m
+<span class="token assign-left variable">CONFIG_IP_VS_WRR</span><span class="token operator">=</span>m
+<span class="token assign-left variable">CONFIG_IP_VS_LC</span><span class="token operator">=</span>m
+<span class="token assign-left variable">CONFIG_IP_VS_WLC</span><span class="token operator">=</span>m
+<span class="token assign-left variable">CONFIG_IP_VS_LBLC</span><span class="token operator">=</span>m
+<span class="token assign-left variable">CONFIG_IP_VS_LBLCR</span><span class="token operator">=</span>m
+<span class="token assign-left variable">CONFIG_IP_VS_DH</span><span class="token operator">=</span>m
+<span class="token assign-left variable">CONFIG_IP_VS_SH</span><span class="token operator">=</span>m
+<span class="token assign-left variable">CONFIG_IP_VS_SED</span><span class="token operator">=</span>m
 --
-# IPVS SH scheduler
-#IPVS sh算法调度
-CONFIG_IP_VS_SH_TAB_BITS=8
+<span class="token comment"># IPVS SH scheduler</span>
+<span class="token comment">#IPVS sh算法调度</span>
+<span class="token assign-left variable">CONFIG_IP_VS_SH_TAB_BITS</span><span class="token operator">=</span><span class="token number">8</span>
 
-#
-# IPVS application helper
-#
-CONFIG_IP_VS_FTP=m
-CONFIG_IP_VS_NFCT=y
-CONFIG_IP_VS_PE_SIP=m
-...
-</code></pre>
-<h2 id="ipvsadm相关文件"><a href="#ipvsadm相关文件" class="headerlink" title="ipvsadm相关文件"></a>ipvsadm相关文件</h2><pre><code class="shell">[root@node1 ~]# rpm -ql ipvsadm
+<span class="token comment">#</span>
+<span class="token comment"># IPVS application helper</span>
+<span class="token comment">#</span>
+<span class="token assign-left variable">CONFIG_IP_VS_FTP</span><span class="token operator">=</span>m
+<span class="token assign-left variable">CONFIG_IP_VS_NFCT</span><span class="token operator">=</span>y
+<span class="token assign-left variable">CONFIG_IP_VS_PE_SIP</span><span class="token operator">=</span>m
+<span class="token punctuation">..</span>.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="ipvsadm相关文件"><a href="#ipvsadm相关文件" class="headerlink" title="ipvsadm相关文件"></a>ipvsadm相关文件</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># rpm -ql ipvsadm</span>
 /etc/sysconfig/ipvsadm-config
-#ipvs配置文件
+<span class="token comment">#ipvs配置文件</span>
 /usr/lib/systemd/system/ipvsadm.service
-#守护进程服务
+<span class="token comment">#守护进程服务</span>
 /usr/sbin/ipvsadm
-#主程序
+<span class="token comment">#主程序</span>
 /usr/sbin/ipvsadm-restore
-#ipvs规则重载工具
+<span class="token comment">#ipvs规则重载工具</span>
 /usr/sbin/ipvsadm-save
-#ipvs规则保存工具
+<span class="token comment">#ipvs规则保存工具</span>
 /usr/share/doc/ipvsadm-1.27
 /usr/share/doc/ipvsadm-1.27/README
 /usr/share/man/man8/ipvsadm-restore.8.gz
 /usr/share/man/man8/ipvsadm-save.8.gz
 /usr/share/man/man8/ipvsadm.8.gz
-#其他文档
-</code></pre>
-<h2 id="ipvsadm命令"><a href="#ipvsadm命令" class="headerlink" title="ipvsadm命令"></a>ipvsadm命令</h2><pre><code class="shell">[root@node1 ~]# ipvsadm -h
-ipvsadm v1.27 2008/5/15 (compiled with popt and IPVS v1.2.1)
-# ipvsadm 版本信息 包括IPVS版本
+<span class="token comment">#其他文档</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="ipvsadm命令"><a href="#ipvsadm命令" class="headerlink" title="ipvsadm命令"></a>ipvsadm命令</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># ipvsadm -h</span>
+ipvsadm v1.27 <span class="token number">2008</span>/5/15 <span class="token punctuation">(</span>compiled with popt and IPVS v1.2.1<span class="token punctuation">)</span>
+<span class="token comment"># ipvsadm 版本信息 包括IPVS版本</span>
 Usage:
-  ipvsadm -A|E -t|u|f service-address [-s scheduler] [-p [timeout]] [-M netmask] [--pe persistence_engine] [-b sched-flags]
-  #添加|修改一条虚拟服务格式
-  ipvsadm -D -t|u|f service-address
-  #删除一个一条虚拟服务格式
+  ipvsadm -A<span class="token operator">|</span>E -t<span class="token operator">|</span>u<span class="token operator">|</span>f service-address <span class="token punctuation">[</span>-s scheduler<span class="token punctuation">]</span> <span class="token punctuation">[</span>-p <span class="token punctuation">[</span>timeout<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-M netmask<span class="token punctuation">]</span> <span class="token punctuation">[</span>--pe persistence_engine<span class="token punctuation">]</span> <span class="token punctuation">[</span>-b sched-flags<span class="token punctuation">]</span>
+  <span class="token comment">#添加|修改一条虚拟服务格式</span>
+  ipvsadm -D -t<span class="token operator">|</span>u<span class="token operator">|</span>f service-address
+  <span class="token comment">#删除一个一条虚拟服务格式</span>
   ipvsadm -C
-  #清除内核虚拟服务器表中的所有记录的格式
+  <span class="token comment">#清除内核虚拟服务器表中的所有记录的格式</span>
   ipvsadm -R
-  #从标准输入中还原虚拟服务列表的格式
-  ipvsadm -S [-n]
-  #保存虚拟服务规则至标准输出的格式
-  ipvsadm -a|e -t|u|f service-address -r server-address [options]
-  #添加|修改一条真实服务器记录的格式
-  ipvsadm -d -t|u|f service-address -r server-address
-  #删除一条真实服务器记录的格式
-  ipvsadm -L|l [options]
-  #列出虚拟服务器表
-  ipvsadm -Z [-t|u|f service-address]
-  #虚拟服务表计数器清零
+  <span class="token comment">#从标准输入中还原虚拟服务列表的格式</span>
+  ipvsadm -S <span class="token punctuation">[</span>-n<span class="token punctuation">]</span>
+  <span class="token comment">#保存虚拟服务规则至标准输出的格式</span>
+  ipvsadm -a<span class="token operator">|</span>e -t<span class="token operator">|</span>u<span class="token operator">|</span>f service-address -r server-address <span class="token punctuation">[</span>options<span class="token punctuation">]</span>
+  <span class="token comment">#添加|修改一条真实服务器记录的格式</span>
+  ipvsadm -d -t<span class="token operator">|</span>u<span class="token operator">|</span>f service-address -r server-address
+  <span class="token comment">#删除一条真实服务器记录的格式</span>
+  ipvsadm -L<span class="token operator">|</span>l <span class="token punctuation">[</span>options<span class="token punctuation">]</span>
+  <span class="token comment">#列出虚拟服务器表</span>
+  ipvsadm -Z <span class="token punctuation">[</span>-t<span class="token operator">|</span>u<span class="token operator">|</span>f service-address<span class="token punctuation">]</span>
+  <span class="token comment">#虚拟服务表计数器清零</span>
   ipvsadm --set tcp tcpfin udp
-  #更改用于IPVS连接的超时值，tcp表示TCP会话，tcpfin表示接收到FIN数据包后的TCP会，udp表示UDP数据包的超时值（均以秒为单位）
-  ipvsadm --start-daemon state [--mcast-interface interface] [--syncid sid]
-  #启动同步守护进程，state的值可以是master或backup，用来说明调度服务器是master或是backup
+  <span class="token comment">#更改用于IPVS连接的超时值，tcp表示TCP会话，tcpfin表示接收到FIN数据包后的TCP会，udp表示UDP数据包的超时值（均以秒为单位）</span>
+  ipvsadm --start-daemon state <span class="token punctuation">[</span>--mcast-interface interface<span class="token punctuation">]</span> <span class="token punctuation">[</span>--syncid sid<span class="token punctuation">]</span>
+  <span class="token comment">#启动同步守护进程，state的值可以是master或backup，用来说明调度服务器是master或是backup</span>
   ipvsadm --stop-daemon state
-  #停止同步进程
+  <span class="token comment">#停止同步进程</span>
   ipvsadm -h
 
 Commands:
 Either long or short options are allowed.
-  --add-service     -A        add virtual service with options|添加一个虚拟服务，使用ip地址、端口号、协议来唯一定义一个虚拟服务，添加内容保存在内核虚拟服务器列表中
-  --edit-service    -E        edit virtual service with options|编辑内核虚拟服务器表中的一条虚拟服务器记录
-  --delete-service  -D        delete virtual service|删除内核虚拟服务器表中的一条虚拟服务器记录，并删除所有与该虚拟服务器相关联的真实服务器
-  --clear           -C        clear the whole table|清除内核虚拟服务器表中的所有记录
-  --restore         -R        restore rules from stdin|从标准输入中还原虚拟服务列表
-  --save            -S        save rules to stdout|保存虚拟服务规则至标准输出
-  --add-server      -a        add real server with options|在内核虚拟服务器表的一条记录里添加一条新的真实服务器记录。也就是在一个虚拟服务器中增加一台新的真实服务器
-  --edit-server     -e        edit real server with options|编辑一条虚拟服务器记录中的某条真实服务器记录
-  --delete-server   -d        delete real server|删除一条虚拟服务器记录中的某条真实服务器记录
-  --list            -L|-l     list the table|如果没有指定参数，则列出虚拟服务器表。如果选择了虚拟服务器地址，则仅列出该虚拟服务器的信息。如果选择-c选项，则显示连接表。输出内容受到其他参数的影响
-  --zero            -Z        zero counters in a service or all services|虚拟服务表计数器清零（清空当前的连接数量等）
-  --set tcp tcpfin udp        set connection timeout values|更改用于IPVS连接的超时值。该命令始终使用3个参数，分别表示TCP会话，接收到FIN数据包后的TCP会话和UDP数据包的超时值（以秒为单位）。超时值0表示保留相应条目的当前超时值
-  --start-daemon              start connection sync daemon|启动同步守护进程
-  --stop-daemon               stop connection sync daemon|停止同步守护进程
-  --help            -h        display this help message|显示帮助信息
+  --add-service     -A        <span class="token function">add</span> virtual <span class="token function">service</span> with options<span class="token operator">|</span>添加一个虚拟服务，使用ip地址、端口号、协议来唯一定义一个虚拟服务，添加内容保存在内核虚拟服务器列表中
+  --edit-service    -E        edit virtual <span class="token function">service</span> with options<span class="token operator">|</span>编辑内核虚拟服务器表中的一条虚拟服务器记录
+  --delete-service  -D        delete virtual <span class="token function">service</span><span class="token operator">|</span>删除内核虚拟服务器表中的一条虚拟服务器记录，并删除所有与该虚拟服务器相关联的真实服务器
+  --clear           -C        <span class="token function">clear</span> the whole table<span class="token operator">|</span>清除内核虚拟服务器表中的所有记录
+  --restore         -R        restore rules from stdin<span class="token operator">|</span>从标准输入中还原虚拟服务列表
+  --save            -S        save rules to stdout<span class="token operator">|</span>保存虚拟服务规则至标准输出
+  --add-server      -a        <span class="token function">add</span> real server with options<span class="token operator">|</span>在内核虚拟服务器表的一条记录里添加一条新的真实服务器记录。也就是在一个虚拟服务器中增加一台新的真实服务器
+  --edit-server     -e        edit real server with options<span class="token operator">|</span>编辑一条虚拟服务器记录中的某条真实服务器记录
+  --delete-server   -d        delete real server<span class="token operator">|</span>删除一条虚拟服务器记录中的某条真实服务器记录
+  --list            -L<span class="token operator">|</span>-l     list the table<span class="token operator">|</span>如果没有指定参数，则列出虚拟服务器表。如果选择了虚拟服务器地址，则仅列出该虚拟服务器的信息。如果选择-c选项，则显示连接表。输出内容受到其他参数的影响
+  --zero            -Z        zero counters <span class="token keyword">in</span> a <span class="token function">service</span> or all services<span class="token operator">|</span>虚拟服务表计数器清零（清空当前的连接数量等）
+  --set tcp tcpfin udp        <span class="token builtin class-name">set</span> connection <span class="token function">timeout</span> values<span class="token operator">|</span>更改用于IPVS连接的超时值。该命令始终使用3个参数，分别表示TCP会话，接收到FIN数据包后的TCP会话和UDP数据包的超时值（以秒为单位）。超时值0表示保留相应条目的当前超时值
+  --start-daemon              start connection <span class="token function">sync</span> daemon<span class="token operator">|</span>启动同步守护进程
+  --stop-daemon               stop connection <span class="token function">sync</span> daemon<span class="token operator">|</span>停止同步守护进程
+  --help            -h        display this <span class="token builtin class-name">help</span> message<span class="token operator">|</span>显示帮助信息
 
 Options:
-  --tcp-service  -t service-address   service-address is host[:port] 
-  #说明虚拟服务器提供的是tcp 的服务。服务器地址的形式为 主机[:端口]。
-  #主机可以是IP地址也可以是主机名。
-  #端口可以是普通的端口号，也可以是端口的服务名称。端口可以被省略，在这种情况下，默认端口号为0。当端口号为0时，需要指定服务器提供持久稳固的服务（也即是使用了-p | --persistent选项）才有效，在这种情况下，它是一个通配符端口，即访问任何端口的连接都将被接受。
-  --udp-service  -u service-address   service-address is host[:port]
-  #虚拟服务器提供的是udp 的服务。服务器地址的形式为 主机[:端口]。
+  --tcp-service  -t service-address   service-address is host<span class="token punctuation">[</span>:port<span class="token punctuation">]</span> 
+  <span class="token comment">#说明虚拟服务器提供的是tcp 的服务。服务器地址的形式为 主机[:端口]。</span>
+  <span class="token comment">#主机可以是IP地址也可以是主机名。</span>
+  <span class="token comment">#端口可以是普通的端口号，也可以是端口的服务名称。端口可以被省略，在这种情况下，默认端口号为0。当端口号为0时，需要指定服务器提供持久稳固的服务（也即是使用了-p | --persistent选项）才有效，在这种情况下，它是一个通配符端口，即访问任何端口的连接都将被接受。</span>
+  --udp-service  -u service-address   service-address is host<span class="token punctuation">[</span>:port<span class="token punctuation">]</span>
+  <span class="token comment">#虚拟服务器提供的是udp 的服务。服务器地址的形式为 主机[:端口]。</span>
   --fwmark-service  -f fwmark         fwmark is an integer greater than zero
-  #使用fwamrk（fwmark是一个大于0的整数值）来防火墙标识集群服务，而不是地址、 端口和协议使用它，fwmark可以通过结合IPtables将多个以调度器为目标的端口定义成一个防火墙标识，由ipvsdam通过此项关联标识，则可以实现对一个IP多端口调度，即实现后端服务器可以开放多个服务
+  <span class="token comment">#使用fwamrk（fwmark是一个大于0的整数值）来防火墙标识集群服务，而不是地址、 端口和协议使用它，fwmark可以通过结合IPtables将多个以调度器为目标的端口定义成一个防火墙标识，由ipvsdam通过此项关联标识，则可以实现对一个IP多端口调度，即实现后端服务器可以开放多个服务</span>
   --ipv6         -6                   fwmark entry uses IPv6
-  #与-f一起使用表示fwmark规则使用IPv6地址
-  --scheduler    -s scheduler         one of rr|wrr|lc|wlc|lblc|lblcr|dh|sh|sed|nq,
+  <span class="token comment">#与-f一起使用表示fwmark规则使用IPv6地址</span>
+  --scheduler    -s scheduler         one of rr<span class="token operator">|</span>wrr<span class="token operator">|</span>lc<span class="token operator">|</span>wlc<span class="token operator">|</span>lblc<span class="token operator">|</span>lblcr<span class="token operator">|</span>dh<span class="token operator">|</span><span class="token function">sh</span><span class="token operator">|</span><span class="token function">sed</span><span class="token operator">|</span>nq,
                                       the default scheduler is wlc.
-  #指定集群服务使用的调度算法。10种调度算法被实现为内核模块。默认的调度算法是wlc
+  <span class="token comment">#指定集群服务使用的调度算法。10种调度算法被实现为内核模块。默认的调度算法是wlc</span>
   --pe            engine              alternate persistence engine may be sip,
-                                      not set by default.
-  #设置持久化引擎如源IP，默认不设置
-  --persistent   -p [timeout]         persistent service
-  #开启持久化服务，开启它则表示在指定时间内，来自同一IP的请求都会转发到后端同一台真实服务器上进行处理，默认时间为300秒
-  #此选项可以与SSL或FTP等协议结合使用，这对客户端始终与同一台真实服务器保持连接至关重要
+                                      not <span class="token builtin class-name">set</span> by default.
+  <span class="token comment">#设置持久化引擎如源IP，默认不设置</span>
+  --persistent   -p <span class="token punctuation">[</span>timeout<span class="token punctuation">]</span>         persistent <span class="token function">service</span>
+  <span class="token comment">#开启持久化服务，开启它则表示在指定时间内，来自同一IP的请求都会转发到后端同一台真实服务器上进行处理，默认时间为300秒</span>
+  <span class="token comment">#此选项可以与SSL或FTP等协议结合使用，这对客户端始终与同一台真实服务器保持连接至关重要</span>
   --netmask      -M netmask           persistent granularity mask
-  #使用网络掩码来屏蔽持久化来源IP的地址范围，默认值为255.255.255.255，即所有来源IP请求都会享受持久化服务
-  --real-server  -r server-address    server-address is host (and port)
-  #指定真实服务器的主机IP与端口
-  --gatewaying   -g                   gatewaying (direct routing) (default)
-  #指定IPVS的工作模式为DR模式，DR为默认模式
-  --ipip         -i                   ipip encapsulation (tunneling)
-  #指定IPVS的工作模式为IP隧道模式
-  --masquerading -m                   masquerading (NAT)
-  #指定IPVS的工作模式为NAT模式
+  <span class="token comment">#使用网络掩码来屏蔽持久化来源IP的地址范围，默认值为255.255.255.255，即所有来源IP请求都会享受持久化服务</span>
+  --real-server  -r server-address    server-address is <span class="token function">host</span> <span class="token punctuation">(</span>and port<span class="token punctuation">)</span>
+  <span class="token comment">#指定真实服务器的主机IP与端口</span>
+  --gatewaying   -g                   gatewaying <span class="token punctuation">(</span>direct routing<span class="token punctuation">)</span> <span class="token punctuation">(</span>default<span class="token punctuation">)</span>
+  <span class="token comment">#指定IPVS的工作模式为DR模式，DR为默认模式</span>
+  --ipip         -i                   ipip encapsulation <span class="token punctuation">(</span>tunneling<span class="token punctuation">)</span>
+  <span class="token comment">#指定IPVS的工作模式为IP隧道模式</span>
+  --masquerading -m                   masquerading <span class="token punctuation">(</span>NAT<span class="token punctuation">)</span>
+  <span class="token comment">#指定IPVS的工作模式为NAT模式</span>
   --weight       -w weight            capacity of real server
-  #指定真实服务器的权重值
+  <span class="token comment">#指定真实服务器的权重值</span>
   --u-threshold  -x uthreshold        upper threshold of connections
-  #设置转发请求的最大上连接阀值，范围为0~65535，当连接数超过指定上限时，LVS则不会转发请求
+  <span class="token comment">#设置转发请求的最大上连接阀值，范围为0~65535，当连接数超过指定上限时，LVS则不会转发请求</span>
   --l-threshold  -y lthreshold        lower threshold of connections
-  #设置转发请求的下连接阀值，范围为0~65535，当连接数降低至指定值时，LVS则继续提供服务，默认值为0
-  --mcast-interface interface         multicast interface for connection sync
-  #设置用于连接同步守护进程的组播接口
-  --syncid sid                        syncid for connection sync (default=255)
-  #设置连接同步守护进程的SID号，用于标识，范围0~255，默认为255
+  <span class="token comment">#设置转发请求的下连接阀值，范围为0~65535，当连接数降低至指定值时，LVS则继续提供服务，默认值为0</span>
+  --mcast-interface interface         multicast interface <span class="token keyword">for</span> connection <span class="token function">sync</span>
+  <span class="token comment">#设置用于连接同步守护进程的组播接口</span>
+  --syncid sid                        syncid <span class="token keyword">for</span> connection <span class="token function">sync</span> <span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span>
+  <span class="token comment">#设置连接同步守护进程的SID号，用于标识，范围0~255，默认为255</span>
   --connection   -c                   output of current IPVS connections
-  #显示连接信息，一般与"-l"连用
-  --timeout                           output of timeout (tcp tcpfin udp)
-  #显示TCP、TCPFIN、UDP超时时间信息，一般与"-l"连用
+  <span class="token comment">#显示连接信息，一般与"-l"连用</span>
+  --timeout                           output of <span class="token function">timeout</span> <span class="token punctuation">(</span>tcp tcpfin udp<span class="token punctuation">)</span>
+  <span class="token comment">#显示TCP、TCPFIN、UDP超时时间信息，一般与"-l"连用</span>
   --daemon                            output of daemon information
-  #显示连接同步守护信息，一般与"-l"连用
+  <span class="token comment">#显示连接同步守护信息，一般与"-l"连用</span>
   --stats                             output of statistics information
-  #显示统计信息，一般与"-l"连用
+  <span class="token comment">#显示统计信息，一般与"-l"连用</span>
   --rate                              output of rate information
-  #显示转发速率信息，一般与"-l"连用
-  --exact                             expand numbers (display exact values)
-  #显示数据包和字节计数器的确切值，扩大字符长度
+  <span class="token comment">#显示转发速率信息，一般与"-l"连用</span>
+  --exact                             <span class="token function">expand</span> numbers <span class="token punctuation">(</span>display exact values<span class="token punctuation">)</span>
+  <span class="token comment">#显示数据包和字节计数器的确切值，扩大字符长度</span>
   --thresholds                        output of thresholds information
-  #显示阀值信息，一般与"-l"连用
+  <span class="token comment">#显示阀值信息，一般与"-l"连用</span>
   --persistent-conn                   output of persistent connection info
-  #显示持久化连接信息，一般与"-l"连用
+  <span class="token comment">#显示持久化连接信息，一般与"-l"连用</span>
   --nosort                            disable sorting output of service/server entries
-  #不要对虚拟服务和真实服务器的列表进行排序
-  --sort                              does nothing, for backwards compatibility
-  #排序虚拟服务和真实服务器的列表。虚拟服务条目按照&lt;protocol，address，port&gt;升序排列。真实的服务器条目按&lt;地址，端口&gt;升序排列。
+  <span class="token comment">#不要对虚拟服务和真实服务器的列表进行排序</span>
+  --sort                              does nothing, <span class="token keyword">for</span> backwards compatibility
+  <span class="token comment">#排序虚拟服务和真实服务器的列表。虚拟服务条目按照&lt;protocol，address，port&gt;升序排列。真实的服务器条目按&lt;地址，端口&gt;升序排列。</span>
   --ops          -o                   one-packet scheduling
-  #指定一个虚拟服务使用单包调度。该选项只能用于UDP服务。如果指定了此选项，则创建的所有连接都仅用于转发一个数据包。选项对于将UDP数据包从相同的客户端端口调度到不同的真实服务器很有用
+  <span class="token comment">#指定一个虚拟服务使用单包调度。该选项只能用于UDP服务。如果指定了此选项，则创建的所有连接都仅用于转发一个数据包。选项对于将UDP数据包从相同的客户端端口调度到不同的真实服务器很有用</span>
   --numeric      -n                   numeric output of addresses and ports
-  #地址和端口以数字格式显示，一般与"-l"连用
-  --sched-flags  -b flags             scheduler flags (comma-separated)
-  #设置调度算法的范围标识，用于SH算法，有两个标识：sh-fallback，如果真实服务器不可用，则将其转发到其他真实服务器上。sh-port,将源地址的端口号也添加到散列键=值中
-</code></pre>
-<h2 id="ipvsadm策略文件-etc-sysconfig-ipvsadm"><a href="#ipvsadm策略文件-etc-sysconfig-ipvsadm" class="headerlink" title="ipvsadm策略文件/etc/sysconfig/ipvsadm"></a>ipvsadm策略文件/etc/sysconfig/ipvsadm</h2><p>没有策略文件通常启动服务会报错</p>
-<pre><code class="shell">
-</code></pre>
-<h2 id="ipvsadm工具用法"><a href="#ipvsadm工具用法" class="headerlink" title="ipvsadm工具用法"></a>ipvsadm工具用法</h2><pre><code class="shell">##管理集群服务
-  ipvsadm -A|E -t|u|f service-address [-s scheduler] [-p [timeout]] [-M netmask] [--pe persistence_engine] [-b sched-flags]
-  #添加|修改一条虚拟服务格式
-  ipvsadm -D -t|u|f service-address
-  #删除一个一条虚拟服务格式
-  ipvsadm -C
-  #清除内核虚拟服务器表中的所有记录的格式
-  ipvsadm -R
-  #从标准输入中还原虚拟服务列表的格式
-  ipvsadm -S [-n]
-  #保存虚拟服务规则至标准输出的格式
-  
-  
-  ##管理集群中的RS
-    ipvsadm -a|e -t|u|f service-address -r server-address [options]
-  #添加|修改一条真实服务器记录的格式
-  ipvsadm -d -t|u|f service-address -r server-address
-  #删除一条真实服务器记录的格式
-  ipvsadm -L|l [options]
-  #列出虚拟服务器表
-  ipvsadm -Z [-t|u|f service-address]
-  #虚拟服务表计数器清零
-</code></pre>
-<h1 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h1><pre><code class="shell">#LVS    Nat模式
-[root@localhost ~]# vim /etc/sysctl.conf
-net.ipv4.ip_forward = 1
-[root@localhost ~]# sysctl -p
+  <span class="token comment">#地址和端口以数字格式显示，一般与"-l"连用</span>
+  --sched-flags  -b flags             scheduler flags <span class="token punctuation">(</span>comma-separated<span class="token punctuation">)</span>
+  <span class="token comment">#设置调度算法的范围标识，用于SH算法，有两个标识：sh-fallback，如果真实服务器不可用，则将其转发到其他真实服务器上。sh-port,将源地址的端口号也添加到散列键=值中</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-[root@localhost ~]# ipvsadm -A -t 192.168.137.128:80 -s rr
-[root@localhost ~]# ipvsadm -a -t 192.168.137.128:80 -r 192.168.100.133 -m
-[root@localhost ~]# ipvsadm -a -t 192.168.137.128:80 -r 192.168.100.134 -m
-[root@localhost ~]# ipvsadm -Ln
-IP Virtual Server version 1.2.1 (size=4096)
+<h2 id="ipvsadm策略文件-etc-sysconfig-ipvsadm"><a href="#ipvsadm策略文件-etc-sysconfig-ipvsadm" class="headerlink" title="ipvsadm策略文件/etc/sysconfig/ipvsadm"></a>ipvsadm策略文件/etc/sysconfig/ipvsadm</h2><p>没有策略文件通常启动服务会报错</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">``<span class="token variable"><span class="token variable">`</span>
+
+
+
+
+
+<span class="token comment">## ipvsadm工具用法</span>
+
+<span class="token variable">`</span></span>``shell
+<span class="token comment">##管理集群服务</span>
+  ipvsadm -A<span class="token operator">|</span>E -t<span class="token operator">|</span>u<span class="token operator">|</span>f service-address <span class="token punctuation">[</span>-s scheduler<span class="token punctuation">]</span> <span class="token punctuation">[</span>-p <span class="token punctuation">[</span>timeout<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-M netmask<span class="token punctuation">]</span> <span class="token punctuation">[</span>--pe persistence_engine<span class="token punctuation">]</span> <span class="token punctuation">[</span>-b sched-flags<span class="token punctuation">]</span>
+  <span class="token comment">#添加|修改一条虚拟服务格式</span>
+  ipvsadm -D -t<span class="token operator">|</span>u<span class="token operator">|</span>f service-address
+  <span class="token comment">#删除一个一条虚拟服务格式</span>
+  ipvsadm -C
+  <span class="token comment">#清除内核虚拟服务器表中的所有记录的格式</span>
+  ipvsadm -R
+  <span class="token comment">#从标准输入中还原虚拟服务列表的格式</span>
+  ipvsadm -S <span class="token punctuation">[</span>-n<span class="token punctuation">]</span>
+  <span class="token comment">#保存虚拟服务规则至标准输出的格式</span>
+  
+  
+  <span class="token comment">##管理集群中的RS</span>
+    ipvsadm -a<span class="token operator">|</span>e -t<span class="token operator">|</span>u<span class="token operator">|</span>f service-address -r server-address <span class="token punctuation">[</span>options<span class="token punctuation">]</span>
+  <span class="token comment">#添加|修改一条真实服务器记录的格式</span>
+  ipvsadm -d -t<span class="token operator">|</span>u<span class="token operator">|</span>f service-address -r server-address
+  <span class="token comment">#删除一条真实服务器记录的格式</span>
+  ipvsadm -L<span class="token operator">|</span>l <span class="token punctuation">[</span>options<span class="token punctuation">]</span>
+  <span class="token comment">#列出虚拟服务器表</span>
+  ipvsadm -Z <span class="token punctuation">[</span>-t<span class="token operator">|</span>u<span class="token operator">|</span>f service-address<span class="token punctuation">]</span>
+  <span class="token comment">#虚拟服务表计数器清零</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h1 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h1><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#LVS	Nat模式</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/sysctl.conf</span>
+net.ipv4.ip_forward <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># sysctl -p</span>
+
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipvsadm -A -t 192.168.137.128:80 -s rr</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipvsadm -a -t 192.168.137.128:80 -r 192.168.100.133 -m</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipvsadm -a -t 192.168.137.128:80 -r 192.168.100.134 -m</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipvsadm -Ln</span>
+IP Virtual Server version <span class="token number">1.2</span>.1 <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">4096</span><span class="token punctuation">)</span>
 Prot LocalAddress:Port Scheduler Flags
-  -&gt; RemoteAddress:Port           Forward Weight ActiveConn InActConn
-TCP  192.168.137.128:80 rr
-  -&gt; 192.168.100.133:80           Masq    1      0          0
-  -&gt; 192.168.100.134:80           Masq    1      0          0
-</code></pre>
-<pre><code class="shell"># Lvs    DR模式
-[root@localhost network-scripts]# cat &gt;&gt; /etc/sysctl.conf &lt;&lt;EOF
-&gt; net.ipv4.conf.all.arp_ignore = 1
-&gt; net.ipv4.conf.lo.arp_ignore = 1
-&gt; net.ipv4.conf.lo.arp_announce = 2
-&gt; net.ipv4.conf.all.arp_announce = 2
-&gt; EOF
-[root@localhost network-scripts]# sysctl -p
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-net.bridge.bridge-nf-call-arptables = 1
-net.ipv4.ip_forward = 1
+  -<span class="token operator">&gt;</span> RemoteAddress:Port           Forward Weight ActiveConn InActConn
+TCP  <span class="token number">192.168</span>.137.128:80 rr
+  -<span class="token operator">&gt;</span> <span class="token number">192.168</span>.100.133:80           Masq    <span class="token number">1</span>      <span class="token number">0</span>          <span class="token number">0</span>
+  -<span class="token operator">&gt;</span> <span class="token number">192.168</span>.100.134:80           Masq    <span class="token number">1</span>      <span class="token number">0</span>          <span class="token number">0</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># Lvs	DR模式</span>
+<span class="token punctuation">[</span>root@localhost network-scripts<span class="token punctuation">]</span><span class="token comment"># cat &gt;&gt; /etc/sysctl.conf &lt;&lt;EOF</span>
+<span class="token operator">&gt;</span> net.ipv4.conf.all.arp_ignore <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token operator">&gt;</span> net.ipv4.conf.lo.arp_ignore <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token operator">&gt;</span> net.ipv4.conf.lo.arp_announce <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token operator">&gt;</span> net.ipv4.conf.all.arp_announce <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token operator">&gt;</span> EOF
+<span class="token punctuation">[</span>root@localhost network-scripts<span class="token punctuation">]</span><span class="token comment"># sysctl -p</span>
+net.bridge.bridge-nf-call-ip6tables <span class="token operator">=</span> <span class="token number">1</span>
+net.bridge.bridge-nf-call-iptables <span class="token operator">=</span> <span class="token number">1</span>
+net.bridge.bridge-nf-call-arptables <span class="token operator">=</span> <span class="token number">1</span>
+net.ipv4.ip_forward <span class="token operator">=</span> <span class="token number">1</span>
 以下4行配置是新添加的：
-net.ipv4.conf.all.arp_ignore = 1
-net.ipv4.conf.lo.arp_ignore = 1
-net.ipv4.conf.lo.arp_announce = 2
-net.ipv4.conf.all.arp_announce = 2
-[root@localhost network-scripts]# systemctl restart NetworkManager
-[root@localhost network-scripts]# systemctl restart network
-</code></pre>
+net.ipv4.conf.all.arp_ignore <span class="token operator">=</span> <span class="token number">1</span>
+net.ipv4.conf.lo.arp_ignore <span class="token operator">=</span> <span class="token number">1</span>
+net.ipv4.conf.lo.arp_announce <span class="token operator">=</span> <span class="token number">2</span>
+net.ipv4.conf.all.arp_announce <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token punctuation">[</span>root@localhost network-scripts<span class="token punctuation">]</span><span class="token comment"># systemctl restart NetworkManager</span>
+<span class="token punctuation">[</span>root@localhost network-scripts<span class="token punctuation">]</span><span class="token comment"># systemctl restart network</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p> <code>-g</code>:参数设置LVS工作模式为DR模式<br> <code>-w</code>:设置权重</p>
-<pre><code class="shell">[root@test3 ~]# ipvsadm -A -t 192.168.2.133:80 -s wrr
-[root@test3 ~]# ipvsadm -a -t 192.168.2.133:80 -r 192.168.2.128 -g -w 1
-[root@test3 ~]# ipvsadm -a -t 192.168.2.133:80 -r 192.168.2.129 -g -w 2
-[root@test3 ~]# ipvsadm -Ln
-IP Virtual Server version 1.2.1 (size=4096)
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@test3 ~<span class="token punctuation">]</span><span class="token comment"># ipvsadm -A -t 192.168.2.133:80 -s wrr</span>
+<span class="token punctuation">[</span>root@test3 ~<span class="token punctuation">]</span><span class="token comment"># ipvsadm -a -t 192.168.2.133:80 -r 192.168.2.128 -g -w 1</span>
+<span class="token punctuation">[</span>root@test3 ~<span class="token punctuation">]</span><span class="token comment"># ipvsadm -a -t 192.168.2.133:80 -r 192.168.2.129 -g -w 2</span>
+<span class="token punctuation">[</span>root@test3 ~<span class="token punctuation">]</span><span class="token comment"># ipvsadm -Ln</span>
+IP Virtual Server version <span class="token number">1.2</span>.1 <span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">4096</span><span class="token punctuation">)</span>
 Prot LocalAddress:Port Scheduler Flags
-  -&gt; RemoteAddress:Port           Forward Weight ActiveConn InActConn
-TCP  192.168.2.133:80 wrr
-  -&gt; 192.168.2.128:80             Route   1      0          0
-  -&gt; 192.168.2.129:80             Route   2      0          0
-[root@test3 ~]# ipvsadm-save -n &gt; /etc/sysconfig/ipvsadm-config
-</code></pre>
-<pre><code class="shell">[root@test3 ~]# vim /etc/keepalived/keepalived.conf! Configuration File for keepalivedglobal_defs {   notification_email {     acassen@firewall.loc         //设置报警收件人邮箱，可以定义多个   }   notification_email_from Alexandre.Cassen@firewall.loc    //设置发件人   smtp_server 127.0.0.1         //定义邮件服务器   smtp_connect_timeout 30       //连接超时时间   router_id LVS1          //设置路由ID号（需修改）   vrrp_skip_check_adv_addr   vrrp_strict   vrrp_garp_interval 0   vrrp_gna_interval 0}vrrp_instance VI_1 {           //每一个vrrp_instance就定义一个虚拟路由器    state MASTER         //由初始状态状态转换为master状态（需修改）    interface ens33      //定义网络接口（根据自己的网卡名称设置，主备可以不同）    virtual_router_id 51  //虚拟路由的id号，一般不能大于255（主辅VRID号必须一致）（需修改）    priority 100         //服务器优先级（需修改）    advert_int 1         //初始化通告    authentication {          //认证机制        auth_type PASS        auth_pass 1111      //密码（主辅服务器密码必须一致）    }    virtual_ipaddress {           //虚拟地址VIP（需修改）        192.168.2.150    }}virtual_server 192.168.2.150 80 {         //设置ipvsadm的VIP规则（需修改）    delay_loop 6    lb_algo wrr       //设置LVS调度算法为WRR（需修改）    lb_kind DR        //设置LVS的模式为DR（需修改）    #persistence_timeout 50   //注释掉的作用是保持连接，开启后，客户端在一定时间内始终访问相同服务器(超时时间)    protocol TCP    real_server 192.168.2.128 80 {        //设置后端web服务器真实IP（需修改）        weight 1          //设置权重为1（需修改）        TCP_CHECK {              //对后台real_server做健康检查            connect_timeout 3   //等待超时时间(访问时等待3秒)            nb_get_retry 3    //失败后尝试次数(访问失败后再尝试3次访问)            delay_before_retry 3   //每隔多久执行一次(每隔3秒执行一次)        }    }    real_server 192.168.2.129 80 {         //设置后端web服务器真实IP（需修改）        weight 2        //设置权重为2（需修改）        TCP_CHECK {          //对后台real_server做健康检查            connect_timeout 3            nb_get_retry 3            delay_before_retry 3        }    }}
-</code></pre>
+  -<span class="token operator">&gt;</span> RemoteAddress:Port           Forward Weight ActiveConn InActConn
+TCP  <span class="token number">192.168</span>.2.133:80 wrr
+  -<span class="token operator">&gt;</span> <span class="token number">192.168</span>.2.128:80             Route   <span class="token number">1</span>      <span class="token number">0</span>          <span class="token number">0</span>
+  -<span class="token operator">&gt;</span> <span class="token number">192.168</span>.2.129:80             Route   <span class="token number">2</span>      <span class="token number">0</span>          <span class="token number">0</span>
+<span class="token punctuation">[</span>root@test3 ~<span class="token punctuation">]</span><span class="token comment"># ipvsadm-save -n &gt; /etc/sysconfig/ipvsadm-config</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@test3 ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/keepalived/keepalived.conf</span>
+<span class="token operator">!</span> Configuration File <span class="token keyword">for</span> keepalived
+global_defs <span class="token punctuation">{</span>
+   notification_email <span class="token punctuation">{</span>
+     acassen@firewall.loc         //设置报警收件人邮箱，可以定义多个
+   <span class="token punctuation">}</span>
+   notification_email_from Alexandre.Cassen@firewall.loc    //设置发件人
+   smtp_server <span class="token number">127.0</span>.0.1         //定义邮件服务器
+   smtp_connect_timeout <span class="token number">30</span>       //连接超时时间
+   router_id LVS1          //设置路由ID号（需修改）
+   vrrp_skip_check_adv_addr
+   vrrp_strict
+   vrrp_garp_interval <span class="token number">0</span>
+   vrrp_gna_interval <span class="token number">0</span>
+<span class="token punctuation">}</span>
+vrrp_instance VI_1 <span class="token punctuation">{</span>
+           //每一个vrrp_instance就定义一个虚拟路由器
+    state MASTER         //由初始状态状态转换为master状态（需修改）
+    interface ens33      //定义网络接口（根据自己的网卡名称设置，主备可以不同）
+    virtual_router_id <span class="token number">51</span>  //虚拟路由的id号，一般不能大于255（主辅VRID号必须一致）（需修改）
+    priority <span class="token number">100</span>         //服务器优先级（需修改）
+    advert_int <span class="token number">1</span>         //初始化通告
+    authentication <span class="token punctuation">{</span>
+          //认证机制
+        auth_type PASS
+        auth_pass <span class="token number">1111</span>      //密码（主辅服务器密码必须一致）
+    <span class="token punctuation">}</span>
+    virtual_ipaddress <span class="token punctuation">{</span>
+           //虚拟地址VIP（需修改）
+        <span class="token number">192.168</span>.2.150
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+virtual_server <span class="token number">192.168</span>.2.150 <span class="token number">80</span> <span class="token punctuation">{</span>
+         //设置ipvsadm的VIP规则（需修改）
+    delay_loop <span class="token number">6</span>
+    lb_algo wrr       //设置LVS调度算法为WRR（需修改）
+    lb_kind DR        //设置LVS的模式为DR（需修改）
+    <span class="token comment">#persistence_timeout 50   //注释掉的作用是保持连接，开启后，客户端在一定时间内始终访问相同服务器(超时时间)</span>
+    protocol TCP
+    real_server <span class="token number">192.168</span>.2.128 <span class="token number">80</span> <span class="token punctuation">{</span>
+        //设置后端web服务器真实IP（需修改）
+        weight <span class="token number">1</span>          //设置权重为1（需修改）
+        TCP_CHECK <span class="token punctuation">{</span>
+              //对后台real_server做健康检查
+            connect_timeout <span class="token number">3</span>   //等待超时时间<span class="token punctuation">(</span>访问时等待3秒<span class="token punctuation">)</span>
+            nb_get_retry <span class="token number">3</span>    //失败后尝试次数<span class="token punctuation">(</span>访问失败后再尝试3次访问<span class="token punctuation">)</span>
+            delay_before_retry <span class="token number">3</span>   //每隔多久执行一次<span class="token punctuation">(</span>每隔3秒执行一次<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    real_server <span class="token number">192.168</span>.2.129 <span class="token number">80</span> <span class="token punctuation">{</span>
+         //设置后端web服务器真实IP（需修改）
+        weight <span class="token number">2</span>        //设置权重为2（需修改）
+        TCP_CHECK <span class="token punctuation">{</span>
+          //对后台real_server做健康检查
+            connect_timeout <span class="token number">3</span>
+            nb_get_retry <span class="token number">3</span>
+            delay_before_retry <span class="token number">3</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
                 
             </div>
@@ -1549,7 +1633,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
 </body>
 
 </html>

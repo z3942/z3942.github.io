@@ -453,14 +453,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-14
+                    2021-08-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    941
+                    943
                 </div>
                 
 
@@ -482,6 +482,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -497,72 +500,77 @@
 <p>/                剩余空间</p>
 <h2 id="一、解决网络问题排查思路"><a href="#一、解决网络问题排查思路" class="headerlink" title="一、解决网络问题排查思路"></a>一、解决网络问题排查思路</h2><p>当我们部署完虚拟机遇到无法上网的问题是，排查思路如下：</p>
 <p>ps：由内到外</p>
-<h3 id="1、linux层面检查"><a href="#1、linux层面检查" class="headerlink" title="1、linux层面检查"></a>1、linux层面检查</h3><pre><code class="shell">ip a        查看网卡运行状态
+<h3 id="1、linux层面检查"><a href="#1、linux层面检查" class="headerlink" title="1、linux层面检查"></a>1、linux层面检查</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ip</span> a        查看网卡运行状态
 如果网卡处于done或者网卡无显示信息，systemctl restart network重启网卡、停止NetworkManager
 
-查看网卡配置文件具体信息
-</code></pre>
-<h3 id="2、vm层面检查"><a href="#2、vm层面检查" class="headerlink" title="2、vm层面检查"></a>2、vm层面检查</h3><pre><code class="shell">虚拟网络编辑器 ---&gt; vmnet8 网卡设置 查看子网、掩码、网关等设置
-</code></pre>
-<h3 id="3、windows层面检查"><a href="#3、windows层面检查" class="headerlink" title="3、windows层面检查"></a>3、windows层面检查</h3><pre><code class="shell">本地网卡检查 ---&gt; 控制面板\网络和 Internet\网络连接
-本地服务检查 ---&gt; 任务管理器 服务 vmware相关服务重启
-</code></pre>
-<h2 id="二、基础优化步骤"><a href="#二、基础优化步骤" class="headerlink" title="二、基础优化步骤"></a>二、基础优化步骤</h2><h3 id="1、配置yum仓库"><a href="#1、配置yum仓库" class="headerlink" title="1、配置yum仓库"></a>1、配置yum仓库</h3><pre><code class="shell">rm -f /etc/yum.repos.d/*
+查看网卡配置文件具体信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+<h3 id="2、vm层面检查"><a href="#2、vm层面检查" class="headerlink" title="2、vm层面检查"></a>2、vm层面检查</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">虚拟网络编辑器 ---<span class="token operator">&gt;</span> vmnet8 网卡设置 查看子网、掩码、网关等设置<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
-#或
-curl -o /etc/yum.repos.d/CentOS-Base.repo https://repo.huaweicloud.com/repository/conf/CentOS-7-reg.repo
+<h3 id="3、windows层面检查"><a href="#3、windows层面检查" class="headerlink" title="3、windows层面检查"></a>3、windows层面检查</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">本地网卡检查 ---<span class="token operator">&gt;</span> 控制面板<span class="token punctuation">\</span>网络和 Internet<span class="token punctuation">\</span>网络连接
+本地服务检查 ---<span class="token operator">&gt;</span> 任务管理器 服务 vmware相关服务重启<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-yum install -y https://repo.huaweicloud.com/epel/epel-release-latest-7.noarch.rpm
+<h2 id="二、基础优化步骤"><a href="#二、基础优化步骤" class="headerlink" title="二、基础优化步骤"></a>二、基础优化步骤</h2><h3 id="1、配置yum仓库"><a href="#1、配置yum仓库" class="headerlink" title="1、配置yum仓库"></a>1、配置yum仓库</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">rm</span> -f /etc/yum.repos.d/*
 
-sed -i "s/#baseurl/baseurl/g" /etc/yum.repos.d/epel.repo
-sed -i "s/metalink/#metalink/g" /etc/yum.repos.d/epel.repo
-sed -i "s@https\?://download.fedoraproject.org/pub@https://repo.huaweicloud.com@g" /etc/yum.repos.d/epel.repo
+<span class="token function">curl</span> -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+<span class="token function">curl</span> -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+<span class="token comment">#或</span>
+<span class="token function">curl</span> -o /etc/yum.repos.d/CentOS-Base.repo https://repo.huaweicloud.com/repository/conf/CentOS-7-reg.repo
+
+yum <span class="token function">install</span> -y https://repo.huaweicloud.com/epel/epel-release-latest-7.noarch.rpm
+
+<span class="token function">sed</span> -i <span class="token string">"s/#baseurl/baseurl/g"</span> /etc/yum.repos.d/epel.repo
+<span class="token function">sed</span> -i <span class="token string">"s/metalink/#metalink/g"</span> /etc/yum.repos.d/epel.repo
+<span class="token function">sed</span> -i <span class="token string">"s@https\?://download.fedoraproject.org/pub@https://repo.huaweicloud.com@g"</span> /etc/yum.repos.d/epel.repo
 
 yum clean all
-yum makecache
-</code></pre>
-<h3 id="2、系统升级"><a href="#2、系统升级" class="headerlink" title="2、系统升级"></a>2、系统升级</h3><pre><code class="shell">yum -y upgrade  #只升级系统包，不升级软件和系统内核
-yum -y update  #升级系统包、软件、内核。刚做完系统执行一次，以后不要执行，避免长时间未更新，出现兼容问题。
-yum update -y --exclud=kernel*    #排除内核都更新
-</code></pre>
-<h3 id="3、安装基础软件包"><a href="#3、安装基础软件包" class="headerlink" title="3、安装基础软件包"></a>3、安装基础软件包</h3><pre><code class="shell">yum install net-tools vim tree htop iftop iotop  bash-completion bash-completion-extras lrzsz sysstat sl lsof unzip telnet nmap nc psmisc dos2unix bash-completion wget  nethogs ntpdate nfsutils rsync glances gcc gcc-c++ glibc yum-utils httpd-tools -y
-</code></pre>
-<h3 id="4、关闭系统服务"><a href="#4、关闭系统服务" class="headerlink" title="4、关闭系统服务"></a>4、关闭系统服务</h3><h4 id="1、关闭防火墙"><a href="#1、关闭防火墙" class="headerlink" title="1、关闭防火墙"></a>1、关闭防火墙</h4><pre><code class="shell">systemctl stop firewalld      -----&gt;临时关闭
-systemctl status firewalld    -----&gt;查看状态
-systemctl disable firewalld   -----&gt;永久关闭
-</code></pre>
-<h4 id="2、关闭SElinux"><a href="#2、关闭SElinux" class="headerlink" title="2、关闭SElinux"></a>2、关闭SElinux</h4><pre><code class="shell">setenforce 0                  -----&gt;临时关闭
-sed -i '/^SELINUX=/c SELINUX=disabled' /etc/selinux/config        ---&gt;永久关闭
-[root@oldboy ~]# getenforce        -----&gt;检查状态
-Permissive
-</code></pre>
-<h4 id="3、关闭NetworkManager"><a href="#3、关闭NetworkManager" class="headerlink" title="3、关闭NetworkManager"></a>3、关闭NetworkManager</h4><pre><code class="shell">systemctl stop NetworkManager      -----&gt;临时关闭systemctl status NetworkManager    -----&gt;查看状态systemctl disable NetworkManager       -----&gt;永久关闭
-</code></pre>
-<h3 id="5、配置ntp服务，同步系统时间"><a href="#5、配置ntp服务，同步系统时间" class="headerlink" title="5、配置ntp服务，同步系统时间"></a>5、配置ntp服务，同步系统时间</h3><pre><code class="shell">echo '#Timing synchronization time' &gt;&gt;/var/spool/cron/root    #给定时任务加上注释echo '0 */1 * * * /usr/sbin/ntpdate ntp1.aliyun.com &amp;&gt;/dev/null' &gt;&gt;/var/spool/cron/root        #设置定时任务crontab -l    #检查结果
-</code></pre>
+yum makecache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2、系统升级"><a href="#2、系统升级" class="headerlink" title="2、系统升级"></a>2、系统升级</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum -y upgrade  <span class="token comment">#只升级系统包，不升级软件和系统内核</span>
+yum -y update  <span class="token comment">#升级系统包、软件、内核。刚做完系统执行一次，以后不要执行，避免长时间未更新，出现兼容问题。</span>
+yum update -y --exclud<span class="token operator">=</span>kernel*    <span class="token comment">#排除内核都更新</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3、安装基础软件包"><a href="#3、安装基础软件包" class="headerlink" title="3、安装基础软件包"></a>3、安装基础软件包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> net-tools <span class="token function">vim</span> tree <span class="token function">htop</span> iftop iotop  bash-completion bash-completion-extras lrzsz sysstat sl <span class="token function">lsof</span> <span class="token function">unzip</span> telnet nmap <span class="token function">nc</span> psmisc dos2unix bash-completion <span class="token function">wget</span>  nethogs ntpdate nfsutils <span class="token function">rsync</span> glances gcc gcc-c++ glibc yum-utils httpd-tools -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="4、关闭系统服务"><a href="#4、关闭系统服务" class="headerlink" title="4、关闭系统服务"></a>4、关闭系统服务</h3><h4 id="1、关闭防火墙"><a href="#1、关闭防火墙" class="headerlink" title="1、关闭防火墙"></a>1、关闭防火墙</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl stop firewalld      -----<span class="token operator">&gt;</span>临时关闭
+systemctl status firewalld    -----<span class="token operator">&gt;</span>查看状态
+systemctl disable firewalld   -----<span class="token operator">&gt;</span>永久关闭<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2、关闭SElinux"><a href="#2、关闭SElinux" class="headerlink" title="2、关闭SElinux"></a>2、关闭SElinux</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">setenforce <span class="token number">0</span>                  -----<span class="token operator">&gt;</span>临时关闭
+<span class="token function">sed</span> -i <span class="token string">'/^SELINUX=/c SELINUX=disabled'</span> /etc/selinux/config        ---<span class="token operator">&gt;</span>永久关闭
+<span class="token punctuation">[</span>root@oldboy ~<span class="token punctuation">]</span><span class="token comment"># getenforce        -----&gt;检查状态</span>
+Permissive<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3、关闭NetworkManager"><a href="#3、关闭NetworkManager" class="headerlink" title="3、关闭NetworkManager"></a>3、关闭NetworkManager</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl stop NetworkManager      -----<span class="token operator">&gt;</span>临时关闭
+systemctl status NetworkManager    -----<span class="token operator">&gt;</span>查看状态
+systemctl disable NetworkManager       -----<span class="token operator">&gt;</span>永久关闭<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5、配置ntp服务，同步系统时间"><a href="#5、配置ntp服务，同步系统时间" class="headerlink" title="5、配置ntp服务，同步系统时间"></a>5、配置ntp服务，同步系统时间</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token string">'#Timing synchronization time'</span> <span class="token operator">&gt;&gt;</span>/var/spool/cron/root    <span class="token comment">#给定时任务加上注释</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'0 */1 * * * /usr/sbin/ntpdate ntp1.aliyun.com &amp;&gt;/dev/null'</span> <span class="token operator">&gt;&gt;</span>/var/spool/cron/root        <span class="token comment">#设置定时任务</span>
+<span class="token function">crontab</span> -l    <span class="token comment">#检查结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="6、优化显示输出"><a href="#6、优化显示输出" class="headerlink" title="6、优化显示输出"></a>6、优化显示输出</h3><p>vim /etc/bashrc 进入bashrc文件 按下41gg 跳转文件的41行 按下i键进入编辑模式，输入#，注释当前行，光标移动到#号前，按下回车键空出当前41行内容，而后光标移动到41行（空行位置），粘贴参数。而后按下ESC键，退出编辑模式，按下SHIFT+; wq 保存退出</p>
-<pre><code class="shell">[ "$PS1" = "\\s-\\v\\\$ " ] &amp;&amp; PS1="[\[\e[34;1m\]\u@\[\e[0m\]\[\e[32;1m\]\H\[\e[0m\] \[\e[31;1m\]\w\[\e[0m\]]\\$ "
-</code></pre>
-<h3 id="7、优化ssh连接速度"><a href="#7、优化ssh连接速度" class="headerlink" title="7、优化ssh连接速度"></a>7、优化ssh连接速度</h3><pre><code class="shell">sed -i 's@#UseDNS yes@UseDNS no@g' /etc/ssh/sshd_configsed -i 's@^GSSAPIAuthentication yes@GSSAPIAuthentication no@g' /etc/ssh/sshd_configsystemctl restart sshd
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span> <span class="token string">"<span class="token environment constant">$PS1</span>"</span> <span class="token operator">=</span> <span class="token string">"<span class="token entity" title="\\">\\</span>s-<span class="token entity" title="\\">\\</span>v<span class="token entity" title="\\">\\</span>\$ "</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token assign-left variable"><span class="token environment constant">PS1</span></span><span class="token operator">=</span><span class="token string">"[\[<span class="token entity" title="\e">\e</span>[34;1m\]\u@\[<span class="token entity" title="\e">\e</span>[0m\]\[<span class="token entity" title="\e">\e</span>[32;1m\]\H\[<span class="token entity" title="\e">\e</span>[0m\] \[<span class="token entity" title="\e">\e</span>[31;1m\]\w\[<span class="token entity" title="\e">\e</span>[0m\]]<span class="token entity" title="\\">\\</span>$ "</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="7、优化ssh连接速度"><a href="#7、优化ssh连接速度" class="headerlink" title="7、优化ssh连接速度"></a>7、优化ssh连接速度</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sed</span> -i <span class="token string">'s@#UseDNS yes@UseDNS no@g'</span> /etc/ssh/sshd_config
+<span class="token function">sed</span> -i <span class="token string">'s@^GSSAPIAuthentication yes@GSSAPIAuthentication no@g'</span> /etc/ssh/sshd_config
+systemctl restart sshd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="8、hosts解析"><a href="#8、hosts解析" class="headerlink" title="8、hosts解析"></a>8、hosts解析</h3><p>vim /etc/hosts</p>
 <p>根据需要修改</p>
-<pre><code class="shell">192.168.100.11 centos7
-</code></pre>
-<h3 id="9、调整单个进程最大打开文件数"><a href="#9、调整单个进程最大打开文件数" class="headerlink" title="9、调整单个进程最大打开文件数"></a>9、调整单个进程最大打开文件数</h3><pre><code class="shell">echo '* - nofile 65535' &gt;&gt; /etc/security/limits.conf
-</code></pre>
-<p>以上完成后开始克隆</p>
-<h1 id="修改每台主机的主机名、IP地址"><a href="#修改每台主机的主机名、IP地址" class="headerlink" title="修改每台主机的主机名、IP地址"></a>修改每台主机的主机名、IP地址</h1><h2 id="一、修改主机名"><a href="#一、修改主机名" class="headerlink" title="一、修改主机名"></a>一、修改主机名</h2><pre><code class="shell">hostnamectl set-hostname 要换的名字        #注意看要换的名字
-hostnamectl set-hostname web01
-</code></pre>
-<h2 id="二、修改ip地址"><a href="#二、修改ip地址" class="headerlink" title="二、修改ip地址"></a>二、修改ip地址</h2><pre><code class="shell">sed -i 's#原ip#更改后ip#g' /etc/sysconfig/network-scripts/ifcfg-eth[01]   #注意自己要换的ip和原ip是什么
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">192.168</span>.100.11 centos7<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-sed -i 's#200#7#g' /etc/sysconfig/network-scripts/ifcfg-eth[01]
-systemctl restart network
-</code></pre>
+<h3 id="9、调整单个进程最大打开文件数"><a href="#9、调整单个进程最大打开文件数" class="headerlink" title="9、调整单个进程最大打开文件数"></a>9、调整单个进程最大打开文件数</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token string">'* - nofile 65535'</span> <span class="token operator">&gt;&gt;</span> /etc/security/limits.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>以上完成后开始克隆</p>
+<h1 id="修改每台主机的主机名、IP地址"><a href="#修改每台主机的主机名、IP地址" class="headerlink" title="修改每台主机的主机名、IP地址"></a>修改每台主机的主机名、IP地址</h1><h2 id="一、修改主机名"><a href="#一、修改主机名" class="headerlink" title="一、修改主机名"></a>一、修改主机名</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hostnamectl set-hostname 要换的名字        <span class="token comment">#注意看要换的名字</span>
+hostnamectl set-hostname web01<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="二、修改ip地址"><a href="#二、修改ip地址" class="headerlink" title="二、修改ip地址"></a>二、修改ip地址</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sed</span> -i <span class="token string">'s#原ip#更改后ip#g'</span> /etc/sysconfig/network-scripts/ifcfg-eth<span class="token punctuation">[</span>01<span class="token punctuation">]</span>   <span class="token comment">#注意自己要换的ip和原ip是什么</span>
+
+<span class="token function">sed</span> -i <span class="token string">'s#200#7#g'</span> /etc/sysconfig/network-scripts/ifcfg-eth<span class="token punctuation">[</span>01<span class="token punctuation">]</span>
+systemctl restart network<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1368,7 +1376,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
 </body>
 
 </html>

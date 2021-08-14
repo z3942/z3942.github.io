@@ -453,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-14
+                    2021-08-15
                 </div>
                 
 
@@ -482,89 +482,98 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux-https-www-linuxprobe-com-basic-learning-00-html"><a href="#Linux-https-www-linuxprobe-com-basic-learning-00-html" class="headerlink" title="Linux](https://www.linuxprobe.com/basic-learning-00.html)"></a>Linux](<a target="_blank" rel="noopener" href="https://www.linuxprobe.com/basic-learning-00.html">https://www.linuxprobe.com/basic-learning-00.html</a>)</h1><h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h3><pre><code class="shell">ssh-keygen -t rsa  #生成密钥和私钥文件 id_rsa、id_rsa.pub
-cd .ssh
-ssh-copy-id ip
-ssh root@ip 
-</code></pre>
-<h3 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h3><pre><code class="shell">vim /etc/sysconfig/network-scripts/ifcfg-eth0
+                <h1 id="Linux-https-www-linuxprobe-com-basic-learning-00-html"><a href="#Linux-https-www-linuxprobe-com-basic-learning-00-html" class="headerlink" title="Linux](https://www.linuxprobe.com/basic-learning-00.html)"></a>Linux](<a target="_blank" rel="noopener" href="https://www.linuxprobe.com/basic-learning-00.html">https://www.linuxprobe.com/basic-learning-00.html</a>)</h1><h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa  <span class="token comment">#生成密钥和私钥文件 id_rsa、id_rsa.pub</span>
+<span class="token builtin class-name">cd</span> .ssh
+ssh-copy-id <span class="token function">ip</span>
+<span class="token function">ssh</span> root@ip <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-IPADDR=192.168.100.10
+<h3 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /etc/sysconfig/network-scripts/ifcfg-eth0
 
-PREFIX=24
+<span class="token assign-left variable">IPADDR</span><span class="token operator">=</span><span class="token number">192.168</span>.100.10
 
-GATEWAY=192.168.100.1
+<span class="token assign-left variable">PREFIX</span><span class="token operator">=</span><span class="token number">24</span>
 
-DNS=192.168.100.1
+<span class="token assign-left variable">GATEWAY</span><span class="token operator">=</span><span class="token number">192.168</span>.100.1
 
-systemctl restart network
-</code></pre>
-<h3 id="域名映射"><a href="#域名映射" class="headerlink" title="域名映射"></a>域名映射</h3><pre><code class="shell">vim /etc/hosts
+<span class="token assign-left variable">DNS</span><span class="token operator">=</span><span class="token number">192.168</span>.100.1
 
-192.168.100.10 node1
+systemctl restart network<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-192.168.100.20 node2
-</code></pre>
-<h3 id="网络端口监听"><a href="#网络端口监听" class="headerlink" title="网络端口监听"></a>网络端口监听</h3><pre><code class="shell">netstat
 
-netstat -nlpt #获取进程名、进程号、用户ID
 
-netstat -tnl #可以看到处于监听状态的TCP端口和连接
-</code></pre>
+<h3 id="域名映射"><a href="#域名映射" class="headerlink" title="域名映射"></a>域名映射</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /etc/hosts
+
+<span class="token number">192.168</span>.100.10 node1
+
+<span class="token number">192.168</span>.100.20 node2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="网络端口监听"><a href="#网络端口监听" class="headerlink" title="网络端口监听"></a>网络端口监听</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">netstat</span>
+
+<span class="token function">netstat</span> -nlpt <span class="token comment">#获取进程名、进程号、用户ID</span>
+
+<span class="token function">netstat</span> -tnl <span class="token comment">#可以看到处于监听状态的TCP端口和连接</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h3 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h3><p>Linux <a target="_blank" rel="noopener" href="https://www.linuxprobe.com/how-to-crontab.html">crontab</a>是用来定期执行程序的命令。</p>
-<pre><code class="shell">crontab [-u user] file
-crontab [ -u user ] [ -i ] { -e | -l | -r }
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">crontab</span> <span class="token punctuation">[</span>-u user<span class="token punctuation">]</span> <span class="token function">file</span>
+<span class="token function">crontab</span> <span class="token punctuation">[</span> -u user <span class="token punctuation">]</span> <span class="token punctuation">[</span> -i <span class="token punctuation">]</span> <span class="token punctuation">{</span> -e <span class="token operator">|</span> -l <span class="token operator">|</span> -r <span class="token punctuation">}</span>
 • -u user：用于设定某个用户的crontab服务；
 • file: file为命令文件名，表示将file作为crontab的任务列表文件并载入crontab；
 • -e：编辑某个用户的crontab文件内容，如不指定用户则表示当前用户；
 • -l：显示某个用户的crontab文件内容，如不指定用户则表示当前用户；
 • -r：从/var/spool/cron目录中删除某个用户的crontab文件。
-• -i：在删除用户的crontab文件时给确认提示
-</code></pre>
+• -i：在删除用户的crontab文件时给确认提示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>每一分钟执行一次command（因cron默认每1分钟扫描一次，因此全为*即可）</p>
-<pre><code class="shell">*    *    *    *    *  command
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*    *    *    *    *  <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每小时的第3和第15分钟执行command</p>
-<pre><code class="shell">3,15   *    *    *    *  command
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">3,15</span>   *    *    *    *  <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每天上午8-11点的第3和15分钟执行command：</p>
-<pre><code class="shell">3,15  8-11  *  *  *  command
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">3,15</span>  <span class="token number">8</span>-11  *  *  *  <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每隔2天的上午8-11点的第3和15分钟执行command：</p>
-<pre><code class="shell">3,15  8-11  */2  *   *  command
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">3,15</span>  <span class="token number">8</span>-11  */2  *   *  <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每个星期一的上午8点到11点的第3和第15分钟执行command</p>
-<pre><code class="shell">3,15  8-11   *   *  1 command
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">3,15</span>  <span class="token number">8</span>-11   *   *  <span class="token number">1</span> <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每晚的21:30重启smb</p>
-<pre><code class="shell">30  21   *   *  *  /etc/init.d/smb restart
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">30</span>  <span class="token number">21</span>   *   *  *  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每月1、10、22日的4 : 45重启smb</p>
-<pre><code class="shell">45  4  1,10,22  *  *  /etc/init.d/smb restart
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">45</span>  <span class="token number">4</span>  <span class="token number">1,10</span>,22  *  *  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每周六、周日的1 : 10重启smb</p>
-<pre><code class="shell">10  1  *  *  6,0  /etc/init.d/smb restart
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">10</span>  <span class="token number">1</span>  *  *  <span class="token number">6,0</span>  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每天18 : 00至23 : 00之间每隔30分钟重启smb</p>
-<pre><code class="shell">0,30  18-23  *  *  *  /etc/init.d/smb restart
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">0,30</span>  <span class="token number">18</span>-23  *  *  *  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每一小时重启smb</p>
-<pre><code class="shell">*  */1  *  *  *  /etc/init.d/smb restart
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*  */1  *  *  *  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>晚上11点到早上7点之间，每隔一小时重启smb</p>
-<pre><code class="shell">*  23-7/1  *   *   *  /etc/init.d/smb restart
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*  <span class="token number">23</span>-7/1  *   *   *  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每月的4号与每周一到周三的11点重启smb</p>
-<pre><code class="shell">0  11  4  *  mon-wed  /etc/init.d/smb restart
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">0</span>  <span class="token number">11</span>  <span class="token number">4</span>  *  mon-wed  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>每小时执行/etc/cron.hourly目录内的脚本</p>
-<pre><code class="shell">0  1   *   *   *     root run-parts /etc/cron.hourly
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">0</span>  <span class="token number">1</span>   *   *   *     root run-parts /etc/cron.hourly<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h2 id="磁盘管理和文件系统"><a href="#磁盘管理和文件系统" class="headerlink" title="磁盘管理和文件系统"></a>磁盘管理和文件系统</h2><table>
 <thead>
 <tr>
@@ -609,8 +618,9 @@ crontab [ -u user ] [ -i ] { -e | -l | -r }
 <td>综合RAID1和RAID0的优点，追求硬盘的速度和安全性，允许有一半硬盘异常（不可同组），数据不受影响</td>
 </tr>
 </tbody></table>
-<pre><code class="shell">df -h                #将容量结果以易读的容量格式显示出来fdisk -l            #列出所有分区信息
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">df</span> -h				<span class="token comment">#将容量结果以易读的容量格式显示出来</span>
+<span class="token function">fdisk</span> -l			<span class="token comment">#列出所有分区信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h3 id="文件基本属性"><a href="#文件基本属性" class="headerlink" title="文件基本属性"></a>文件基本属性</h3><p>在 Linux 中第一个字符代表这个文件是目录、文件或链接文件等等。</p>
 <ul>
 <li>当为 <strong>d</strong> 则是目录</li>
@@ -641,8 +651,33 @@ crontab [ -u user ] [ -i ] { -e | -l | -r }
 <td>读 写 执行</td>
 </tr>
 </tbody></table>
-<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><pre><code class="shell">vim 常用命令输入模式    i    #i 为『从目前光标所在处输入』， I 为『在目前所在行的第一个非空格符处开始输入』。o    #o 为在目前光标所在的下一行处输入新的一行；O 为在目前光标所在的上一行处输入新的一行！a    #a 为『从目前光标所在的下一个字符处开始输入』， A 为『从光标所在行的最后一个字符处开始输入』。gg    #移动到这个档案的第一行，相当于 1G x    #在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) dd    #删除游标所在的那一整行yy    #复制游标所在的那一行p    #p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！u    #复原前一个动作.[Ctrl]+r    #重做上一个动作。:set nu        #显示行号，设定之后，会在每一行的前缀显示该行的行号vim 中批量添加注释方法一 ：块选择模式批量注释：Ctrl + v 进入块选择模式，然后移动光标选中你要注释的行，再按大写的 I 进入行首插入模式输入注释符号如 // 或 #，输入完毕之后，按两下 ESC，Vim 会自动将你选中的所有行首都加上注释，保存退出完成注释。取消注释：Ctrl + v 进入块选择模式，选中你要删除的行首的注释符号，注意 // 要选中两个，选好之后按 d 即可删除注释，ESC 保存退出。
-</code></pre>
+<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> 常用命令
+
+输入模式	
+i	<span class="token comment">#i 为『从目前光标所在处输入』， I 为『在目前所在行的第一个非空格符处开始输入』。</span>
+o	<span class="token comment">#o 为在目前光标所在的下一行处输入新的一行；O 为在目前光标所在的上一行处输入新的一行！</span>
+a	<span class="token comment">#a 为『从目前光标所在的下一个字符处开始输入』， A 为『从光标所在行的最后一个字符处开始输入』。</span>
+gg	<span class="token comment">#移动到这个档案的第一行，相当于 1G </span>
+x	<span class="token comment">#在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) </span>
+<span class="token function">dd</span>	<span class="token comment">#删除游标所在的那一整行</span>
+yy	<span class="token comment">#复制游标所在的那一行</span>
+p	<span class="token comment">#p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！</span>
+u	<span class="token comment">#复原前一个动作.</span>
+<span class="token punctuation">[</span>Ctrl<span class="token punctuation">]</span>+r	<span class="token comment">#重做上一个动作。</span>
+:set nu		<span class="token comment">#显示行号，设定之后，会在每一行的前缀显示该行的行号</span>
+
+<span class="token function">vim</span> 中批量添加注释
+
+方法一 ：块选择模式
+
+批量注释：
+
+Ctrl + <span class="token function">v</span> 进入块选择模式，然后移动光标选中你要注释的行，再按大写的 I 进入行首插入模式输入注释符号如 // 或 <span class="token comment">#，输入完毕之后，按两下 ESC，Vim 会自动将你选中的所有行首都加上注释，保存退出完成注释。</span>
+
+取消注释：
+
+Ctrl + <span class="token function">v</span> 进入块选择模式，选中你要删除的行首的注释符号，注意 // 要选中两个，选好之后按 d 即可删除注释，ESC 保存退出。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h2><h3 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h3><ul>
 <li>\1. 列出所有可更新的软件清单命令：<strong>yum check-update</strong></li>
 <li>\2. 更新所有软件命令：<strong>yum update</strong></li>
@@ -659,31 +694,202 @@ crontab [ -u user ] [ -i ] { -e | -l | -r }
 </ul>
 </li>
 </ul>
-<h3 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h3><pre><code class="shell"> rpm -ivh &lt;package_name&gt;        #安装软件 rpm -qi &lt;package_name&gt;        #显示软件安装信息
-</code></pre>
-<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="配置管理nginx-conf"><a href="#配置管理nginx-conf" class="headerlink" title="配置管理nginx.conf"></a>配置管理nginx.conf</h3><pre><code class="nginx">########### 每个指令必须有分号结束。##################user administrator administrators;  #配置用户或者组，默认为nobody nobody。#worker_processes 2;  #允许生成的进程数，默认为1#pid /nginx/pid/nginx.pid;   #指定nginx进程运行文件存放地址error_log log/error.log debug;  #制定日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emergevents {    accept_mutex on;   #设置网路连接序列化，防止惊群现象发生，默认为on    multi_accept on;  #设置一个进程是否同时接受多个网络连接，默认为off    #use epoll;      #事件驱动模型，select|poll|kqueue|epoll|resig|/dev/poll|eventport    worker_connections  1024;    #最大连接数，默认为512}http {    include       mime.types;   #文件扩展名与文件类型映射表    default_type  application/octet-stream; #默认文件类型，默认为text/plain    #access_log off; #取消服务日志        log_format myFormat '$remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for'; #自定义格式    access_log log/access.log myFormat;  #combined为日志格式的默认值    sendfile on;   #允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。    sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。    keepalive_timeout 65;  #连接超时时间，默认为75s，可以在http，server，location块。    upstream mysvr {         server 127.0.0.1:7878;      server 192.168.10.121:3333 backup;  #热备    }    error_page 404 https://www.baidu.com; #错误页    server {        keepalive_requests 120; #单连接请求上限次数。        listen       4545;   #监听端口        server_name  127.0.0.1;   #监听地址               location  ~*^.+$ {       #请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。           #root path;  #根目录           #index vv.txt;  #设置默认页           proxy_pass  http://mysvr;  #请求转向mysvr 定义的服务器列表           deny 127.0.0.1;  #拒绝的ip           allow 172.18.5.54; #允许的ip                   }     }}
-</code></pre>
-<pre><code class="nginx"># For more information on configuration, see:#   * Official English Documentation: http://nginx.org/en/docs/#   * Official Russian Documentation: http://nginx.org/ru/docs/user nginx;worker_processes auto;        #允许生成的进程数，取决于CPU核数error_log /var/log/nginx/error.log;        #错误日志pid /run/nginx.pid;         #主进程id，指定nginx进程运行文件存放地址# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.include /usr/share/nginx/modules/*.conf;events {    worker_connections 1024;        ##worker进程处理的请求数}##服务器核心配置http {        ##日志格式    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '                      '$status $body_bytes_sent "$http_referer" '                      '"$http_user_agent" "$http_x_forwarded_for"';        ##访问日志    access_log  /var/log/nginx/access.log  main;    sendfile            on;    tcp_nopush          on;    tcp_nodelay         on;    ##会话保持时间    keepalive_timeout   65;    types_hash_max_size 4096;    include             /etc/nginx/mime.types;    default_type        application/octet-stream;    # Load modular configuration files from the /etc/nginx/conf.d directory.    # See http://nginx.org/en/docs/ngx_core_module.html#include    # for more information.    include /etc/nginx/conf.d/*.conf;        #引入子配置文件    server {        listen       80;        ##监听所有的ipv4的地址        listen       [::]:80;    ##监听所有的ipv6的地址        server_name  _;        root         /usr/share/nginx/html;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }    }# Settings for a TLS enabled server.##    server {#        listen       443 ssl http2;#        listen       [::]:443 ssl http2;#        server_name  _;#        root         /usr/share/nginx/html;##        ssl_certificate "/etc/pki/nginx/server.crt";#        ssl_certificate_key "/etc/pki/nginx/private/server.key";#        ssl_session_cache shared:SSL:1m;#        ssl_session_timeout  10m;#        ssl_ciphers HIGH:!aNULL:!MD5;#        ssl_prefer_server_ciphers on;##        # Load configuration files for the default server block.#        include /etc/nginx/default.d/*.conf;##        error_page 404 /404.html;#            location = /40x.html {#        }##        error_page 500 502 503 504 /50x.html;#            location = /50x.html {#        }#    }}
-</code></pre>
-<pre><code class="nginx">server {        listen       80;        listen       [::]:80;        server_name  _;        root         /usr/share/nginx/html;            # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;         location = /hello {            root         /usr/share/nginx/html;        ##网站目录    目录/URL            index        index.html index.htm;        #默认首页    index.html        }        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }
-</code></pre>
+<h3 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">rpm</span> -ivh <span class="token operator">&lt;</span>package_name<span class="token operator">&gt;</span>		<span class="token comment">#安装软件</span>
+<span class="token function">rpm</span> -qi <span class="token operator">&lt;</span>package_name<span class="token operator">&gt;</span>		<span class="token comment">#显示软件安装信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="配置管理nginx-conf"><a href="#配置管理nginx-conf" class="headerlink" title="配置管理nginx.conf"></a>配置管理nginx.conf</h3><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token comment">########### 每个指令必须有分号结束。#################</span>
+<span class="token comment">#user administrator administrators;  #配置用户或者组，默认为nobody nobody。</span>
+<span class="token comment">#worker_processes 2;  #允许生成的进程数，默认为1</span>
+<span class="token comment">#pid /nginx/pid/nginx.pid;   #指定nginx进程运行文件存放地址</span>
+<span class="token directive"><span class="token keyword">error_log</span> log/error.log debug</span><span class="token punctuation">;</span>  <span class="token comment">#制定日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg</span>
+<span class="token directive"><span class="token keyword">events</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">accept_mutex</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>   <span class="token comment">#设置网路连接序列化，防止惊群现象发生，默认为on</span>
+    <span class="token directive"><span class="token keyword">multi_accept</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>  <span class="token comment">#设置一个进程是否同时接受多个网络连接，默认为off</span>
+    <span class="token comment">#use epoll;      #事件驱动模型，select|poll|kqueue|epoll|resig|/dev/poll|eventport</span>
+    <span class="token directive"><span class="token keyword">worker_connections</span>  <span class="token number">1024</span></span><span class="token punctuation">;</span>    <span class="token comment">#最大连接数，默认为512</span>
+<span class="token punctuation">}</span>
+<span class="token directive"><span class="token keyword">http</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">include</span>       mime.types</span><span class="token punctuation">;</span>   <span class="token comment">#文件扩展名与文件类型映射表</span>
+    <span class="token directive"><span class="token keyword">default_type</span>  application/octet-stream</span><span class="token punctuation">;</span> <span class="token comment">#默认文件类型，默认为text/plain</span>
+    <span class="token comment">#access_log off; #取消服务日志    </span>
+    <span class="token directive"><span class="token keyword">log_format</span> myFormat <span class="token string">'<span class="token variable">$remote_addr–</span><span class="token variable">$remote_user</span> [<span class="token variable">$time_local]</span> <span class="token variable">$request</span> <span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> <span class="token variable">$http_referer</span> <span class="token variable">$http_user_agent</span> <span class="token variable">$http_x_forwarded_for</span>'</span></span><span class="token punctuation">;</span> <span class="token comment">#自定义格式</span>
+    <span class="token directive"><span class="token keyword">access_log</span> log/access.log myFormat</span><span class="token punctuation">;</span>  <span class="token comment">#combined为日志格式的默认值</span>
+    <span class="token directive"><span class="token keyword">sendfile</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>   <span class="token comment">#允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。</span>
+    <span class="token directive"><span class="token keyword">sendfile_max_chunk</span> <span class="token number">100k</span></span><span class="token punctuation">;</span>  <span class="token comment">#每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</span>
+    <span class="token directive"><span class="token keyword">keepalive_timeout</span> <span class="token number">65</span></span><span class="token punctuation">;</span>  <span class="token comment">#连接超时时间，默认为75s，可以在http，server，location块。</span>
+
+    <span class="token directive"><span class="token keyword">upstream</span> mysvr</span> <span class="token punctuation">{</span>   
+      <span class="token directive"><span class="token keyword">server</span> 127.0.0.1:7878</span><span class="token punctuation">;</span>
+      <span class="token directive"><span class="token keyword">server</span> 192.168.10.121:3333 backup</span><span class="token punctuation">;</span>  <span class="token comment">#热备</span>
+    <span class="token punctuation">}</span>
+    <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> https://www.baidu.com</span><span class="token punctuation">;</span> <span class="token comment">#错误页</span>
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">keepalive_requests</span> <span class="token number">120</span></span><span class="token punctuation">;</span> <span class="token comment">#单连接请求上限次数。</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">4545</span></span><span class="token punctuation">;</span>   <span class="token comment">#监听端口</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  127.0.0.1</span><span class="token punctuation">;</span>   <span class="token comment">#监听地址       </span>
+        <span class="token directive"><span class="token keyword">location</span>  ~*^.+$</span> <span class="token punctuation">{</span>       <span class="token comment">#请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。</span>
+           <span class="token comment">#root path;  #根目录</span>
+           <span class="token comment">#index vv.txt;  #设置默认页</span>
+           <span class="token directive"><span class="token keyword">proxy_pass</span>  http://mysvr</span><span class="token punctuation">;</span>  <span class="token comment">#请求转向mysvr 定义的服务器列表</span>
+           <span class="token directive"><span class="token keyword">deny</span> 127.0.0.1</span><span class="token punctuation">;</span>  <span class="token comment">#拒绝的ip</span>
+           <span class="token directive"><span class="token keyword">allow</span> 172.18.5.54</span><span class="token punctuation">;</span> <span class="token comment">#允许的ip           </span>
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token comment"># For more information on configuration, see:</span>
+<span class="token comment">#   * Official English Documentation: http://nginx.org/en/docs/</span>
+<span class="token comment">#   * Official Russian Documentation: http://nginx.org/ru/docs/</span>
+
+<span class="token directive"><span class="token keyword">user</span> nginx</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">worker_processes</span> auto</span><span class="token punctuation">;</span>		<span class="token comment">#允许生成的进程数，取决于CPU核数</span>
+<span class="token directive"><span class="token keyword">error_log</span> /var/log/nginx/error.log</span><span class="token punctuation">;</span>		<span class="token comment">#错误日志</span>
+<span class="token directive"><span class="token keyword">pid</span> /run/nginx.pid</span><span class="token punctuation">;</span>		 <span class="token comment">#主进程id，指定nginx进程运行文件存放地址</span>
+
+<span class="token comment"># Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.</span>
+<span class="token directive"><span class="token keyword">include</span> /usr/share/nginx/modules/*.conf</span><span class="token punctuation">;</span>
+
+<span class="token directive"><span class="token keyword">events</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">worker_connections</span> <span class="token number">1024</span></span><span class="token punctuation">;</span>		<span class="token comment">##worker进程处理的请求数</span>
+<span class="token punctuation">}</span>
+<span class="token comment">##服务器核心配置</span>
+<span class="token directive"><span class="token keyword">http</span></span> <span class="token punctuation">{</span>
+		<span class="token comment">##日志格式</span>
+    <span class="token directive"><span class="token keyword">log_format</span>  main  <span class="token string">'<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_local]</span> "<span class="token variable">$request</span>" '</span>
+                      <span class="token string">'<span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> "<span class="token variable">$http_referer</span>" '</span>
+                      <span class="token string">'"<span class="token variable">$http_user_agent</span>" "<span class="token variable">$http_x_forwarded_for</span>"'</span></span><span class="token punctuation">;</span>
+		<span class="token comment">##访问日志</span>
+    <span class="token directive"><span class="token keyword">access_log</span>  /var/log/nginx/access.log  main</span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">sendfile</span>            <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">tcp_nopush</span>          <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">tcp_nodelay</span>         <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+	<span class="token comment">##会话保持时间</span>
+    <span class="token directive"><span class="token keyword">keepalive_timeout</span>   <span class="token number">65</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">types_hash_max_size</span> <span class="token number">4096</span></span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">include</span>             /etc/nginx/mime.types</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">default_type</span>        application/octet-stream</span><span class="token punctuation">;</span>
+
+    <span class="token comment"># Load modular configuration files from the /etc/nginx/conf.d directory.</span>
+    <span class="token comment"># See http://nginx.org/en/docs/ngx_core_module.html#include</span>
+    <span class="token comment"># for more information.</span>
+    <span class="token directive"><span class="token keyword">include</span> /etc/nginx/conf.d/*.conf</span><span class="token punctuation">;</span>		<span class="token comment">#引入子配置文件</span>
+
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">80</span></span><span class="token punctuation">;</span>		<span class="token comment">##监听所有的ipv4的地址</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:80</span><span class="token punctuation">;</span>	<span class="token comment">##监听所有的ipv6的地址</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  _</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /usr/share/nginx/html</span><span class="token punctuation">;</span>
+
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token comment"># Settings for a TLS enabled server.</span>
+<span class="token comment">#</span>
+<span class="token comment">#    server {</span>
+<span class="token comment">#        listen       443 ssl http2;</span>
+<span class="token comment">#        listen       [::]:443 ssl http2;</span>
+<span class="token comment">#        server_name  _;</span>
+<span class="token comment">#        root         /usr/share/nginx/html;</span>
+<span class="token comment">#</span>
+<span class="token comment">#        ssl_certificate "/etc/pki/nginx/server.crt";</span>
+<span class="token comment">#        ssl_certificate_key "/etc/pki/nginx/private/server.key";</span>
+<span class="token comment">#        ssl_session_cache shared:SSL:1m;</span>
+<span class="token comment">#        ssl_session_timeout  10m;</span>
+<span class="token comment">#        ssl_ciphers HIGH:!aNULL:!MD5;</span>
+<span class="token comment">#        ssl_prefer_server_ciphers on;</span>
+<span class="token comment">#</span>
+<span class="token comment">#        # Load configuration files for the default server block.</span>
+<span class="token comment">#        include /etc/nginx/default.d/*.conf;</span>
+<span class="token comment">#</span>
+<span class="token comment">#        error_page 404 /404.html;</span>
+<span class="token comment">#            location = /40x.html {</span>
+<span class="token comment">#        }</span>
+<span class="token comment">#</span>
+<span class="token comment">#        error_page 500 502 503 504 /50x.html;</span>
+<span class="token comment">#            location = /50x.html {</span>
+<span class="token comment">#        }</span>
+<span class="token comment">#    }</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">80</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:80</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  _</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /usr/share/nginx/html</span><span class="token punctuation">;</span>	
+
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+         <span class="token directive"><span class="token keyword">location</span> = /hello</span> <span class="token punctuation">{</span>
+        	<span class="token directive"><span class="token keyword">root</span>         /usr/share/nginx/html</span><span class="token punctuation">;</span>		<span class="token comment">##网站目录	目录/URL</span>
+    		<span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>		<span class="token comment">#默认首页	index.html</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="自定义站点"><a href="#自定义站点" class="headerlink" title="自定义站点"></a>自定义站点</h3><p>1.获取信息</p>
 <p>站点名称：mysite.com</p>
 <p>端口：81</p>
 <p>站点目录：/opt/mysite</p>
 <p>2.创建站点 </p>
-<pre><code class="shell">[root@localhost ~]# mkdir -p /opt/mysite[root@localhost ~]# cd /opt/mysite/[root@localhost mysite]# ls[root@localhost mysite]# echo mysite &gt; index.com[root@localhost mysite]# mkdir static[root@localhost mysite]# echo static &gt; static/index.com 
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkdir -p /opt/mysite</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cd /opt/mysite/</span>
+<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># ls</span>
+<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># echo mysite &gt; index.com</span>
+<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># mkdir static</span>
+<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># echo static &gt; static/index.com </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>3.配置nginx服务</p>
-<pre><code class="nginx">server {        listen       81;        listen       [::]:80;        server_name  mysite.com;        root         /opt/mysite;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;         location = /static {            root         /opt/mysite;        ##网站目录    目录/URL            index        index.html index.htm;        #默认首页    index.html        }        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
-</code></pre>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">81</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:80</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  mysite.com</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /opt/mysite</span><span class="token punctuation">;</span>
+
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+         <span class="token directive"><span class="token keyword">location</span> = /static</span> <span class="token punctuation">{</span>
+        	<span class="token directive"><span class="token keyword">root</span>         /opt/mysite</span><span class="token punctuation">;</span>		<span class="token comment">##网站目录	目录/URL</span>
+    		<span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>		<span class="token comment">#默认首页	index.html</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>4.启动nginx</p>
-<pre><code class="shell">vim /etc/nginx/conf.d/mysite.conf
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /etc/nginx/conf.d/mysite.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>5.安全配置</p>
 <p>安全组（开放端口）</p>
-<pre><code class="shell">systemctl stop firewalld    #关闭防火墙
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl stop firewalld	<span class="token comment">#关闭防火墙</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>6.配置域名</p>
 <p>域名–&gt;解析成IP</p>
 <p>买一个域名：</p>
@@ -700,55 +906,233 @@ crontab [ -u user ] [ -i ] { -e | -l | -r }
 <li>site1:/opt/site1</li>
 <li>site2:/opt/site2</li>
 </ul>
-<pre><code class="nginx">server {        listen       82;        listen       [::]:82;        server_name  _;        root         /opt/site1;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
-</code></pre>
-<pre><code class="nginx">server {        listen       83;        listen       [::]:83;        server_name  _;        root         /opt/site2;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
-</code></pre>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">82</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:82</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  _</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /opt/site1</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">83</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:83</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  _</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /opt/site2</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="基于域名配置虚拟主机"><a href="#基于域名配置虚拟主机" class="headerlink" title="基于域名配置虚拟主机"></a>基于域名配置虚拟主机</h4><ul>
 <li>mysite1.com /opt mysite1</li>
 <li>mysite2.com /opt mysite2</li>
 </ul>
-<pre><code class="shell">mkdir /opt/mysite1 /opt/mysite2echo mysite1 &gt;/opt/mysite1/index.htmlecho mysite2 &gt;/opt/mysite1/index.html
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> /opt/mysite1 /opt/mysite2
+
+<span class="token builtin class-name">echo</span> mysite1 <span class="token operator">&gt;</span>/opt/mysite1/index.html
+<span class="token builtin class-name">echo</span> mysite2 <span class="token operator">&gt;</span>/opt/mysite1/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>配置站点</p>
-<pre><code class="nginx">server {        listen       85;        listen       [::]:85;        server_name  mysite1.com;        root         /opt/mysite1;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
-</code></pre>
-<pre><code class="nginx">server {        listen       86;        listen       [::]:86;        server_name  mysite1.com;        root         /opt/mysite2;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
-</code></pre>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">85</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:85</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  mysite1.com</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /opt/mysite1</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">86</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:86</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  mysite1.com</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /opt/mysite2</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>基于访问路径配置虚拟主机</p>
-<pre><code class="nginx">server {        listen       80;        listen       [::]:80;        server_name  _;        root         /opt;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        location = /site1 {        }                location = /site2 {        }        location = /site3 {        }        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
-</code></pre>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">80</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:80</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  _</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /opt</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /site1</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>        
+        <span class="token directive"><span class="token keyword">location</span> = /site2</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+        <span class="token directive"><span class="token keyword">location</span> = /site3</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="nginx配置代理服务器"><a href="#nginx配置代理服务器" class="headerlink" title="nginx配置代理服务器"></a>nginx配置代理服务器</h3><p>一台机器：运行一个代理站点和两个其他站点</p>
 <p>创建数据</p>
 <ul>
 <li>proxysite1:/opt/proxy1</li>
 <li>proxysite2:/opt/proxy2</li>
 </ul>
-<pre><code class="shell">mkdir /opt/proxy1 /opt/proxy2echo "my proxy site1" &gt; /opt/proxy1/index.htmlecho "my proxy site2" &gt; /opt/proxy2/index.html
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> /opt/proxy1 /opt/proxy2
+<span class="token builtin class-name">echo</span> <span class="token string">"my proxy site1"</span> <span class="token operator">&gt;</span> /opt/proxy1/index.html
+<span class="token builtin class-name">echo</span> <span class="token string">"my proxy site2"</span> <span class="token operator">&gt;</span> /opt/proxy2/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>创建站点</p>
 <p>proxy1</p>
-<pre><code class="nginx">server {        listen       87;        listen       [::]:87;        server_name  _;        root         /opt/proxy1;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
-</code></pre>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">87</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:87</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  _</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /opt/proxy1</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>proxy2</p>
-<pre><code class="nginx">server {        listen       88;        listen       [::]:88;        server_name  _;        root         /opt/proxy2;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
-</code></pre>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">88</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:88</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  _</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /opt/proxy2</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>proxy</p>
-<pre><code class="nginx">server {    listen       89;    location / {        proxy_pass http://192.168.100.128:88/;    }    location ~ \.(gif|jpg|png)$ {        root /data/images;    }}
-</code></pre>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">89</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">proxy_pass</span> http://192.168.100.128:88/</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token directive"><span class="token keyword">location</span> ~ \.(gif|jpg|png)$</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">root</span> /data/images</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">Module ngx_http_proxy_module</a></p>
-<pre><code class="nginx">proxy_pass        ##设置代理服务器的协议和地址以及位置应映射到的可选 URI。作为协议，可以指定“ http”或“ https”。地址可以指定为域名或 IP 地址，以及可选的端口：
-</code></pre>
-<h3 id="配置NGINX支持PHP网站解析"><a href="#配置NGINX支持PHP网站解析" class="headerlink" title="配置NGINX支持PHP网站解析"></a>配置NGINX支持PHP网站解析</h3><h4 id="静动分离"><a href="#静动分离" class="headerlink" title="静动分离"></a>静动分离</h4><pre><code class="nginx">server {        listen       81;        listen       [::]:80;        server_name  mysite.com;        root         /opt/mysite;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;         location = /static {            root         /opt/mysite;        ##网站目录    目录/URL            index        index.html index.htm;        #默认首页    index.html        }       location /.php$ {        root   /opt/mysite;        index  index.php;        fastcgi_pass  localhost:9000;        fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;        fastcgi_param QUERY_STRING $query_string;        include fastcgi_params;    }}
-</code></pre>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx">proxy_pass		<span class="token comment">##设置代理服务器的协议和地址以及位置应映射到的可选 URI。作为协议，可以指定“ http”或“ https”。地址可以指定为域名或 IP 地址，以及可选的端口：</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="配置NGINX支持PHP网站解析"><a href="#配置NGINX支持PHP网站解析" class="headerlink" title="配置NGINX支持PHP网站解析"></a>配置NGINX支持PHP网站解析</h3><h4 id="静动分离"><a href="#静动分离" class="headerlink" title="静动分离"></a>静动分离</h4><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">81</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:80</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  mysite.com</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /opt/mysite</span><span class="token punctuation">;</span>
+
+        <span class="token comment"># Load configuration files for the default server block.</span>
+        <span class="token directive"><span class="token keyword">include</span> /etc/nginx/default.d/*.conf</span><span class="token punctuation">;</span>
+         <span class="token directive"><span class="token keyword">location</span> = /static</span> <span class="token punctuation">{</span>
+        	<span class="token directive"><span class="token keyword">root</span>         /opt/mysite</span><span class="token punctuation">;</span>		<span class="token comment">##网站目录	目录/URL</span>
+    		<span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>		<span class="token comment">#默认首页	index.html</span>
+        <span class="token punctuation">}</span>
+       <span class="token directive"><span class="token keyword">location</span> /.php$</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">root</span>   /opt/mysite</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">index</span>  index.php</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">fastcgi_pass</span>  localhost:9000</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">fastcgi_param</span> SCRIPT_FILENAME /home/www/scripts/php<span class="token variable">$fastcgi_script_name</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">fastcgi_param</span> QUERY_STRING <span class="token variable">$query_string</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">include</span> fastcgi_params</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>准备php页面</p>
-<pre><code class="php">&lt;?php    phpinfo();?&gt;
-</code></pre>
-<h3 id="nginx配置负载均衡器"><a href="#nginx配置负载均衡器" class="headerlink" title="nginx配置负载均衡器"></a>nginx配置负载均衡器</h3><pre><code class="nginx">http {    upstream backend {        server backend1.example.com;        server backend2.example.com;        server 192.0.0.1 backup;    }        server {        location / {            proxy_pass http://backend;        }    }}
-</code></pre>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+    <span class="token function">phpinfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="nginx配置负载均衡器"><a href="#nginx配置负载均衡器" class="headerlink" title="nginx配置负载均衡器"></a>nginx配置负载均衡器</h3><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">http</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">upstream</span> backend</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">server</span> backend1.example.com</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server</span> backend2.example.com</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server</span> 192.0.0.1 backup</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">proxy_pass</span> http://backend</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>服务器权重</p>
-<pre><code class="nginx">upstream backend {    server backend1.example.com weight=5;    server backend2.example.com;    server 192.0.0.1 backup;}#weight 参数server设置服务器的权重；默认是1#在这个例子中，backend1.example.com有 weight 5；其他两台服务器有默认权重（1），但有 IP 地址的那台192.0.0.1被标记为backup服务器，除非其他两台服务器都不可用，否则不会接收请求。随着权重的这种配置，每的6请求，5发送到backend1.example.com和1对backend2.example.com。
-</code></pre>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">upstream</span> backend</span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">server</span> backend1.example.com weight=5</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server</span> backend2.example.com</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server</span> 192.0.0.1 backup</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">#weight 参数server设置服务器的权重；默认是1</span>
+<span class="token comment">#在这个例子中，backend1.example.com有 weight 5；其他两台服务器有默认权重（1），但有 IP 地址的那台192.0.0.1被标记为backup服务器，除非其他两台服务器都不可用，否则不会接收请求。随着权重的这种配置，每的6请求，5发送到backend1.example.com和1对backend2.example.com。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
                 
             </div>
@@ -1554,7 +1938,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
 </body>
 
 </html>
