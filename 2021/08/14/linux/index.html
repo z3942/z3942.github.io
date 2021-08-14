@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Docker, 一只云辰">
+    <meta name="keywords" content="linux, 一只云辰">
     <meta name="description" content="本网站是个人兴趣爱好，记录生活点滴的平台">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Docker | 一只云辰</title>
+    <title>linux | 一只云辰</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Docker</h1>
+                    <h1 class="description center-align post-title">linux</h1>
                 </div>
             </div>
         </div>
@@ -609,8 +609,7 @@ crontab [ -u user ] [ -i ] { -e | -l | -r }
 <td>综合RAID1和RAID0的优点，追求硬盘的速度和安全性，允许有一半硬盘异常（不可同组），数据不受影响</td>
 </tr>
 </tbody></table>
-<pre><code class="shell">df -h                #将容量结果以易读的容量格式显示出来
-fdisk -l            #列出所有分区信息
+<pre><code class="shell">df -h                #将容量结果以易读的容量格式显示出来fdisk -l            #列出所有分区信息
 </code></pre>
 <h3 id="文件基本属性"><a href="#文件基本属性" class="headerlink" title="文件基本属性"></a>文件基本属性</h3><p>在 Linux 中第一个字符代表这个文件是目录、文件或链接文件等等。</p>
 <ul>
@@ -642,32 +641,7 @@ fdisk -l            #列出所有分区信息
 <td>读 写 执行</td>
 </tr>
 </tbody></table>
-<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><pre><code class="shell">vim 常用命令
-
-输入模式    
-i    #i 为『从目前光标所在处输入』， I 为『在目前所在行的第一个非空格符处开始输入』。
-o    #o 为在目前光标所在的下一行处输入新的一行；O 为在目前光标所在的上一行处输入新的一行！
-a    #a 为『从目前光标所在的下一个字符处开始输入』， A 为『从光标所在行的最后一个字符处开始输入』。
-gg    #移动到这个档案的第一行，相当于 1G 
-x    #在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) 
-dd    #删除游标所在的那一整行
-yy    #复制游标所在的那一行
-p    #p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！
-u    #复原前一个动作.
-[Ctrl]+r    #重做上一个动作。
-:set nu        #显示行号，设定之后，会在每一行的前缀显示该行的行号
-
-vim 中批量添加注释
-
-方法一 ：块选择模式
-
-批量注释：
-
-Ctrl + v 进入块选择模式，然后移动光标选中你要注释的行，再按大写的 I 进入行首插入模式输入注释符号如 // 或 #，输入完毕之后，按两下 ESC，Vim 会自动将你选中的所有行首都加上注释，保存退出完成注释。
-
-取消注释：
-
-Ctrl + v 进入块选择模式，选中你要删除的行首的注释符号，注意 // 要选中两个，选好之后按 d 即可删除注释，ESC 保存退出。
+<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><pre><code class="shell">vim 常用命令输入模式    i    #i 为『从目前光标所在处输入』， I 为『在目前所在行的第一个非空格符处开始输入』。o    #o 为在目前光标所在的下一行处输入新的一行；O 为在目前光标所在的上一行处输入新的一行！a    #a 为『从目前光标所在的下一个字符处开始输入』， A 为『从光标所在行的最后一个字符处开始输入』。gg    #移动到这个档案的第一行，相当于 1G x    #在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) dd    #删除游标所在的那一整行yy    #复制游标所在的那一行p    #p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！u    #复原前一个动作.[Ctrl]+r    #重做上一个动作。:set nu        #显示行号，设定之后，会在每一行的前缀显示该行的行号vim 中批量添加注释方法一 ：块选择模式批量注释：Ctrl + v 进入块选择模式，然后移动光标选中你要注释的行，再按大写的 I 进入行首插入模式输入注释符号如 // 或 #，输入完毕之后，按两下 ESC，Vim 会自动将你选中的所有行首都加上注释，保存退出完成注释。取消注释：Ctrl + v 进入块选择模式，选中你要删除的行首的注释符号，注意 // 要选中两个，选好之后按 d 即可删除注释，ESC 保存退出。
 </code></pre>
 <h2 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h2><h3 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h3><ul>
 <li>\1. 列出所有可更新的软件清单命令：<strong>yum check-update</strong></li>
@@ -685,190 +659,23 @@ Ctrl + v 进入块选择模式，选中你要删除的行首的注释符号，�
 </ul>
 </li>
 </ul>
-<h3 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h3><pre><code class="shell"> rpm -ivh &lt;package_name&gt;        #安装软件
- rpm -qi &lt;package_name&gt;        #显示软件安装信息
+<h3 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h3><pre><code class="shell"> rpm -ivh &lt;package_name&gt;        #安装软件 rpm -qi &lt;package_name&gt;        #显示软件安装信息
 </code></pre>
-<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="配置管理nginx-conf"><a href="#配置管理nginx-conf" class="headerlink" title="配置管理nginx.conf"></a>配置管理nginx.conf</h3><pre><code class="nginx">########### 每个指令必须有分号结束。#################
-#user administrator administrators;  #配置用户或者组，默认为nobody nobody。
-#worker_processes 2;  #允许生成的进程数，默认为1
-#pid /nginx/pid/nginx.pid;   #指定nginx进程运行文件存放地址
-error_log log/error.log debug;  #制定日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg
-events {
-    accept_mutex on;   #设置网路连接序列化，防止惊群现象发生，默认为on
-    multi_accept on;  #设置一个进程是否同时接受多个网络连接，默认为off
-    #use epoll;      #事件驱动模型，select|poll|kqueue|epoll|resig|/dev/poll|eventport
-    worker_connections  1024;    #最大连接数，默认为512
-}
-http {
-    include       mime.types;   #文件扩展名与文件类型映射表
-    default_type  application/octet-stream; #默认文件类型，默认为text/plain
-    #access_log off; #取消服务日志    
-    log_format myFormat '$remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for'; #自定义格式
-    access_log log/access.log myFormat;  #combined为日志格式的默认值
-    sendfile on;   #允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。
-    sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。
-    keepalive_timeout 65;  #连接超时时间，默认为75s，可以在http，server，location块。
-
-    upstream mysvr {   
-      server 127.0.0.1:7878;
-      server 192.168.10.121:3333 backup;  #热备
-    }
-    error_page 404 https://www.baidu.com; #错误页
-    server {
-        keepalive_requests 120; #单连接请求上限次数。
-        listen       4545;   #监听端口
-        server_name  127.0.0.1;   #监听地址       
-        location  ~*^.+$ {       #请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。
-           #root path;  #根目录
-           #index vv.txt;  #设置默认页
-           proxy_pass  http://mysvr;  #请求转向mysvr 定义的服务器列表
-           deny 127.0.0.1;  #拒绝的ip
-           allow 172.18.5.54; #允许的ip           
-        } 
-    }
-}
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="配置管理nginx-conf"><a href="#配置管理nginx-conf" class="headerlink" title="配置管理nginx.conf"></a>配置管理nginx.conf</h3><pre><code class="nginx">########### 每个指令必须有分号结束。##################user administrator administrators;  #配置用户或者组，默认为nobody nobody。#worker_processes 2;  #允许生成的进程数，默认为1#pid /nginx/pid/nginx.pid;   #指定nginx进程运行文件存放地址error_log log/error.log debug;  #制定日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emergevents {    accept_mutex on;   #设置网路连接序列化，防止惊群现象发生，默认为on    multi_accept on;  #设置一个进程是否同时接受多个网络连接，默认为off    #use epoll;      #事件驱动模型，select|poll|kqueue|epoll|resig|/dev/poll|eventport    worker_connections  1024;    #最大连接数，默认为512}http {    include       mime.types;   #文件扩展名与文件类型映射表    default_type  application/octet-stream; #默认文件类型，默认为text/plain    #access_log off; #取消服务日志        log_format myFormat '$remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for'; #自定义格式    access_log log/access.log myFormat;  #combined为日志格式的默认值    sendfile on;   #允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。    sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。    keepalive_timeout 65;  #连接超时时间，默认为75s，可以在http，server，location块。    upstream mysvr {         server 127.0.0.1:7878;      server 192.168.10.121:3333 backup;  #热备    }    error_page 404 https://www.baidu.com; #错误页    server {        keepalive_requests 120; #单连接请求上限次数。        listen       4545;   #监听端口        server_name  127.0.0.1;   #监听地址               location  ~*^.+$ {       #请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。           #root path;  #根目录           #index vv.txt;  #设置默认页           proxy_pass  http://mysvr;  #请求转向mysvr 定义的服务器列表           deny 127.0.0.1;  #拒绝的ip           allow 172.18.5.54; #允许的ip                   }     }}
 </code></pre>
-<pre><code class="nginx"># For more information on configuration, see:
-#   * Official English Documentation: http://nginx.org/en/docs/
-#   * Official Russian Documentation: http://nginx.org/ru/docs/
-
-user nginx;
-worker_processes auto;        #允许生成的进程数，取决于CPU核数
-error_log /var/log/nginx/error.log;        #错误日志
-pid /run/nginx.pid;         #主进程id，指定nginx进程运行文件存放地址
-
-# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
-include /usr/share/nginx/modules/*.conf;
-
-events {
-    worker_connections 1024;        ##worker进程处理的请求数
-}
-##服务器核心配置
-http {
-        ##日志格式
-    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                      '$status $body_bytes_sent "$http_referer" '
-                      '"$http_user_agent" "$http_x_forwarded_for"';
-        ##访问日志
-    access_log  /var/log/nginx/access.log  main;
-
-    sendfile            on;
-    tcp_nopush          on;
-    tcp_nodelay         on;
-    ##会话保持时间
-    keepalive_timeout   65;
-    types_hash_max_size 4096;
-
-    include             /etc/nginx/mime.types;
-    default_type        application/octet-stream;
-
-    # Load modular configuration files from the /etc/nginx/conf.d directory.
-    # See http://nginx.org/en/docs/ngx_core_module.html#include
-    # for more information.
-    include /etc/nginx/conf.d/*.conf;        #引入子配置文件
-
-    server {
-        listen       80;        ##监听所有的ipv4的地址
-        listen       [::]:80;    ##监听所有的ipv6的地址
-        server_name  _;
-        root         /usr/share/nginx/html;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
-    }
-
-# Settings for a TLS enabled server.
-#
-#    server {
-#        listen       443 ssl http2;
-#        listen       [::]:443 ssl http2;
-#        server_name  _;
-#        root         /usr/share/nginx/html;
-#
-#        ssl_certificate "/etc/pki/nginx/server.crt";
-#        ssl_certificate_key "/etc/pki/nginx/private/server.key";
-#        ssl_session_cache shared:SSL:1m;
-#        ssl_session_timeout  10m;
-#        ssl_ciphers HIGH:!aNULL:!MD5;
-#        ssl_prefer_server_ciphers on;
-#
-#        # Load configuration files for the default server block.
-#        include /etc/nginx/default.d/*.conf;
-#
-#        error_page 404 /404.html;
-#            location = /40x.html {
-#        }
-#
-#        error_page 500 502 503 504 /50x.html;
-#            location = /50x.html {
-#        }
-#    }
-
-}
+<pre><code class="nginx"># For more information on configuration, see:#   * Official English Documentation: http://nginx.org/en/docs/#   * Official Russian Documentation: http://nginx.org/ru/docs/user nginx;worker_processes auto;        #允许生成的进程数，取决于CPU核数error_log /var/log/nginx/error.log;        #错误日志pid /run/nginx.pid;         #主进程id，指定nginx进程运行文件存放地址# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.include /usr/share/nginx/modules/*.conf;events {    worker_connections 1024;        ##worker进程处理的请求数}##服务器核心配置http {        ##日志格式    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '                      '$status $body_bytes_sent "$http_referer" '                      '"$http_user_agent" "$http_x_forwarded_for"';        ##访问日志    access_log  /var/log/nginx/access.log  main;    sendfile            on;    tcp_nopush          on;    tcp_nodelay         on;    ##会话保持时间    keepalive_timeout   65;    types_hash_max_size 4096;    include             /etc/nginx/mime.types;    default_type        application/octet-stream;    # Load modular configuration files from the /etc/nginx/conf.d directory.    # See http://nginx.org/en/docs/ngx_core_module.html#include    # for more information.    include /etc/nginx/conf.d/*.conf;        #引入子配置文件    server {        listen       80;        ##监听所有的ipv4的地址        listen       [::]:80;    ##监听所有的ipv6的地址        server_name  _;        root         /usr/share/nginx/html;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }    }# Settings for a TLS enabled server.##    server {#        listen       443 ssl http2;#        listen       [::]:443 ssl http2;#        server_name  _;#        root         /usr/share/nginx/html;##        ssl_certificate "/etc/pki/nginx/server.crt";#        ssl_certificate_key "/etc/pki/nginx/private/server.key";#        ssl_session_cache shared:SSL:1m;#        ssl_session_timeout  10m;#        ssl_ciphers HIGH:!aNULL:!MD5;#        ssl_prefer_server_ciphers on;##        # Load configuration files for the default server block.#        include /etc/nginx/default.d/*.conf;##        error_page 404 /404.html;#            location = /40x.html {#        }##        error_page 500 502 503 504 /50x.html;#            location = /50x.html {#        }#    }}
 </code></pre>
-<pre><code class="nginx">server {
-        listen       80;
-        listen       [::]:80;
-        server_name  _;
-        root         /usr/share/nginx/html;    
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-         location = /hello {
-            root         /usr/share/nginx/html;        ##网站目录    目录/URL
-            index        index.html index.htm;        #默认首页    index.html
-        }
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
+<pre><code class="nginx">server {        listen       80;        listen       [::]:80;        server_name  _;        root         /usr/share/nginx/html;            # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;         location = /hello {            root         /usr/share/nginx/html;        ##网站目录    目录/URL            index        index.html index.htm;        #默认首页    index.html        }        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }
 </code></pre>
 <h3 id="自定义站点"><a href="#自定义站点" class="headerlink" title="自定义站点"></a>自定义站点</h3><p>1.获取信息</p>
 <p>站点名称：mysite.com</p>
 <p>端口：81</p>
 <p>站点目录：/opt/mysite</p>
 <p>2.创建站点 </p>
-<pre><code class="shell">[root@localhost ~]# mkdir -p /opt/mysite
-[root@localhost ~]# cd /opt/mysite/
-[root@localhost mysite]# ls
-[root@localhost mysite]# echo mysite &gt; index.com
-[root@localhost mysite]# mkdir static
-[root@localhost mysite]# echo static &gt; static/index.com 
+<pre><code class="shell">[root@localhost ~]# mkdir -p /opt/mysite[root@localhost ~]# cd /opt/mysite/[root@localhost mysite]# ls[root@localhost mysite]# echo mysite &gt; index.com[root@localhost mysite]# mkdir static[root@localhost mysite]# echo static &gt; static/index.com 
 </code></pre>
 <p>3.配置nginx服务</p>
-<pre><code class="nginx">server {
-        listen       81;
-        listen       [::]:80;
-        server_name  mysite.com;
-        root         /opt/mysite;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-         location = /static {
-            root         /opt/mysite;        ##网站目录    目录/URL
-            index        index.html index.htm;        #默认首页    index.html
-        }
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
-}
+<pre><code class="nginx">server {        listen       81;        listen       [::]:80;        server_name  mysite.com;        root         /opt/mysite;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;         location = /static {            root         /opt/mysite;        ##网站目录    目录/URL            index        index.html index.htm;        #默认首页    index.html        }        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
 </code></pre>
 <p>4.启动nginx</p>
 <pre><code class="shell">vim /etc/nginx/conf.d/mysite.conf
@@ -893,111 +700,23 @@ http {
 <li>site1:/opt/site1</li>
 <li>site2:/opt/site2</li>
 </ul>
-<pre><code class="nginx">server {
-        listen       82;
-        listen       [::]:82;
-        server_name  _;
-        root         /opt/site1;
-        index        index.html index.htm;
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
-}
+<pre><code class="nginx">server {        listen       82;        listen       [::]:82;        server_name  _;        root         /opt/site1;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
 </code></pre>
-<pre><code class="nginx">server {
-        listen       83;
-        listen       [::]:83;
-        server_name  _;
-        root         /opt/site2;
-        index        index.html index.htm;
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
-}
+<pre><code class="nginx">server {        listen       83;        listen       [::]:83;        server_name  _;        root         /opt/site2;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
 </code></pre>
 <h4 id="基于域名配置虚拟主机"><a href="#基于域名配置虚拟主机" class="headerlink" title="基于域名配置虚拟主机"></a>基于域名配置虚拟主机</h4><ul>
 <li>mysite1.com /opt mysite1</li>
 <li>mysite2.com /opt mysite2</li>
 </ul>
-<pre><code class="shell">mkdir /opt/mysite1 /opt/mysite2
-
-echo mysite1 &gt;/opt/mysite1/index.html
-echo mysite2 &gt;/opt/mysite1/index.html
+<pre><code class="shell">mkdir /opt/mysite1 /opt/mysite2echo mysite1 &gt;/opt/mysite1/index.htmlecho mysite2 &gt;/opt/mysite1/index.html
 </code></pre>
 <p>配置站点</p>
-<pre><code class="nginx">server {
-        listen       85;
-        listen       [::]:85;
-        server_name  mysite1.com;
-        root         /opt/mysite1;
-        index        index.html index.htm;
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
-}
+<pre><code class="nginx">server {        listen       85;        listen       [::]:85;        server_name  mysite1.com;        root         /opt/mysite1;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
 </code></pre>
-<pre><code class="nginx">server {
-        listen       86;
-        listen       [::]:86;
-        server_name  mysite1.com;
-        root         /opt/mysite2;
-        index        index.html index.htm;
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
-}
+<pre><code class="nginx">server {        listen       86;        listen       [::]:86;        server_name  mysite1.com;        root         /opt/mysite2;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
 </code></pre>
 <p>基于访问路径配置虚拟主机</p>
-<pre><code class="nginx">server {
-        listen       80;
-        listen       [::]:80;
-        server_name  _;
-        root         /opt;
-        index        index.html index.htm;
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-        location = /site1 {
-        }        
-        location = /site2 {
-        }
-        location = /site3 {
-        }
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
-}
+<pre><code class="nginx">server {        listen       80;        listen       [::]:80;        server_name  _;        root         /opt;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        location = /site1 {        }                location = /site2 {        }        location = /site3 {        }        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
 </code></pre>
 <h3 id="nginx配置代理服务器"><a href="#nginx配置代理服务器" class="headerlink" title="nginx配置代理服务器"></a>nginx配置代理服务器</h3><p>一台机器：运行一个代理站点和两个其他站点</p>
 <p>创建数据</p>
@@ -1005,114 +724,30 @@ echo mysite2 &gt;/opt/mysite1/index.html
 <li>proxysite1:/opt/proxy1</li>
 <li>proxysite2:/opt/proxy2</li>
 </ul>
-<pre><code class="shell">mkdir /opt/proxy1 /opt/proxy2
-echo "my proxy site1" &gt; /opt/proxy1/index.html
-echo "my proxy site2" &gt; /opt/proxy2/index.html
+<pre><code class="shell">mkdir /opt/proxy1 /opt/proxy2echo "my proxy site1" &gt; /opt/proxy1/index.htmlecho "my proxy site2" &gt; /opt/proxy2/index.html
 </code></pre>
 <p>创建站点</p>
 <p>proxy1</p>
-<pre><code class="nginx">server {
-        listen       87;
-        listen       [::]:87;
-        server_name  _;
-        root         /opt/proxy1;
-        index        index.html index.htm;
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
-}
+<pre><code class="nginx">server {        listen       87;        listen       [::]:87;        server_name  _;        root         /opt/proxy1;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
 </code></pre>
 <p>proxy2</p>
-<pre><code class="nginx">server {
-        listen       88;
-        listen       [::]:88;
-        server_name  _;
-        root         /opt/proxy2;
-        index        index.html index.htm;
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        error_page 404 /404.html;
-        location = /404.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
-}
+<pre><code class="nginx">server {        listen       88;        listen       [::]:88;        server_name  _;        root         /opt/proxy2;        index        index.html index.htm;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;        error_page 404 /404.html;        location = /404.html {        }        error_page 500 502 503 504 /50x.html;        location = /50x.html {        }}
 </code></pre>
 <p>proxy</p>
-<pre><code class="nginx">server {
-    listen       89;
-    location / {
-        proxy_pass http://192.168.100.128:88/;
-    }
-
-    location ~ \.(gif|jpg|png)$ {
-        root /data/images;
-    }
-}
+<pre><code class="nginx">server {    listen       89;    location / {        proxy_pass http://192.168.100.128:88/;    }    location ~ \.(gif|jpg|png)$ {        root /data/images;    }}
 </code></pre>
 <p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">Module ngx_http_proxy_module</a></p>
 <pre><code class="nginx">proxy_pass        ##设置代理服务器的协议和地址以及位置应映射到的可选 URI。作为协议，可以指定“ http”或“ https”。地址可以指定为域名或 IP 地址，以及可选的端口：
 </code></pre>
-<h3 id="配置NGINX支持PHP网站解析"><a href="#配置NGINX支持PHP网站解析" class="headerlink" title="配置NGINX支持PHP网站解析"></a>配置NGINX支持PHP网站解析</h3><h4 id="静动分离"><a href="#静动分离" class="headerlink" title="静动分离"></a>静动分离</h4><pre><code class="nginx">server {
-        listen       81;
-        listen       [::]:80;
-        server_name  mysite.com;
-        root         /opt/mysite;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-         location = /static {
-            root         /opt/mysite;        ##网站目录    目录/URL
-            index        index.html index.htm;        #默认首页    index.html
-        }
-       location /.php$ {
-        root   /opt/mysite;
-        index  index.php;
-        fastcgi_pass  localhost:9000;
-        fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;
-        fastcgi_param QUERY_STRING $query_string;
-        include fastcgi_params;
-    }
-
-}
+<h3 id="配置NGINX支持PHP网站解析"><a href="#配置NGINX支持PHP网站解析" class="headerlink" title="配置NGINX支持PHP网站解析"></a>配置NGINX支持PHP网站解析</h3><h4 id="静动分离"><a href="#静动分离" class="headerlink" title="静动分离"></a>静动分离</h4><pre><code class="nginx">server {        listen       81;        listen       [::]:80;        server_name  mysite.com;        root         /opt/mysite;        # Load configuration files for the default server block.        include /etc/nginx/default.d/*.conf;         location = /static {            root         /opt/mysite;        ##网站目录    目录/URL            index        index.html index.htm;        #默认首页    index.html        }       location /.php$ {        root   /opt/mysite;        index  index.php;        fastcgi_pass  localhost:9000;        fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name;        fastcgi_param QUERY_STRING $query_string;        include fastcgi_params;    }}
 </code></pre>
 <p>准备php页面</p>
-<pre><code class="php">&lt;?php
-    phpinfo();
-?&gt;
+<pre><code class="php">&lt;?php    phpinfo();?&gt;
 </code></pre>
-<h3 id="nginx配置负载均衡器"><a href="#nginx配置负载均衡器" class="headerlink" title="nginx配置负载均衡器"></a>nginx配置负载均衡器</h3><pre><code class="nginx">http {
-    upstream backend {
-        server backend1.example.com;
-        server backend2.example.com;
-        server 192.0.0.1 backup;
-    }
-    
-    server {
-        location / {
-            proxy_pass http://backend;
-        }
-    }
-}
+<h3 id="nginx配置负载均衡器"><a href="#nginx配置负载均衡器" class="headerlink" title="nginx配置负载均衡器"></a>nginx配置负载均衡器</h3><pre><code class="nginx">http {    upstream backend {        server backend1.example.com;        server backend2.example.com;        server 192.0.0.1 backup;    }        server {        location / {            proxy_pass http://backend;        }    }}
 </code></pre>
 <p>服务器权重</p>
-<pre><code class="nginx">upstream backend {
-    server backend1.example.com weight=5;
-    server backend2.example.com;
-    server 192.0.0.1 backup;
-}
-#weight 参数server设置服务器的权重；默认是1
-#在这个例子中，backend1.example.com有 weight 5；其他两台服务器有默认权重（1），但有 IP 地址的那台192.0.0.1被标记为backup服务器，除非其他两台服务器都不可用，否则不会接收请求。随着权重的这种配置，每的6请求，5发送到backend1.example.com和1对backend2.example.com。
+<pre><code class="nginx">upstream backend {    server backend1.example.com weight=5;    server backend2.example.com;    server 192.0.0.1 backup;}#weight 参数server设置服务器的权重；默认是1#在这个例子中，backend1.example.com有 weight 5；其他两台服务器有默认权重（1），但有 IP 地址的那台192.0.0.1被标记为backup服务器，除非其他两台服务器都不可用，否则不会接收请求。随着权重的这种配置，每的6请求，5发送到backend1.example.com和1对backend2.example.com。
 </code></pre>
 
                 
@@ -1346,7 +981,7 @@ echo "my proxy site2" &gt; /opt/proxy2/index.html
         repo: 'hexotalk',
         owner: 'yunchen',
         admin: "yunchen",
-        id: '2021-08-14T16-32-30',
+        id: '2021-08-14T16-43-51',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1382,9 +1017,9 @@ echo "my proxy site2" &gt; /opt/proxy2/index.html
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Docker">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="linux基础优化">
                         
-                        <span class="card-title">Docker</span>
+                        <span class="card-title">linux基础优化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1415,13 +1050,13 @@ echo "my proxy site2" &gt; /opt/proxy2/index.html
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/14/google-chrome-mo-ren-fei-an-quan-duan-kou-lie-biao/">
+                <a href="/2021/08/14/lvs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Docker">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="LVS">
                         
-                        <span class="card-title">Docker</span>
+                        <span class="card-title">LVS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

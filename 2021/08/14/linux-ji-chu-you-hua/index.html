@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Docker, 一只云辰">
+    <meta name="keywords" content="linux基础优化, 一只云辰">
     <meta name="description" content="本网站是个人兴趣爱好，记录生活点滴的平台">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Docker | 一只云辰</title>
+    <title>linux基础优化 | 一只云辰</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Docker</h1>
+                    <h1 class="description center-align post-title">linux基础优化</h1>
                 </div>
             </div>
         </div>
@@ -460,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    943
+                    941
                 </div>
                 
 
@@ -539,20 +539,14 @@ sed -i '/^SELINUX=/c SELINUX=disabled' /etc/selinux/config        ---&gt;永久�
 [root@oldboy ~]# getenforce        -----&gt;检查状态
 Permissive
 </code></pre>
-<h4 id="3、关闭NetworkManager"><a href="#3、关闭NetworkManager" class="headerlink" title="3、关闭NetworkManager"></a>3、关闭NetworkManager</h4><pre><code class="shell">systemctl stop NetworkManager      -----&gt;临时关闭
-systemctl status NetworkManager    -----&gt;查看状态
-systemctl disable NetworkManager       -----&gt;永久关闭
+<h4 id="3、关闭NetworkManager"><a href="#3、关闭NetworkManager" class="headerlink" title="3、关闭NetworkManager"></a>3、关闭NetworkManager</h4><pre><code class="shell">systemctl stop NetworkManager      -----&gt;临时关闭systemctl status NetworkManager    -----&gt;查看状态systemctl disable NetworkManager       -----&gt;永久关闭
 </code></pre>
-<h3 id="5、配置ntp服务，同步系统时间"><a href="#5、配置ntp服务，同步系统时间" class="headerlink" title="5、配置ntp服务，同步系统时间"></a>5、配置ntp服务，同步系统时间</h3><pre><code class="shell">echo '#Timing synchronization time' &gt;&gt;/var/spool/cron/root    #给定时任务加上注释
-echo '0 */1 * * * /usr/sbin/ntpdate ntp1.aliyun.com &amp;&gt;/dev/null' &gt;&gt;/var/spool/cron/root        #设置定时任务
-crontab -l    #检查结果
+<h3 id="5、配置ntp服务，同步系统时间"><a href="#5、配置ntp服务，同步系统时间" class="headerlink" title="5、配置ntp服务，同步系统时间"></a>5、配置ntp服务，同步系统时间</h3><pre><code class="shell">echo '#Timing synchronization time' &gt;&gt;/var/spool/cron/root    #给定时任务加上注释echo '0 */1 * * * /usr/sbin/ntpdate ntp1.aliyun.com &amp;&gt;/dev/null' &gt;&gt;/var/spool/cron/root        #设置定时任务crontab -l    #检查结果
 </code></pre>
 <h3 id="6、优化显示输出"><a href="#6、优化显示输出" class="headerlink" title="6、优化显示输出"></a>6、优化显示输出</h3><p>vim /etc/bashrc 进入bashrc文件 按下41gg 跳转文件的41行 按下i键进入编辑模式，输入#，注释当前行，光标移动到#号前，按下回车键空出当前41行内容，而后光标移动到41行（空行位置），粘贴参数。而后按下ESC键，退出编辑模式，按下SHIFT+; wq 保存退出</p>
 <pre><code class="shell">[ "$PS1" = "\\s-\\v\\\$ " ] &amp;&amp; PS1="[\[\e[34;1m\]\u@\[\e[0m\]\[\e[32;1m\]\H\[\e[0m\] \[\e[31;1m\]\w\[\e[0m\]]\\$ "
 </code></pre>
-<h3 id="7、优化ssh连接速度"><a href="#7、优化ssh连接速度" class="headerlink" title="7、优化ssh连接速度"></a>7、优化ssh连接速度</h3><pre><code class="shell">sed -i 's@#UseDNS yes@UseDNS no@g' /etc/ssh/sshd_config
-sed -i 's@^GSSAPIAuthentication yes@GSSAPIAuthentication no@g' /etc/ssh/sshd_config
-systemctl restart sshd
+<h3 id="7、优化ssh连接速度"><a href="#7、优化ssh连接速度" class="headerlink" title="7、优化ssh连接速度"></a>7、优化ssh连接速度</h3><pre><code class="shell">sed -i 's@#UseDNS yes@UseDNS no@g' /etc/ssh/sshd_configsed -i 's@^GSSAPIAuthentication yes@GSSAPIAuthentication no@g' /etc/ssh/sshd_configsystemctl restart sshd
 </code></pre>
 <h3 id="8、hosts解析"><a href="#8、hosts解析" class="headerlink" title="8、hosts解析"></a>8、hosts解析</h3><p>vim /etc/hosts</p>
 <p>根据需要修改</p>
@@ -801,7 +795,7 @@ systemctl restart network
         repo: 'hexotalk',
         owner: 'yunchen',
         admin: "yunchen",
-        id: '2021-08-14T16-33-17',
+        id: '2021-08-14T16-43-59',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -833,13 +827,13 @@ systemctl restart network
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/14/lvs/">
+                <a href="/2021/08/14/markdown-yu-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Docker">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Markdown语法">
                         
-                        <span class="card-title">Docker</span>
+                        <span class="card-title">Markdown语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -874,9 +868,9 @@ systemctl restart network
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Docker">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="linux">
                         
-                        <span class="card-title">Docker</span>
+                        <span class="card-title">linux</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
