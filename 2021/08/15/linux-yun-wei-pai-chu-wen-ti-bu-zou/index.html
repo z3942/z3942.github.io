@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Docker, 一只云辰">
+    <meta name="keywords" content="linux运维排除问题步骤, 一只云辰">
     <meta name="description" content="本网站是个人兴趣爱好，记录生活点滴的平台">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Docker | 一只云辰</title>
+    <title>linux运维排除问题步骤 | 一只云辰</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Docker</h1>
+                    <h1 class="description center-align post-title">linux运维排除问题步骤</h1>
                 </div>
             </div>
         </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-14
+                    2021-08-15
                 </div>
                 
 
@@ -460,14 +460,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    5 分
                 </div>
                 
 
@@ -490,203 +490,99 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="docker安装部署添加阿里云镜像加速器"><a href="#docker安装部署添加阿里云镜像加速器" class="headerlink" title="docker安装部署添加阿里云镜像加速器"></a>docker安装部署添加阿里云镜像加速器</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum install -y yum-utils
-sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-    
-##安装docker    
-sudo yum install docker-ce docker-ce-cli containerd.io
+                <h1 id="Linux服务器上排除问题的基本步骤"><a href="#Linux服务器上排除问题的基本步骤" class="headerlink" title="Linux服务器上排除问题的基本步骤"></a>Linux服务器上排除问题的基本步骤</h1><p>遇到服务器故障时，需要有条理的从几个方面入手排查</p>
+<p><strong>一、尽可能搞清楚问题的前因后果</strong></p>
+<p>1、故障的表现是什么？无响应？报错？</p>
+<p>2、故障是什么时候发现的？</p>
+<p>3、故障是否可重现？</p>
+<p>4、有没有出现的规律（比如每小时出现一次）</p>
+<p>5、最后一次对整个平台进行更新的内容是什么（代码、服务器等）？</p>
+<p>6、故障影响的特定用户群是什么样的(已登录的, 退出的, 某个地域的…)?</p>
+<p>7、基础架构（物理的、逻辑的）的文档是否能找到?</p>
+<p>8、是否有监控平台可用?（比如Zabbix、 Nagios、 cacti… ）</p>
+<p>9、是否有日志可以查看?（比如Loggly、Airbrake、 Graylog…）</p>
+<p>最后两个是最方便的信息来源。</p>
+<p><strong>二、有谁在?</strong></p>
+<p>用下面两个命令看看都有谁在线，有哪些用户访问过</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ w $ last<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-##添加阿里云镜像加速器
-sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
-{
-  "registry-mirrors": ["https://rwo46igw.mirror.aliyuncs.com"]
-}
-EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>三、之前发生了什么?</strong></p>
+<p>查看一下之前服务器上执行过的命令</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ history<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker version	#显示docker的版本信息
-docker info		#显示docker的系统信息，包括镜像和容器的数量
-docker --help	#帮助命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>正常情况我们运行history命令是不会显示命令被执行的时间的。所以我们还需要设置下HISTTIMEFORMAT的环境变量，命令如下：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ export HISTTIMEFORMAT='%F %T'<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><a target="_blank" rel="noopener" href="https://docs.docker.com/reference/">docker帮助文档</a></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">##镜像命令
-[root@localhost ~]# docker images
-REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
-hello-world   latest    d1165f221234   5 months ago   13.3kB
-#解释
-REPOSITORY		镜像的仓库源
-TAG				镜像的标签
-IMAGE ID		镜像的id
-CREATED			镜像的创建时间
-SIZE			镜像的大小
-#
--a，--all		列出所有镜像
--q，--quiet		只显示镜像的id
+<p><strong>四、现在在运行的进程是啥?</strong></p>
+<p>用下面两个命令可以看到正在运行的进程及相关用户,推荐用pstree</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ pstree -a $ psaux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-[root@localhost ~]# docker search mysql	#搜索镜像
-[root@localhost ~]# docker pull mysql	#下载镜像
-[root@localhost ~]# docker rmi -f 容器id	#删除指定容器
-[root@localhost ~]# docker rmi -f $(docker images -aq)	#删除所有镜像
+<p><strong>五、监听的网络服务</strong></p>
+<p>查看所有正在运行的服务，检查它们是否应该运行，下面3个命令可以分开查看，不至于一下子列出一大堆服务</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ netstat -ntlp $ netstat -nulp $ netstat -nxlp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p><strong>六、CPU和内存</strong></p>
+<p>通过下面4个命令检查</p>
+<p>1、还有空余的内存吗? 服务器是否正在内存和硬盘之间进行swap?</p>
+<p>2、还有剩余的CPU吗? 服务器是几核的? 是否有某些CPU核负载过多了?</p>
+<p>3、服务器最大的负载来自什么地方? 平均负载是多少?</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ free -m $ uptime $ top $ htop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-##容器命令
-docker run [images]
-#参数
---name='name'	容器名字，用来区分容器
--d				后台方式运行
--it				使用交互模式运行，进入容器查看内容
--p				制定容器端口 -p 主机端口:容器端口
--P				随机指定端口
+<p><strong>七、硬件</strong></p>
+<p>通过下面3个命令检查</p>
+<p>1、找到RAID卡 (是否带BBU备用电池)、 CPU、空余的内存插槽。根据这些情况可以大致了解硬件问题的来源和性能改进的办法</p>
+<p>2、网卡是否设置好? 是否正运行在半双工状态? 速度是10MBps? 有没有 TX/RX 报错?</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ lspci $ dmidecode $ ethtool<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-docker ps	
-#列出当前正在运行的容器
--a		#列出当前正在运行的容器+带出历史运行过的容器
--n=?	#显示最近创建的容器
--q		#只显示容器编号
+<p><strong>八、IO 性能</strong></p>
+<p>通过下面4个命令检查(这些命令对于调试后端性能非常有用)</p>
+<p>1、服务器硬盘是否已满?</p>
+<p>2、是否开启了swap交换模式 (si/so)?</p>
+<p>3、CPU被谁占用：系统进程? 用户进程? 虚拟机?</p>
+<p>4、谁在进行 IO： 是不是数据库吃掉了所有的系统资源? 还是你的PHP或jiva进程?</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ iostat -kx 2 $ vmstat 2 10 $ mpstat 2 10 $ dstat --top-io --top-bi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-#退出容器
-exit		#容器停止退出
-CTRL+P+Q 	#不停止退出
-#删除容器
-docker rm 容器id			#删除指定容器，不能删除正在运行的容器，rm -f 强制删除
-docker rm -f $(docker ps -aq)	#删除所有的容器
-docker ps -a -q|xargs docker rm #删除所有的容器
-#启动和停止容器
-docker start 容器id		#启动容器
-docker restart 容器id		#重启容器
-docker stop 容器id		#停止当前正在运行的容器
-docker kill 容器id		#强制停止容器
+<p><strong>九、挂载点和文件系统</strong></p>
+<p>通过下面几个命令检查</p>
+<p>1、一共挂载了多少文件系统?</p>
+<p>2、有没有某个服务专用的文件系统? (比如数据库?)</p>
+<p>3、文件系统的挂载选项是什么： noatime? default? 有没有文件系统被重新挂载为只读模式了？</p>
+<p>4、磁盘空间是否还有剩余?</p>
+<p>5、是否有大文件被删除但没有清空?</p>
+<p>6、如果磁盘空间有问题，你是否还有空间来扩展一个分区？</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ mount $ cat /etc/fstab $ vgs $ pvs $ lvs $ df -h $ lsof+D / /* beware not tokillyour box */<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-#其他命令
-docker run -d 镜像名
-#docker容器使用后台运行，必须要有一个前台进程，docker发现没有应用，就会自动停止，容器启动后，发现自己没有提供服务，会立刻停止
+<p><strong>十、内核、中断和网络</strong></p>
+<p>通过下面命令检查</p>
+<p>1、你的中断请求是否是均衡地分配给CPU处理，还是会有某个CPU的核因为大量的网络中断请求或者RAID请求而过载了？</p>
+<p>2、SWAP交换的设置是什么？对于工作站来说swappinness 设为 60 就很好, 不过对于服务器就太糟了：你最好永远不要让服务器做SWAP交换，不然对磁盘的读写会锁死SWAP进程</p>
+<p>3、conntrack_max 是否设的足够大，能应付你服务器的流量?</p>
+<p>4、在不同状态下(TIME_WAIT, …)TCP连接时间的设置是怎样的？</p>
+<p>5、如果要显示所有存在的连接，netstat 会比较慢， 你可以先用 ss 看一下总体情况</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ sysctl -a | grep... $ cat /proc/interrupts $ cat /proc/net/ip_conntrack  /* may take sometimeon busy servers */ $ netstat $ ss -s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-docker logs -tf --tail 10  #查看日志  -f 跟踪日志输出
+<p><strong>十一、系统日志和内核消息</strong></p>
+<p>通过下面命令检查</p>
+<p>1、查看错误和警告消息，比如看看是不是很多关于连接数过多导致？</p>
+<p>2、看看是否有硬件错误或文件系统错误?</p>
+<p>3、分析是否能将这些错误事件和前面发现的疑点进行时间上的比对</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ dmesg $ less /var/log/messages $ less /var/log/secure $ less /var/log/auth<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-docker top 容器id		#查看容器中进程信息
+<p><strong>十二、定时任务</strong></p>
+<p>通过下面命令检查</p>
+<p>1、是否有某个定时任务运行过于频繁?</p>
+<p>2、是否有些用户提交了隐藏的定时任务?</p>
+<p>3、在出现故障的时候，是否正好有某个备份任务在执行？</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ ls  /etc/cron* +cat $ foruserin$(cat /etc/passwd|cut-f1 -d:);docrontab -l -u $user;done<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-docker inspect 容器id		#查看镜像的元数据
+<p><strong>十三、应用系统日志</strong></p>
+<p>这边以LAMP（Linux+Apache+Mysql+Perl）应用环境举例：</p>
+<p>1、Apache &amp; Nginx; 查找访问和错误日志, 直接找 5xx 错误, 再看看是否有 limit_zone 错误</p>
+<p>2、MySQL; 在mysql.log找错误消息，看看有没有结构损坏的表， 是否有innodb修复进程在运行，是否有disk/index/query 问题</p>
+<p>3、PHP-FPM; 如果设定了 php-slow 日志, 直接找错误信息 (php, mysql, memcache, …)，如果没设定，赶紧设定</p>
+<p>4、Varnish; 在varnishlog 和 varnishstat 里, 检查 hit/miss比. 看看配置信息里是否遗漏了什么规则，使最终用户可以直接攻击你的后端？</p>
+<p>5、HA-Proxy; 后端的状况如何？健康状况检查是否成功？是前端还是后端的队列大小达到最大值了？</p>
 
-#进入当前正在运行的容器
-docker exec -it 容器id /bash/shell
-
-docker attach 容器id
-
-#从容器内拷贝文件到主机上
-docker cp 容器id:容器内路径 目的主机路径
-
-
-docker stats	#监控容器资源消耗<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">attach    Attach to a running container  #当前shell下attach连接指定运行镜像
-build     Build an image from a Dockerfile  #通过Dockerfile定制镜像
-commit    Create a new image from a container's changes  #提交当前容器为新的镜像
-cp    Copy files/folders from a container to a HOSTDIR or to STDOUT  #从容器中拷贝指定文件或者目录到宿主机中
-create    Create a new container  #创建一个新的容器，同run 但不启动容器
-diff    Inspect changes on a container's filesystem  #查看docker容器变化
-events    Get real time events from the server#从docker服务获取容器实时事件
-exec    Run a command in a running container#在已存在的容器上运行命令
-export    Export a container's filesystem as a tar archive  #导出容器的内容流作为一个tar归档文件(对应import)
-history    Show the history of an image  #展示一个镜像形成历史
-
-images    List images  #列出系统当前镜像
-import    Import the contents from a tarball to create a filesystem image  #从tar包中的内容创建一个新的文件系统映像(对应export)
-info    Display system-wide information  #显示系统相关信息
-inspect    Return low-level information on a container or image  #查看容器详细信息
-kill    Kill a running container  #kill指定docker容器
-load    Load an image from a tar archive or STDIN  #从一个tar包中加载一个镜像(对应save)
-login    Register or log in to a Docker registry#注册或者登陆一个docker源服务器
-logout    Log out from a Docker registry  #从当前Docker registry退出
-logs    Fetch the logs of a container  #输出当前容器日志信息
-pause    Pause all processes within a container#暂停容器
-port    List port mappings or a specific mapping for the CONTAINER  #查看映射端口对应的容器内部源端口
-ps    List containers  #列出容器列表
-pull    Pull an image or a repository from a registry  #从docker镜像源服务器拉取指定镜像或者库镜像
-push    Push an image or a repository to a registry  #推送指定镜像或者库镜像至docker源服务器
-
-rename    Rename a container  #重命名容器
-restart    Restart a running container  #重启运行的容器
-rm    Remove one or more containers  #移除一个或者多个容器
-rmi    Remove one or more images  #移除一个或多个镜像(无容器使用该镜像才可以删除，否则需要删除相关容器才可以继续或者-f强制删除)
-run    Run a command in a new container  #创建一个新的容器并运行一个命令
-save    Save an image(s) to a tar archive#保存一个镜像为一个tar包(对应load)
-search    Search the Docker Hub for images  #在docker
-hub中搜索镜像
-start    Start one or more stopped containers#启动容器
-stats    Display a live stream of container(s) resource usage statistics  #统计容器使用资源
-stop    Stop a running container  #停止容器
-tag         Tag an image into a repository  #给源中镜像打标签
-top       Display the running processes of a container #查看容器中运行的进程信息
-unpause    Unpause all processes within a container  #取消暂停容器
-version    Show the Docker version information#查看容器版本号
-wait         Block until a container stops, then print its exit code  #截取容器停止时的退出状态值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="docker镜像"><a href="#docker镜像" class="headerlink" title="docker镜像"></a>docker镜像</h3><h4 id="commit镜像"><a href="#commit镜像" class="headerlink" title="commit镜像"></a>commit镜像</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docekr commit 提交容器成为一个新的副本    #保存当前容器状态
-docker commit -m="提交的描述信息" -a="作者" 容器id 目标镜像名：[tag]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="容器数据卷"><a href="#容器数据卷" class="headerlink" title="容器数据卷"></a>容器数据卷</h3><p>容器的持久化和同步操作！容器间也是可以数据共享的！</p>
-<h4 id="使用数据卷"><a href="#使用数据卷" class="headerlink" title="使用数据卷"></a>使用数据卷</h4><blockquote>
-<p>方式一：直接使用命令挂载   -v</p>
-</blockquote>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run -it -v 主机目录：容器目录
-
-#MySQL数据持久化
-# 运行容器，需要做数据挂载  #安装启动MySQL，需要配置密码！！
-#官方测试：	docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
-
-#启动
--d 后台运行
--p 端口映射
--v 卷挂载
--e 环境配置
---name 容器名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="具名挂载和匿名挂载"><a href="#具名挂载和匿名挂载" class="headerlink" title="具名挂载和匿名挂载"></a>具名挂载和匿名挂载</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#匿名挂载
--v 容器内路径！
-docker run -d -P --name nginx1 -v /etc/nginx nginx
-
-#查看volume的情况
-docker volume ls
-
-#具名挂载
-docker run -d -P --name nginx2 -v juming-nginx:etc/nginx nginx
-
--v 容器内路径			#匿名挂载
--v 卷名：容器内路径			#具名挂载
--v /宿主机路径：：容器内路径	#指定路径挂载
-
-#拓展
--v 容器内路径：ro   rw  改变读写权限
-ro	readonly	#只读
-rw  readwrite	#可读可写
-
-ro  只要看到就说明ro这个路径只能通过宿主机来操作，容器内部是无法操作<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><p>Dockerfile 就是用来构建 docker 镜像的构建文件，命令脚本</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#创建一个dockerfile文件，名字随机建议Dockerfile
-#文件内容  指令（大写） 参数
-FROM centos
-
-VOLUME ["/volume01","/volume02"]
-
-CMD echo "----end----"
-
-CMD /bin/bash
-#每个命令就是镜像的一层<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="数据卷容器"><a href="#数据卷容器" class="headerlink" title="数据卷容器"></a>数据卷容器</h3>
                 
             </div>
             <hr/>
@@ -712,7 +608,7 @@ CMD /bin/bash
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z3942.github.io/2021/08/14/docker/">https://z3942.github.io/2021/08/14/docker/</a>
+                    <a href="https://z3942.github.io/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/">https://z3942.github.io/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -919,54 +815,18 @@ CMD /bin/bash
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/08/14/goolgle-chrome-mo-ren-fei-an-quan-duan-kou/">
+                <a href="/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="GoolGle Chrome默认非安全端口">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="linux运维排除问题步骤">
                         
-                        <span class="card-title">GoolGle Chrome默认非安全端口</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            一只云辰
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/08/14/docker/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Docker">
-                        
-                        <span class="card-title">Docker</span>
+                        <span class="card-title">linux运维排除问题步骤</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -977,7 +837,7 @@ CMD /bin/bash
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
                             </span>
                         <span class="publish-author">
                             
@@ -988,6 +848,43 @@ CMD /bin/bash
                     </div>
                 </div>
 
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/08/15/nginx/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Nginx">
+                        
+                        <span class="card-title">Nginx</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            一只云辰
+                            
+                        </span>
+                    </div>
+                </div>
                 
             </div>
         </div>

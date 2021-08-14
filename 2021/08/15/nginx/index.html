@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="linux, 一只云辰">
+    <meta name="keywords" content="Nginx, 一只云辰">
     <meta name="description" content="本网站是个人兴趣爱好，记录生活点滴的平台">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>linux | 一只云辰</title>
+    <title>Nginx | 一只云辰</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">linux</h1>
+                    <h1 class="description center-align post-title">Nginx</h1>
                 </div>
             </div>
         </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-14
+                    2021-08-15
                 </div>
                 
 
@@ -460,14 +460,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    9 分
                 </div>
                 
 
@@ -490,216 +490,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux-https-www-linuxprobe-com-basic-learning-00-html"><a href="#Linux-https-www-linuxprobe-com-basic-learning-00-html" class="headerlink" title="Linux](https://www.linuxprobe.com/basic-learning-00.html)"></a>Linux](<a target="_blank" rel="noopener" href="https://www.linuxprobe.com/basic-learning-00.html">https://www.linuxprobe.com/basic-learning-00.html</a>)</h1><h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa  <span class="token comment">#生成密钥和私钥文件 id_rsa、id_rsa.pub</span>
-<span class="token builtin class-name">cd</span> .ssh
-ssh-copy-id <span class="token function">ip</span>
-<span class="token function">ssh</span> root@ip <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /etc/sysconfig/network-scripts/ifcfg-eth0
-
-<span class="token assign-left variable">IPADDR</span><span class="token operator">=</span><span class="token number">192.168</span>.100.10
-
-<span class="token assign-left variable">PREFIX</span><span class="token operator">=</span><span class="token number">24</span>
-
-<span class="token assign-left variable">GATEWAY</span><span class="token operator">=</span><span class="token number">192.168</span>.100.1
-
-<span class="token assign-left variable">DNS</span><span class="token operator">=</span><span class="token number">192.168</span>.100.1
-
-systemctl restart network<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="域名映射"><a href="#域名映射" class="headerlink" title="域名映射"></a>域名映射</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /etc/hosts
-
-<span class="token number">192.168</span>.100.10 node1
-
-<span class="token number">192.168</span>.100.20 node2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="网络端口监听"><a href="#网络端口监听" class="headerlink" title="网络端口监听"></a>网络端口监听</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">netstat</span>
-
-<span class="token function">netstat</span> -nlpt <span class="token comment">#获取进程名、进程号、用户ID</span>
-
-<span class="token function">netstat</span> -tnl <span class="token comment">#可以看到处于监听状态的TCP端口和连接</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h3><p>Linux <a target="_blank" rel="noopener" href="https://www.linuxprobe.com/how-to-crontab.html">crontab</a>是用来定期执行程序的命令。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">crontab</span> <span class="token punctuation">[</span>-u user<span class="token punctuation">]</span> <span class="token function">file</span>
-<span class="token function">crontab</span> <span class="token punctuation">[</span> -u user <span class="token punctuation">]</span> <span class="token punctuation">[</span> -i <span class="token punctuation">]</span> <span class="token punctuation">{</span> -e <span class="token operator">|</span> -l <span class="token operator">|</span> -r <span class="token punctuation">}</span>
-• -u user：用于设定某个用户的crontab服务；
-• file: file为命令文件名，表示将file作为crontab的任务列表文件并载入crontab；
-• -e：编辑某个用户的crontab文件内容，如不指定用户则表示当前用户；
-• -l：显示某个用户的crontab文件内容，如不指定用户则表示当前用户；
-• -r：从/var/spool/cron目录中删除某个用户的crontab文件。
-• -i：在删除用户的crontab文件时给确认提示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>每一分钟执行一次command（因cron默认每1分钟扫描一次，因此全为*即可）</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*    *    *    *    *  <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每小时的第3和第15分钟执行command</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">3,15</span>   *    *    *    *  <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每天上午8-11点的第3和15分钟执行command：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">3,15</span>  <span class="token number">8</span>-11  *  *  *  <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每隔2天的上午8-11点的第3和15分钟执行command：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">3,15</span>  <span class="token number">8</span>-11  */2  *   *  <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每个星期一的上午8点到11点的第3和第15分钟执行command</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">3,15</span>  <span class="token number">8</span>-11   *   *  <span class="token number">1</span> <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每晚的21:30重启smb</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">30</span>  <span class="token number">21</span>   *   *  *  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每月1、10、22日的4 : 45重启smb</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">45</span>  <span class="token number">4</span>  <span class="token number">1,10</span>,22  *  *  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每周六、周日的1 : 10重启smb</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">10</span>  <span class="token number">1</span>  *  *  <span class="token number">6,0</span>  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每天18 : 00至23 : 00之间每隔30分钟重启smb</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">0,30</span>  <span class="token number">18</span>-23  *  *  *  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每一小时重启smb</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*  */1  *  *  *  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>晚上11点到早上7点之间，每隔一小时重启smb</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">*  <span class="token number">23</span>-7/1  *   *   *  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每月的4号与每周一到周三的11点重启smb</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">0</span>  <span class="token number">11</span>  <span class="token number">4</span>  *  mon-wed  /etc/init.d/smb restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>每小时执行/etc/cron.hourly目录内的脚本</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token number">0</span>  <span class="token number">1</span>   *   *   *     root run-parts /etc/cron.hourly<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="磁盘管理和文件系统"><a href="#磁盘管理和文件系统" class="headerlink" title="磁盘管理和文件系统"></a>磁盘管理和文件系统</h2><table>
-<thead>
-<tr>
-<th>RAID级别</th>
-<th>最少硬盘</th>
-<th>可用容量</th>
-<th>读写性能</th>
-<th>安全性</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0</td>
-<td>2</td>
-<td>n</td>
-<td>n</td>
-<td>低</td>
-<td>追求最大容量和速度，任何一块盘损坏，数据全部异常。</td>
-</tr>
-<tr>
-<td>1</td>
-<td>2</td>
-<td>n/2</td>
-<td>n</td>
-<td>高</td>
-<td>追求最大安全性，只要阵列组中有一块硬盘可用，数据不受影响。</td>
-</tr>
-<tr>
-<td>5</td>
-<td>3</td>
-<td>n-1</td>
-<td>n-1</td>
-<td>中</td>
-<td>在控制成本的前提下，追求硬盘的最大容量、速度及安全性，允许有一块硬盘异常，数据不受影响。</td>
-</tr>
-<tr>
-<td>10</td>
-<td>4</td>
-<td>n/2</td>
-<td>n/2</td>
-<td>高</td>
-<td>综合RAID1和RAID0的优点，追求硬盘的速度和安全性，允许有一半硬盘异常（不可同组），数据不受影响</td>
-</tr>
-</tbody></table>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">df</span> -h				<span class="token comment">#将容量结果以易读的容量格式显示出来</span>
-<span class="token function">fdisk</span> -l			<span class="token comment">#列出所有分区信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="文件基本属性"><a href="#文件基本属性" class="headerlink" title="文件基本属性"></a>文件基本属性</h3><p>在 Linux 中第一个字符代表这个文件是目录、文件或链接文件等等。</p>
-<ul>
-<li>当为 <strong>d</strong> 则是目录</li>
-<li>当为 <strong>-</strong> 则是文件；</li>
-<li>若是 <strong>l</strong> 则表示为链接文档(link file)；</li>
-<li>若是 <strong>b</strong> 则表示为装置文件里面的可供储存的接口设备(可随机存取装置)；</li>
-<li>若是 <strong>c</strong> 则表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>文件类型</th>
-<th>属主权限</th>
-<th>属组权限</th>
-<th>其它用户权限</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>d</td>
-<td>rwx</td>
-<td>r-x</td>
-<td>r-x</td>
-</tr>
-<tr>
-<td>目录文件</td>
-<td>读 写 执行</td>
-<td>读 写 执行</td>
-<td>读 写 执行</td>
-</tr>
-</tbody></table>
-<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> 常用命令
-
-输入模式	
-i	<span class="token comment">#i 为『从目前光标所在处输入』， I 为『在目前所在行的第一个非空格符处开始输入』。</span>
-o	<span class="token comment">#o 为在目前光标所在的下一行处输入新的一行；O 为在目前光标所在的上一行处输入新的一行！</span>
-a	<span class="token comment">#a 为『从目前光标所在的下一个字符处开始输入』， A 为『从光标所在行的最后一个字符处开始输入』。</span>
-gg	<span class="token comment">#移动到这个档案的第一行，相当于 1G </span>
-x	<span class="token comment">#在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) </span>
-<span class="token function">dd</span>	<span class="token comment">#删除游标所在的那一整行</span>
-yy	<span class="token comment">#复制游标所在的那一行</span>
-p	<span class="token comment">#p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！</span>
-u	<span class="token comment">#复原前一个动作.</span>
-<span class="token punctuation">[</span>Ctrl<span class="token punctuation">]</span>+r	<span class="token comment">#重做上一个动作。</span>
-:set nu		<span class="token comment">#显示行号，设定之后，会在每一行的前缀显示该行的行号</span>
-
-<span class="token function">vim</span> 中批量添加注释
-
-方法一 ：块选择模式
-
-批量注释：
-
-Ctrl + <span class="token function">v</span> 进入块选择模式，然后移动光标选中你要注释的行，再按大写的 I 进入行首插入模式输入注释符号如 // 或 <span class="token comment">#，输入完毕之后，按两下 ESC，Vim 会自动将你选中的所有行首都加上注释，保存退出完成注释。</span>
-
-取消注释：
-
-Ctrl + <span class="token function">v</span> 进入块选择模式，选中你要删除的行首的注释符号，注意 // 要选中两个，选好之后按 d 即可删除注释，ESC 保存退出。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h2><h3 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h3><ul>
-<li>\1. 列出所有可更新的软件清单命令：<strong>yum check-update</strong></li>
-<li>\2. 更新所有软件命令：<strong>yum update</strong></li>
-<li>\3. 仅安装指定的软件命令：<strong>yum install <package_name></package_name></strong></li>
-<li>\4. 仅更新指定的软件命令：<strong>yum update <package_name></package_name></strong></li>
-<li>\5. 列出所有可安裝的软件清单命令：<strong>yum list</strong></li>
-<li>\6. 删除软件包命令：<strong>yum remove <package_name></package_name></strong></li>
-<li>\7. 查找软件包命令：<strong>yum search <keyword></keyword></strong></li>
-<li>\8. 清除缓存命令:<ul>
-<li><strong>yum clean packages</strong>: 清除缓存目录下的软件包</li>
-<li><strong>yum clean headers</strong>: 清除缓存目录下的 headers</li>
-<li><strong>yum clean oldheaders</strong>: 清除缓存目录下旧的 headers</li>
-<li><strong>yum clean, yum clean all (= yum clean packages; yum clean oldheaders)</strong> :清除缓存目录下的软件包及旧的 headers</li>
-</ul>
-</li>
-</ul>
-<h3 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">rpm</span> -ivh <span class="token operator">&lt;</span>package_name<span class="token operator">&gt;</span>		<span class="token comment">#安装软件</span>
-<span class="token function">rpm</span> -qi <span class="token operator">&lt;</span>package_name<span class="token operator">&gt;</span>		<span class="token comment">#显示软件安装信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="配置管理nginx-conf"><a href="#配置管理nginx-conf" class="headerlink" title="配置管理nginx.conf"></a>配置管理nginx.conf</h3><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token comment">########### 每个指令必须有分号结束。#################</span>
+                <h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="配置管理nginx-conf"><a href="#配置管理nginx-conf" class="headerlink" title="配置管理nginx.conf"></a>配置管理nginx.conf</h3><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token comment">########### 每个指令必须有分号结束。#################</span>
 <span class="token comment">#user administrator administrators;  #配置用户或者组，默认为nobody nobody。</span>
 <span class="token comment">#worker_processes 2;  #允许生成的进程数，默认为1</span>
 <span class="token comment">#pid /nginx/pid/nginx.pid;   #指定nginx进程运行文件存放地址</span>
@@ -853,12 +644,12 @@ Ctrl + <span class="token function">v</span> 进入块选择模式，选中你�
 <p>端口：81</p>
 <p>站点目录：/opt/mysite</p>
 <p>2.创建站点 </p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkdir -p /opt/mysite</span>
-<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cd /opt/mysite/</span>
-<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># ls</span>
-<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># echo mysite &gt; index.com</span>
-<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># mkdir static</span>
-<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># echo static &gt; static/index.com </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[root@localhost ~]# mkdir -p /opt/mysite
+[root@localhost ~]# cd /opt/mysite/
+[root@localhost mysite]# ls
+[root@localhost mysite]# echo mysite &gt; index.com
+[root@localhost mysite]# mkdir static
+[root@localhost mysite]# echo static &gt; static/index.com <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>3.配置nginx服务</p>
 <pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
@@ -884,11 +675,11 @@ Ctrl + <span class="token function">v</span> 进入块选择模式，选中你�
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>4.启动nginx</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /etc/nginx/conf.d/mysite.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/nginx/conf.d/mysite.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>5.安全配置</p>
 <p>安全组（开放端口）</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl stop firewalld	<span class="token comment">#关闭防火墙</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl stop firewalld	#关闭防火墙<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>6.配置域名</p>
 <p>域名–&gt;解析成IP</p>
@@ -946,10 +737,10 @@ Ctrl + <span class="token function">v</span> 进入块选择模式，选中你�
 <li>mysite1.com /opt mysite1</li>
 <li>mysite2.com /opt mysite2</li>
 </ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> /opt/mysite1 /opt/mysite2
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir /opt/mysite1 /opt/mysite2
 
-<span class="token builtin class-name">echo</span> mysite1 <span class="token operator">&gt;</span>/opt/mysite1/index.html
-<span class="token builtin class-name">echo</span> mysite2 <span class="token operator">&gt;</span>/opt/mysite1/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+echo mysite1 &gt;/opt/mysite1/index.html
+echo mysite2 &gt;/opt/mysite1/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>配置站点</p>
 <pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
@@ -1018,9 +809,9 @@ Ctrl + <span class="token function">v</span> 进入块选择模式，选中你�
 <li>proxysite1:/opt/proxy1</li>
 <li>proxysite2:/opt/proxy2</li>
 </ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> /opt/proxy1 /opt/proxy2
-<span class="token builtin class-name">echo</span> <span class="token string">"my proxy site1"</span> <span class="token operator">&gt;</span> /opt/proxy1/index.html
-<span class="token builtin class-name">echo</span> <span class="token string">"my proxy site2"</span> <span class="token operator">&gt;</span> /opt/proxy2/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir /opt/proxy1 /opt/proxy2
+echo "my proxy site1" &gt; /opt/proxy1/index.html
+echo "my proxy site2" &gt; /opt/proxy2/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>创建站点</p>
 <p>proxy1</p>
@@ -1132,8 +923,6 @@ Ctrl + <span class="token function">v</span> 进入块选择模式，选中你�
 <span class="token comment">#在这个例子中，backend1.example.com有 weight 5；其他两台服务器有默认权重（1），但有 IP 地址的那台192.0.0.1被标记为backup服务器，除非其他两台服务器都不可用，否则不会接收请求。随着权重的这种配置，每的6请求，5发送到backend1.example.com和1对backend2.example.com。</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
                 
             </div>
             <hr/>
@@ -1159,7 +948,7 @@ Ctrl + <span class="token function">v</span> 进入块选择模式，选中你�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z3942.github.io/2021/08/14/linux/">https://z3942.github.io/2021/08/14/linux/</a>
+                    <a href="https://z3942.github.io/2021/08/15/nginx/">https://z3942.github.io/2021/08/15/nginx/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1370,13 +1159,13 @@ Ctrl + <span class="token function">v</span> 进入块选择模式，选中你�
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/14/linux-ji-chu-you-hua/">
+                <a href="/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="linux基础优化">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="linux运维排除问题步骤">
                         
-                        <span class="card-title">linux基础优化</span>
+                        <span class="card-title">linux运维排除问题步骤</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1387,7 +1176,7 @@ Ctrl + <span class="token function">v</span> 进入块选择模式，选中你�
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
                         </span>
                         <span class="publish-author">
                             
@@ -1407,13 +1196,13 @@ Ctrl + <span class="token function">v</span> 进入块选择模式，选中你�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/14/lvs/">
+                <a href="/2021/08/15/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="LVS">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">LVS</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1424,7 +1213,7 @@ Ctrl + <span class="token function">v</span> 进入块选择模式，选中你�
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
                             </span>
                         <span class="publish-author">
                             

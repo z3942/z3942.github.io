@@ -6,7 +6,7 @@
   <link href="https://z3942.github.io/atom.xml" rel="self"/>
   
   <link href="https://z3942.github.io/"/>
-  <updated>2021-08-14T17:47:37.990Z</updated>
+  <updated>2021-08-14T18:31:58.904Z</updated>
   <id>https://z3942.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux运维排除问题步骤</title>
+    <link href="https://z3942.github.io/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/"/>
+    <id>https://z3942.github.io/2021/08/15/linux-yun-wei-pai-chu-wen-ti-bu-zou/</id>
+    <published>2021-08-14T18:31:23.000Z</published>
+    <updated>2021-08-14T18:31:58.904Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux服务器上排除问题的基本步骤&quot;&gt;&lt;a href=&quot;#Linux服务器上排除问题的基本步骤&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx</title>
+    <link href="https://z3942.github.io/2021/08/15/nginx/"/>
+    <id>https://z3942.github.io/2021/08/15/nginx/</id>
+    <published>2021-08-14T18:31:02.000Z</published>
+    <updated>2021-08-14T18:32:24.891Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Nginx&quot;&gt;&lt;a href=&quot;#Nginx&quot; class=&quot;headerlink&quot; title=&quot;Nginx&quot;&gt;&lt;/a&gt;Nginx&lt;/h2&gt;&lt;h3 id=&quot;配置管理nginx-conf&quot;&gt;&lt;a href=&quot;#配置管理nginx-conf&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
