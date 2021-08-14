@@ -460,14 +460,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    943
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    4 分
                 </div>
                 
 
@@ -487,195 +487,89 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="docker安装部署添加阿里云镜像加速器"><a href="#docker安装部署添加阿里云镜像加速器" class="headerlink" title="docker安装部署添加阿里云镜像加速器"></a>docker安装部署添加阿里云镜像加速器</h3><pre><code class="shell">sudo yum install -y yum-utils
-sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-    
-##安装docker    
-sudo yum install docker-ce docker-ce-cli containerd.io
+                <h1 id="基础优化"><a href="#基础优化" class="headerlink" title="基础优化"></a>基础优化</h1><p>安装centos7 </p>
+<p>修改内核（将默认网卡名ens33改成eth0）</p>
+<p>将光标移动到选择”Install CentOS 7”**</p>
+<p>选择<strong>Tab键，打开Kernel</strong>启动项，再后面添加net.ifnames=0 biosdevname=0</p>
+<p>分区    </p>
+<p>/boot    1024MB</p>
+<p>swap        4096MB</p>
+<p>/                剩余空间</p>
+<h2 id="一、解决网络问题排查思路"><a href="#一、解决网络问题排查思路" class="headerlink" title="一、解决网络问题排查思路"></a>一、解决网络问题排查思路</h2><p>当我们部署完虚拟机遇到无法上网的问题是，排查思路如下：</p>
+<p>ps：由内到外</p>
+<h3 id="1、linux层面检查"><a href="#1、linux层面检查" class="headerlink" title="1、linux层面检查"></a>1、linux层面检查</h3><pre><code class="shell">ip a        查看网卡运行状态
+如果网卡处于done或者网卡无显示信息，systemctl restart network重启网卡、停止NetworkManager
 
-##添加阿里云镜像加速器
-sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
-{
-  "registry-mirrors": ["https://rwo46igw.mirror.aliyuncs.com"]
-}
-EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker
+查看网卡配置文件具体信息
 </code></pre>
-<h3 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h3><pre><code class="shell">docker version    #显示docker的版本信息
-docker info        #显示docker的系统信息，包括镜像和容器的数量
-docker --help    #帮助命令
+<h3 id="2、vm层面检查"><a href="#2、vm层面检查" class="headerlink" title="2、vm层面检查"></a>2、vm层面检查</h3><pre><code class="shell">虚拟网络编辑器 ---&gt; vmnet8 网卡设置 查看子网、掩码、网关等设置
 </code></pre>
-<p><a target="_blank" rel="noopener" href="https://docs.docker.com/reference/">docker帮助文档</a></p>
-<pre><code class="shell">##镜像命令
-[root@localhost ~]# docker images
-REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
-hello-world   latest    d1165f221234   5 months ago   13.3kB
-#解释
-REPOSITORY        镜像的仓库源
-TAG                镜像的标签
-IMAGE ID        镜像的id
-CREATED            镜像的创建时间
-SIZE            镜像的大小
-#
--a，--all        列出所有镜像
--q，--quiet        只显示镜像的id
-
-[root@localhost ~]# docker search mysql    #搜索镜像
-[root@localhost ~]# docker pull mysql    #下载镜像
-[root@localhost ~]# docker rmi -f 容器id    #删除指定容器
-[root@localhost ~]# docker rmi -f $(docker images -aq)    #删除所有镜像
-
-
-##容器命令
-docker run [images]
-#参数
---name='name'    容器名字，用来区分容器
--d                后台方式运行
--it                使用交互模式运行，进入容器查看内容
--p                制定容器端口 -p 主机端口:容器端口
--P                随机指定端口
-
-docker ps    
-#列出当前正在运行的容器
--a        #列出当前正在运行的容器+带出历史运行过的容器
--n=?    #显示最近创建的容器
--q        #只显示容器编号
-
-#退出容器
-exit        #容器停止退出
-CTRL+P+Q     #不停止退出
-#删除容器
-docker rm 容器id            #删除指定容器，不能删除正在运行的容器，rm -f 强制删除
-docker rm -f $(docker ps -aq)    #删除所有的容器
-docker ps -a -q|xargs docker rm #删除所有的容器
-#启动和停止容器
-docker start 容器id        #启动容器
-docker restart 容器id        #重启容器
-docker stop 容器id        #停止当前正在运行的容器
-docker kill 容器id        #强制停止容器
-
-#其他命令
-docker run -d 镜像名
-#docker容器使用后台运行，必须要有一个前台进程，docker发现没有应用，就会自动停止，容器启动后，发现自己没有提供服务，会立刻停止
-
-docker logs -tf --tail 10  #查看日志  -f 跟踪日志输出
-
-docker top 容器id        #查看容器中进程信息
-
-docker inspect 容器id        #查看镜像的元数据
-
-#进入当前正在运行的容器
-docker exec -it 容器id /bash/shell
-
-docker attach 容器id
-
-#从容器内拷贝文件到主机上
-docker cp 容器id:容器内路径 目的主机路径
-
-
-docker stats    #监控容器资源消耗
+<h3 id="3、windows层面检查"><a href="#3、windows层面检查" class="headerlink" title="3、windows层面检查"></a>3、windows层面检查</h3><pre><code class="shell">本地网卡检查 ---&gt; 控制面板\网络和 Internet\网络连接
+本地服务检查 ---&gt; 任务管理器 服务 vmware相关服务重启
 </code></pre>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre><code class="shell">attach    Attach to a running container  #当前shell下attach连接指定运行镜像
-build     Build an image from a Dockerfile  #通过Dockerfile定制镜像
-commit    Create a new image from a container's changes  #提交当前容器为新的镜像
-cp    Copy files/folders from a container to a HOSTDIR or to STDOUT  #从容器中拷贝指定文件或者目录到宿主机中
-create    Create a new container  #创建一个新的容器，同run 但不启动容器
-diff    Inspect changes on a container's filesystem  #查看docker容器变化
-events    Get real time events from the server#从docker服务获取容器实时事件
-exec    Run a command in a running container#在已存在的容器上运行命令
-export    Export a container's filesystem as a tar archive  #导出容器的内容流作为一个tar归档文件(对应import)
-history    Show the history of an image  #展示一个镜像形成历史
+<h2 id="二、基础优化步骤"><a href="#二、基础优化步骤" class="headerlink" title="二、基础优化步骤"></a>二、基础优化步骤</h2><h3 id="1、配置yum仓库"><a href="#1、配置yum仓库" class="headerlink" title="1、配置yum仓库"></a>1、配置yum仓库</h3><pre><code class="shell">rm -f /etc/yum.repos.d/*
 
-images    List images  #列出系统当前镜像
-import    Import the contents from a tarball to create a filesystem image  #从tar包中的内容创建一个新的文件系统映像(对应export)
-info    Display system-wide information  #显示系统相关信息
-inspect    Return low-level information on a container or image  #查看容器详细信息
-kill    Kill a running container  #kill指定docker容器
-load    Load an image from a tar archive or STDIN  #从一个tar包中加载一个镜像(对应save)
-login    Register or log in to a Docker registry#注册或者登陆一个docker源服务器
-logout    Log out from a Docker registry  #从当前Docker registry退出
-logs    Fetch the logs of a container  #输出当前容器日志信息
-pause    Pause all processes within a container#暂停容器
-port    List port mappings or a specific mapping for the CONTAINER  #查看映射端口对应的容器内部源端口
-ps    List containers  #列出容器列表
-pull    Pull an image or a repository from a registry  #从docker镜像源服务器拉取指定镜像或者库镜像
-push    Push an image or a repository to a registry  #推送指定镜像或者库镜像至docker源服务器
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 
-rename    Rename a container  #重命名容器
-restart    Restart a running container  #重启运行的容器
-rm    Remove one or more containers  #移除一个或者多个容器
-rmi    Remove one or more images  #移除一个或多个镜像(无容器使用该镜像才可以删除，否则需要删除相关容器才可以继续或者-f强制删除)
-run    Run a command in a new container  #创建一个新的容器并运行一个命令
-save    Save an image(s) to a tar archive#保存一个镜像为一个tar包(对应load)
-search    Search the Docker Hub for images  #在docker
-hub中搜索镜像
-start    Start one or more stopped containers#启动容器
-stats    Display a live stream of container(s) resource usage statistics  #统计容器使用资源
-stop    Stop a running container  #停止容器
-tag         Tag an image into a repository  #给源中镜像打标签
-top       Display the running processes of a container #查看容器中运行的进程信息
-unpause    Unpause all processes within a container  #取消暂停容器
-version    Show the Docker version information#查看容器版本号
-wait         Block until a container stops, then print its exit code  #截取容器停止时的退出状态值
+curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+#或
+curl -o /etc/yum.repos.d/CentOS-Base.repo https://repo.huaweicloud.com/repository/conf/CentOS-7-reg.repo
+
+yum install -y https://repo.huaweicloud.com/epel/epel-release-latest-7.noarch.rpm
+
+sed -i "s/#baseurl/baseurl/g" /etc/yum.repos.d/epel.repo
+sed -i "s/metalink/#metalink/g" /etc/yum.repos.d/epel.repo
+sed -i "s@https\?://download.fedoraproject.org/pub@https://repo.huaweicloud.com@g" /etc/yum.repos.d/epel.repo
+
+yum clean all
+yum makecache
 </code></pre>
-<h3 id="docker镜像"><a href="#docker镜像" class="headerlink" title="docker镜像"></a>docker镜像</h3><h4 id="commit镜像"><a href="#commit镜像" class="headerlink" title="commit镜像"></a>commit镜像</h4><pre><code class="shell">docekr commit 提交容器成为一个新的副本    #保存当前容器状态
-docker commit -m="提交的描述信息" -a="作者" 容器id 目标镜像名：[tag]
+<h3 id="2、系统升级"><a href="#2、系统升级" class="headerlink" title="2、系统升级"></a>2、系统升级</h3><pre><code class="shell">yum -y upgrade  #只升级系统包，不升级软件和系统内核
+yum -y update  #升级系统包、软件、内核。刚做完系统执行一次，以后不要执行，避免长时间未更新，出现兼容问题。
+yum update -y --exclud=kernel*    #排除内核都更新
 </code></pre>
-<h3 id="容器数据卷"><a href="#容器数据卷" class="headerlink" title="容器数据卷"></a>容器数据卷</h3><p>容器的持久化和同步操作！容器间也是可以数据共享的！</p>
-<h4 id="使用数据卷"><a href="#使用数据卷" class="headerlink" title="使用数据卷"></a>使用数据卷</h4><blockquote>
-<p>方式一：直接使用命令挂载   -v</p>
-</blockquote>
-<pre><code class="shell">docker run -it -v 主机目录：容器目录
-
-#MySQL数据持久化
-# 运行容器，需要做数据挂载  #安装启动MySQL，需要配置密码！！
-#官方测试：    docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
-
-#启动
--d 后台运行
--p 端口映射
--v 卷挂载
--e 环境配置
---name 容器名
+<h3 id="3、安装基础软件包"><a href="#3、安装基础软件包" class="headerlink" title="3、安装基础软件包"></a>3、安装基础软件包</h3><pre><code class="shell">yum install net-tools vim tree htop iftop iotop  bash-completion bash-completion-extras lrzsz sysstat sl lsof unzip telnet nmap nc psmisc dos2unix bash-completion wget  nethogs ntpdate nfsutils rsync glances gcc gcc-c++ glibc yum-utils httpd-tools -y
 </code></pre>
-<h4 id="具名挂载和匿名挂载"><a href="#具名挂载和匿名挂载" class="headerlink" title="具名挂载和匿名挂载"></a>具名挂载和匿名挂载</h4><pre><code class="shell">#匿名挂载
--v 容器内路径！
-docker run -d -P --name nginx1 -v /etc/nginx nginx
-
-#查看volume的情况
-docker volume ls
-
-#具名挂载
-docker run -d -P --name nginx2 -v juming-nginx:etc/nginx nginx
-
--v 容器内路径            #匿名挂载
--v 卷名：容器内路径            #具名挂载
--v /宿主机路径：：容器内路径    #指定路径挂载
-
-#拓展
--v 容器内路径：ro   rw  改变读写权限
-ro    readonly    #只读
-rw  readwrite    #可读可写
-
-ro  只要看到就说明ro这个路径只能通过宿主机来操作，容器内部是无法操作
+<h3 id="4、关闭系统服务"><a href="#4、关闭系统服务" class="headerlink" title="4、关闭系统服务"></a>4、关闭系统服务</h3><h4 id="1、关闭防火墙"><a href="#1、关闭防火墙" class="headerlink" title="1、关闭防火墙"></a>1、关闭防火墙</h4><pre><code class="shell">systemctl stop firewalld      -----&gt;临时关闭
+systemctl status firewalld    -----&gt;查看状态
+systemctl disable firewalld   -----&gt;永久关闭
 </code></pre>
-<h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><p>Dockerfile 就是用来构建 docker 镜像的构建文件，命令脚本</p>
-<pre><code class="shell">#创建一个dockerfile文件，名字随机建议Dockerfile
-#文件内容  指令（大写） 参数
-FROM centos
-
-VOLUME ["/volume01","/volume02"]
-
-CMD echo "----end----"
-
-CMD /bin/bash
-#每个命令就是镜像的一层
+<h4 id="2、关闭SElinux"><a href="#2、关闭SElinux" class="headerlink" title="2、关闭SElinux"></a>2、关闭SElinux</h4><pre><code class="shell">setenforce 0                  -----&gt;临时关闭
+sed -i '/^SELINUX=/c SELINUX=disabled' /etc/selinux/config        ---&gt;永久关闭
+[root@oldboy ~]# getenforce        -----&gt;检查状态
+Permissive
 </code></pre>
-<h3 id="数据卷容器"><a href="#数据卷容器" class="headerlink" title="数据卷容器"></a>数据卷容器</h3>
+<h4 id="3、关闭NetworkManager"><a href="#3、关闭NetworkManager" class="headerlink" title="3、关闭NetworkManager"></a>3、关闭NetworkManager</h4><pre><code class="shell">systemctl stop NetworkManager      -----&gt;临时关闭
+systemctl status NetworkManager    -----&gt;查看状态
+systemctl disable NetworkManager       -----&gt;永久关闭
+</code></pre>
+<h3 id="5、配置ntp服务，同步系统时间"><a href="#5、配置ntp服务，同步系统时间" class="headerlink" title="5、配置ntp服务，同步系统时间"></a>5、配置ntp服务，同步系统时间</h3><pre><code class="shell">echo '#Timing synchronization time' &gt;&gt;/var/spool/cron/root    #给定时任务加上注释
+echo '0 */1 * * * /usr/sbin/ntpdate ntp1.aliyun.com &amp;&gt;/dev/null' &gt;&gt;/var/spool/cron/root        #设置定时任务
+crontab -l    #检查结果
+</code></pre>
+<h3 id="6、优化显示输出"><a href="#6、优化显示输出" class="headerlink" title="6、优化显示输出"></a>6、优化显示输出</h3><p>vim /etc/bashrc 进入bashrc文件 按下41gg 跳转文件的41行 按下i键进入编辑模式，输入#，注释当前行，光标移动到#号前，按下回车键空出当前41行内容，而后光标移动到41行（空行位置），粘贴参数。而后按下ESC键，退出编辑模式，按下SHIFT+; wq 保存退出</p>
+<pre><code class="shell">[ "$PS1" = "\\s-\\v\\\$ " ] &amp;&amp; PS1="[\[\e[34;1m\]\u@\[\e[0m\]\[\e[32;1m\]\H\[\e[0m\] \[\e[31;1m\]\w\[\e[0m\]]\\$ "
+</code></pre>
+<h3 id="7、优化ssh连接速度"><a href="#7、优化ssh连接速度" class="headerlink" title="7、优化ssh连接速度"></a>7、优化ssh连接速度</h3><pre><code class="shell">sed -i 's@#UseDNS yes@UseDNS no@g' /etc/ssh/sshd_config
+sed -i 's@^GSSAPIAuthentication yes@GSSAPIAuthentication no@g' /etc/ssh/sshd_config
+systemctl restart sshd
+</code></pre>
+<h3 id="8、hosts解析"><a href="#8、hosts解析" class="headerlink" title="8、hosts解析"></a>8、hosts解析</h3><p>vim /etc/hosts</p>
+<p>根据需要修改</p>
+<pre><code class="shell">192.168.100.11 centos7
+</code></pre>
+<h3 id="9、调整单个进程最大打开文件数"><a href="#9、调整单个进程最大打开文件数" class="headerlink" title="9、调整单个进程最大打开文件数"></a>9、调整单个进程最大打开文件数</h3><pre><code class="shell">echo '* - nofile 65535' &gt;&gt; /etc/security/limits.conf
+</code></pre>
+<p>以上完成后开始克隆</p>
+<h1 id="修改每台主机的主机名、IP地址"><a href="#修改每台主机的主机名、IP地址" class="headerlink" title="修改每台主机的主机名、IP地址"></a>修改每台主机的主机名、IP地址</h1><h2 id="一、修改主机名"><a href="#一、修改主机名" class="headerlink" title="一、修改主机名"></a>一、修改主机名</h2><pre><code class="shell">hostnamectl set-hostname 要换的名字        #注意看要换的名字
+hostnamectl set-hostname web01
+</code></pre>
+<h2 id="二、修改ip地址"><a href="#二、修改ip地址" class="headerlink" title="二、修改ip地址"></a>二、修改ip地址</h2><pre><code class="shell">sed -i 's#原ip#更改后ip#g' /etc/sysconfig/network-scripts/ifcfg-eth[01]   #注意自己要换的ip和原ip是什么
+
+sed -i 's#200#7#g' /etc/sysconfig/network-scripts/ifcfg-eth[01]
+systemctl restart network
+</code></pre>
+
                 
             </div>
             <hr/>
@@ -701,7 +595,7 @@ CMD /bin/bash
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z3942.github.io/2021/08/14/docker/">https://z3942.github.io/2021/08/14/docker/</a>
+                    <a href="https://z3942.github.io/2021/08/14/linux-ji-chu-you-hua/">https://z3942.github.io/2021/08/14/linux-ji-chu-you-hua/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -907,7 +801,7 @@ CMD /bin/bash
         repo: 'hexotalk',
         owner: 'yunchen',
         admin: "yunchen",
-        id: '2021-08-14T16-32-17',
+        id: '2021-08-14T16-33-17',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -939,7 +833,7 @@ CMD /bin/bash
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/14/google-chrome-mo-ren-fei-an-quan-duan-kou-lie-biao/">
+                <a href="/2021/08/14/lvs/">
                     <div class="card-image">
                         
                         
@@ -976,7 +870,7 @@ CMD /bin/bash
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/14/markdown-yu-fa/">
+                <a href="/2021/08/14/linux/">
                     <div class="card-image">
                         
                         
