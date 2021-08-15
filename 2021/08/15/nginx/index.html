@@ -665,12 +665,12 @@
 <p>端口：81</p>
 <p>站点目录：/opt/mysite</p>
 <p>2.创建站点 </p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[root@localhost ~]# mkdir -p /opt/mysite
-[root@localhost ~]# cd /opt/mysite/
-[root@localhost mysite]# ls
-[root@localhost mysite]# echo mysite &gt; index.com
-[root@localhost mysite]# mkdir static
-[root@localhost mysite]# echo static &gt; static/index.com <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkdir -p /opt/mysite</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cd /opt/mysite/</span>
+<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># ls</span>
+<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># echo mysite &gt; index.com</span>
+<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># mkdir static</span>
+<span class="token punctuation">[</span>root@localhost mysite<span class="token punctuation">]</span><span class="token comment"># echo static &gt; static/index.com </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>3.配置nginx服务</p>
 <pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
@@ -696,11 +696,11 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>4.启动nginx</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/nginx/conf.d/mysite.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /etc/nginx/conf.d/mysite.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>5.安全配置</p>
 <p>安全组（开放端口）</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl stop firewalld	#关闭防火墙<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl stop firewalld	<span class="token comment">#关闭防火墙</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>6.配置域名</p>
 <p>域名–&gt;解析成IP</p>
@@ -758,10 +758,10 @@
 <li>mysite1.com /opt mysite1</li>
 <li>mysite2.com /opt mysite2</li>
 </ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir /opt/mysite1 /opt/mysite2
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> /opt/mysite1 /opt/mysite2
 
-echo mysite1 &gt;/opt/mysite1/index.html
-echo mysite2 &gt;/opt/mysite1/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token builtin class-name">echo</span> mysite1 <span class="token operator">&gt;</span>/opt/mysite1/index.html
+<span class="token builtin class-name">echo</span> mysite2 <span class="token operator">&gt;</span>/opt/mysite1/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>配置站点</p>
 <pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
@@ -830,9 +830,9 @@ echo mysite2 &gt;/opt/mysite1/index.html<span aria-hidden="true" class="line-num
 <li>proxysite1:/opt/proxy1</li>
 <li>proxysite2:/opt/proxy2</li>
 </ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir /opt/proxy1 /opt/proxy2
-echo "my proxy site1" &gt; /opt/proxy1/index.html
-echo "my proxy site2" &gt; /opt/proxy2/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> /opt/proxy1 /opt/proxy2
+<span class="token builtin class-name">echo</span> <span class="token string">"my proxy site1"</span> <span class="token operator">&gt;</span> /opt/proxy1/index.html
+<span class="token builtin class-name">echo</span> <span class="token string">"my proxy site2"</span> <span class="token operator">&gt;</span> /opt/proxy2/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>创建站点</p>
 <p>proxy1</p>
@@ -1432,7 +1432,7 @@ echo "my proxy site2" &gt; /opt/proxy2/index.html<span aria-hidden="true" class=
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="2888085740"
+                   id="19723756"
                    fixed='true'
                    autoplay='true'
                    theme='#42b983'
@@ -1465,7 +1465,7 @@ echo "my proxy site2" &gt; /opt/proxy2/index.html<span aria-hidden="true" class=
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">63k</span>
+                        class="white-color">67.4k</span>
             
             
             

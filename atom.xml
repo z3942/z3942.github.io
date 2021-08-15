@@ -6,7 +6,7 @@
   <link href="https://z3942.github.io/atom.xml" rel="self"/>
   
   <link href="https://z3942.github.io/"/>
-  <updated>2021-08-14T12:52:43.845Z</updated>
+  <updated>2021-08-15T11:10:46.756Z</updated>
   <id>https://z3942.github.io/</id>
   
   <author>
@@ -15,6 +15,123 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SVN的使用常见命令</title>
+    <link href="https://z3942.github.io/2021/08/15/svn-de-shi-yong-chang-jian-ming-ling/"/>
+    <id>https://z3942.github.io/2021/08/15/svn-de-shi-yong-chang-jian-ming-ling/</id>
+    <published>2021-08-15T11:10:46.000Z</published>
+    <updated>2021-08-15T11:10:46.756Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>sudo使用</title>
+    <link href="https://z3942.github.io/2021/08/15/sudo-shi-yong/"/>
+    <id>https://z3942.github.io/2021/08/15/sudo-shi-yong/</id>
+    <published>2021-08-15T11:10:08.000Z</published>
+    <updated>2021-08-15T11:18:26.905Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;sudo使用&quot;&gt;&lt;a href=&quot;#sudo使用&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络基础</title>
+    <link href="https://z3942.github.io/2021/08/15/ji-suan-ji-wang-luo-ji-chu/"/>
+    <id>https://z3942.github.io/2021/08/15/ji-suan-ji-wang-luo-ji-chu/</id>
+    <published>2021-08-15T11:09:55.000Z</published>
+    <updated>2021-08-15T11:19:47.343Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;DNS域名&quot;&gt;&lt;a href=&quot;#DNS域名&quot; class=&quot;headerlink&quot; title=&quot;DNS域名&quot;&gt;&lt;/a&gt;DNS域名&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-markdown&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    <category term="计算机网络" scheme="https://z3942.github.io/categories/Linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+    <category term="计算机网络" scheme="https://z3942.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux用户组和权限管理</title>
+    <link href="https://z3942.github.io/2021/08/15/linux-yong-hu-zu-he-quan-xian-guan-li/"/>
+    <id>https://z3942.github.io/2021/08/15/linux-yong-hu-zu-he-quan-xian-guan-li/</id>
+    <published>2021-08-15T11:09:43.000Z</published>
+    <updated>2021-08-15T11:17:52.430Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;linux用户组和权限管理&quot;&gt;&lt;a href=&quot;#linux用户组和权限管理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux命令总结</title>
+    <link href="https://z3942.github.io/2021/08/15/linux-ming-ling-zong-jie/"/>
+    <id>https://z3942.github.io/2021/08/15/linux-ming-ling-zong-jie/</id>
+    <published>2021-08-15T11:09:19.000Z</published>
+    <updated>2021-08-15T11:17:07.716Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Linux命令总结&quot;&gt;&lt;a href=&quot;#Linux命令总结&quot; class=&quot;headerlink&quot; title=&quot;Linux命令总结&quot;&gt;&lt;/a&gt;Linux命令总结&lt;/h2&gt;&lt;h3 id=&quot;1、登陆和开关机&quot;&gt;&lt;a href=&quot;#1、登陆和开关机&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>linux运维排除问题步骤</title>
@@ -397,58 +514,6 @@
     
     
     <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GoolGle Chrome默认非安全端口</title>
-    <link href="https://z3942.github.io/2021/08/14/goolgle-chrome-mo-ren-fei-an-quan-duan-kou/"/>
-    <id>https://z3942.github.io/2021/08/14/goolgle-chrome-mo-ren-fei-an-quan-duan-kou/</id>
-    <published>2021-08-14T08:43:34.000Z</published>
-    <updated>2021-08-14T12:50:39.217Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Google-Chrome-默认非安全端口列表&quot;&gt;&lt;a href=&quot;#Google-Chrome-默认非安全端口列表&quot; class=&quot;headerlink&quot; title=&quot;Google Chrome 默认非安全端口列表&quot;&gt;&lt;/a&gt;Google Chrome</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker</title>
-    <link href="https://z3942.github.io/2021/08/14/docker/"/>
-    <id>https://z3942.github.io/2021/08/14/docker/</id>
-    <published>2021-08-14T08:32:17.000Z</published>
-    <updated>2021-08-14T12:17:57.897Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Docker&quot;&gt;&lt;a href=&quot;#Docker&quot; class=&quot;headerlink&quot; title=&quot;Docker&quot;&gt;&lt;/a&gt;Docker&lt;/h2&gt;&lt;h3 id=&quot;docker安装部署添加阿里云镜像加速器&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Docker" scheme="https://z3942.github.io/categories/Docker/"/>
-    
-    
-    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
-    
-    <category term="Docker" scheme="https://z3942.github.io/tags/Docker/"/>
     
   </entry>
   
