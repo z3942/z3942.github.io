@@ -4,13 +4,50 @@
   
     
     <entry>
+      <title>Hello World</title>
+      <link href="/2021/08/15/hello-world/"/>
+      <url>/2021/08/15/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Helloworld </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Helloworld </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SVN的使用常见命令</title>
       <link href="/2021/08/15/svn-de-shi-yong-chang-jian-ming-ling/"/>
       <url>/2021/08/15/svn-de-shi-yong-chang-jian-ming-ling/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>SVN的使用常见命令</p><h4 id="常见的选项："><a href="#常见的选项：" class="headerlink" title="常见的选项："></a>常见的选项：</h4><table><thead><tr><th>命令</th><th>作用</th></tr></thead><tbody><tr><td>mport</td><td>将未版本化的文件纳入版本控制并提交</td></tr><tr><td>checkout</td><td>#从版本库中检出一个修订版</td></tr><tr><td>update</td><td>#更新工作拷贝</td></tr><tr><td>add，delete，copy，move</td><td>#增、删、复制、移动文件或目录</td></tr><tr><td>status</td><td>检查状态差异</td></tr><tr><td>diff</td><td>检查文件行级详细差异</td></tr><tr><td>revert</td><td>恢复</td></tr><tr><td>resolve</td><td>解决冲突</td></tr><tr><td>switch</td><td>切换工作拷贝对应的版本库分支</td></tr><tr><td>log</td><td>查看历史记录</td></tr><tr><td>list</td><td>显示示文件目录</td></tr><tr><td>cat</td><td>查看某个文件内容</td></tr></tbody></table><h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><h5 id="1-代码取出"><a href="#1-代码取出" class="headerlink" title="1. 代码取出"></a>1. 代码取出</h5><p>svn checkout svn://192.168.1.17/jgou1/ day03</p><p>代码会取出到day03这个目录里</p><h5 id="2-添加新文件"><a href="#2-添加新文件" class="headerlink" title="2. 添加新文件"></a>2. 添加新文件</h5><p>svn add js.v5<br>svn commit -m “添加v5版本”</p><h5 id="3-删除文件"><a href="#3-删除文件" class="headerlink" title="3. 删除文件"></a>3. 删除文件</h5><p>[root@zmedu-17 day05]# svn delete js.v4<br>D js.v4</p><h5 id="4-查看文件的详细信息"><a href="#4-查看文件的详细信息" class="headerlink" title="4. 查看文件的详细信息"></a>4. 查看文件的详细信息</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@zmedu-17 day05<span class="token punctuation">]</span><span class="token comment"># svn info js.v2</span>路径: js.v2名称: js.v2工作副本根目录: /root/day031/day05URL: svn://192.168.1.17/jgou1/js.v2版本库根: svn://192.168.1.17/jgou1版本库 UUID: 989d2139-49f8-4dd6-9218-489338656310版本: <span class="token number">1</span>节点种类: 文件调度: 正常最后修改的作者: root最后修改的版本: <span class="token number">1</span>最后修改的时间: <span class="token number">2020</span>-08-02 <span class="token number">12</span>:42:03 +0800 <span class="token punctuation">(</span>日, <span class="token number">2020</span>-08-02<span class="token punctuation">)</span>文本最后更新: <span class="token number">2020</span>-08-02 <span class="token number">12</span>:56:20 +0800 <span class="token punctuation">(</span>日, <span class="token number">2020</span>-08-02<span class="token punctuation">)</span>校验和: da39a3ee5e6b4b0d3255bfef95601890afd80709<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>Bash</p><p>Copy</p><h5 id="5-svn帮助"><a href="#5-svn帮助" class="headerlink" title="5. svn帮助"></a>5. svn帮助</h5><p>svn help</p><h5 id="6-恢复本地修改"><a href="#6-恢复本地修改" class="headerlink" title="6. 恢复本地修改"></a>6. 恢复本地修改</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@zmedu-17 day05<span class="token punctuation">]</span><span class="token comment"># svn revert js.v4</span>已恢复“js.v4”<span class="token punctuation">[</span>root@zmedu-17 day05<span class="token punctuation">]</span><span class="token comment"># ls</span>js.v1  js.v2  js.v4<span class="token punctuation">[</span>root@zmedu-17 day05<span class="token punctuation">]</span><span class="token comment"># </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>Bash</p><p>Copy</p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>svn的使用需要在日常的工作中去练习，孰能生巧。 可以使用svn与码云交互，平时写的代码或者文件都可以使用svn传到码云上备份</p>]]></content>
       
       
+      <categories>
+          
+          <category> 版本控制 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 版本控制 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -169,19 +206,6 @@
             <tag> Nginx </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2021/08/15/hello-world/"/>
-      <url>/2021/08/15/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
       
     </entry>
     
