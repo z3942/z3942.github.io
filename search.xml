@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Git</title>
+      <link href="/2021/08/15/git/"/>
+      <url>/2021/08/15/git/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="一、SVN版本控制"><a href="#一、SVN版本控制" class="headerlink" title="一、SVN版本控制"></a>一、SVN版本控制</h2><p>SVN是集中式版本控制系统，版本库是集中放在中央服务器上的，而工作的时候，用的都是自己的电脑，所以首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要把自己做完的工作推送到中央服务器。集中式版本控制系统是必须联网才能工作，对网络带宽要求较高。</p><h2 id="二、Git版本控制"><a href="#二、Git版本控制" class="headerlink" title="二、Git版本控制"></a>二、Git版本控制</h2><p>Git是分布式版本控制系统。没有中央服务器，每个人的电脑就是一个完整的版本库，工作的时候就不需要联网了，因为版本都在自己的电脑上，协同的方法是这样的：比如说自己在电脑上改了文件A。这时，两人只需要把各自的修改推送给对方，就可以互相看到对方的修改了。Git可以直接看到了更新了哪些代码和文件。<br>Git是目前世界上最先进的分布式版本控制系统。</p><p><img src="https://cdn.jsdelivr.net/gh/z3942/images/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8.jpg" alt="git常用命令速查表"></p><h2 id="Git的基本操作"><a href="#Git的基本操作" class="headerlink" title="Git的基本操作"></a>Git的基本操作</h2><ol><li><p><strong>提交，修改</strong></p><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>git add</td><td>添加文件到仓库</td></tr><tr><td>git status</td><td>查看仓库当前的状态，显示有变更的文件。</td></tr><tr><td>git diff</td><td>比较文件的不同，即暂存区和工作区的差异。</td></tr><tr><td>git commit</td><td>提交暂存区到本地仓库。</td></tr><tr><td>git rest</td><td>回退版本。</td></tr><tr><td>git rm</td><td>删除工作区文件。</td></tr><tr><td>git mv</td><td>移动或重命名工作区文件</td></tr></tbody></table></li><li><p>提交日志</p><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>git log</td><td>查看历史提交记录</td></tr><tr><td>git blame<file></file></td><td>以列表形式查看指定文件的历史修改记录</td></tr></tbody></table></li><li><p>远程操作</p><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>git remote</td><td>远程仓库操作</td></tr><tr><td>git fetch</td><td>从远程获取代码库</td></tr><tr><td>git pull</td><td>下载远程代码并合并</td></tr><tr><td>git push</td><td>上传远程代码并合并</td></tr></tbody></table></li><li><p>创建分支</p><pre class="line-numbers language-none"><code class="language-none">git branch (branchname)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>切换分支命令</p><pre class="line-numbers language-none"><code class="language-none">git checkout (branchname)git checkout -b (branchname)## 创建新分支并立刻切换到该分支下<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><blockquote><p>当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。</p></blockquote></li><li><p>合并分支</p><pre class="line-numbers language-none"><code class="language-none">git merge<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><blockquote><p>你可以多次合并到统一分支， 也可以选择在合并之后直接删除被并入的分支。</p></blockquote></li><li><p>删除分子</p><pre class="line-numbers language-none"><code class="language-none">git branch -d (branchname)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><blockquote><p>使用分支将工作切分开来，从而让我们能够在不同开发环境中做事，并来回切换。</p></blockquote></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 版本控制 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 版本控制 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2021/08/15/hello-world/"/>
       <url>/2021/08/15/hello-world/</url>

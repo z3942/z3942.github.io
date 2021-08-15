@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 一只云辰">
+    <meta name="keywords" content="Git, 一只云辰">
     <meta name="description" content="本网站是个人兴趣爱好，记录生活点滴的平台">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 一只云辰</title>
+    <title>Git | 一只云辰</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -301,12 +301,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Git</h1>
                 </div>
             </div>
         </div>
@@ -422,8 +422,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Helloworld/">
-                                <span class="chip bg-color">Helloworld</span>
+                            <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">
+                                <span class="chip bg-color">版本控制</span>
                             </a>
                         
                     </div>
@@ -434,8 +434,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Helloworld/" class="post-category">
-                                Helloworld
+                            <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="post-category">
+                                版本控制
                             </a>
                         
                     </div>
@@ -461,14 +461,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    623
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -491,19 +491,116 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="一、SVN版本控制"><a href="#一、SVN版本控制" class="headerlink" title="一、SVN版本控制"></a>一、SVN版本控制</h2><p>SVN是集中式版本控制系统，版本库是集中放在中央服务器上的，而工作的时候，用的都是自己的电脑，所以首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要把自己做完的工作推送到中央服务器。集中式版本控制系统是必须联网才能工作，对网络带宽要求较高。</p>
+<h2 id="二、Git版本控制"><a href="#二、Git版本控制" class="headerlink" title="二、Git版本控制"></a>二、Git版本控制</h2><p>Git是分布式版本控制系统。没有中央服务器，每个人的电脑就是一个完整的版本库，工作的时候就不需要联网了，因为版本都在自己的电脑上，协同的方法是这样的：比如说自己在电脑上改了文件A。这时，两人只需要把各自的修改推送给对方，就可以互相看到对方的修改了。Git可以直接看到了更新了哪些代码和文件。<br>Git是目前世界上最先进的分布式版本控制系统。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/z3942/images/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8.jpg" alt="git常用命令速查表"></p>
+<h2 id="Git的基本操作"><a href="#Git的基本操作" class="headerlink" title="Git的基本操作"></a>Git的基本操作</h2><ol>
+<li><p><strong>提交，修改</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git add</td>
+<td>添加文件到仓库</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看仓库当前的状态，显示有变更的文件。</td>
+</tr>
+<tr>
+<td>git diff</td>
+<td>比较文件的不同，即暂存区和工作区的差异。</td>
+</tr>
+<tr>
+<td>git commit</td>
+<td>提交暂存区到本地仓库。</td>
+</tr>
+<tr>
+<td>git rest</td>
+<td>回退版本。</td>
+</tr>
+<tr>
+<td>git rm</td>
+<td>删除工作区文件。</td>
+</tr>
+<tr>
+<td>git mv</td>
+<td>移动或重命名工作区文件</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>提交日志</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git log</td>
+<td>查看历史提交记录</td>
+</tr>
+<tr>
+<td>git blame<file></file></td>
+<td>以列表形式查看指定文件的历史修改记录</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>远程操作</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git remote</td>
+<td>远程仓库操作</td>
+</tr>
+<tr>
+<td>git fetch</td>
+<td>从远程获取代码库</td>
+</tr>
+<tr>
+<td>git pull</td>
+<td>下载远程代码并合并</td>
+</tr>
+<tr>
+<td>git push</td>
+<td>上传远程代码并合并</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>创建分支</p>
+<pre class="line-numbers language-none"><code class="language-none">git branch (branchname)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>切换分支命令</p>
+<pre class="line-numbers language-none"><code class="language-none">git checkout (branchname)git checkout -b (branchname)## 创建新分支并立刻切换到该分支下<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。</p>
+</blockquote>
+</li>
+<li><p>合并分支</p>
+<pre class="line-numbers language-none"><code class="language-none">git merge<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>你可以多次合并到统一分支， 也可以选择在合并之后直接删除被并入的分支。</p>
+</blockquote>
+</li>
+<li><p>删除分子</p>
+<pre class="line-numbers language-none"><code class="language-none">git branch -d (branchname)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<blockquote>
+<p>使用分支将工作切分开来，从而让我们能够在不同开发环境中做事，并来回切换。</p>
+</blockquote>
+</li>
+</ol>
 
                 
             </div>
@@ -530,7 +627,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z3942.github.io/2021/08/15/hello-world/">https://z3942.github.io/2021/08/15/hello-world/</a>
+                    <a href="https://z3942.github.io/2021/08/15/git/">https://z3942.github.io/2021/08/15/git/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -568,8 +665,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Helloworld/">
-                                    <span class="chip bg-color">Helloworld</span>
+                                <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">
+                                    <span class="chip bg-color">版本控制</span>
                                 </a>
                             
                         </div>
@@ -741,9 +838,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/08/15/git/">
                     <div class="card-image">
@@ -752,55 +850,6 @@
                         <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Git">
                         
                         <span class="card-title">Git</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="post-category">
-                                    版本控制
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">
-                        <span class="chip bg-color">版本控制</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/08/15/svn-de-shi-yong-chang-jian-ming-ling/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="SVN的使用常见命令">
-                        
-                        <span class="card-title">SVN的使用常见命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -825,11 +874,61 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">
                         <span class="chip bg-color">版本控制</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/08/15/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Helloworld/" class="post-category">
+                                    Helloworld
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Helloworld/">
+                        <span class="chip bg-color">Helloworld</span>
                     </a>
                     
                 </div>
