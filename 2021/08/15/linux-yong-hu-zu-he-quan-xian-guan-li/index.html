@@ -36,6 +36,16 @@
 
 
 
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/z3942/images/5c23d52f880511ebb6edd017c2d2eca2.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
 
 <body>
     <header class="navbar-fixed">
@@ -500,41 +510,41 @@
 <p> 用户管理命令 </p>
 </blockquote>
 <p> useradd<br> -u uid 创建用户时指定uid<br> -g gid 指明用户所属基本组<br> -c 用户的注释信息<br> -M 不建家目录<br> -s 指定用户的默认shell<br> -e 用户过期时间<br> -G 为用户指明附加组，组须事先存在</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@centos7 ~<span class="token punctuation">]</span><span class="token comment">#cat /etc/default/useradd </span>
- <span class="token comment"># useradd defaults file</span>
- <span class="token assign-left variable">GROUP</span><span class="token operator">=</span><span class="token number">100</span>                        
- <span class="token assign-left variable"><span class="token environment constant">HOME</span></span><span class="token operator">=</span>/home <span class="token comment">#把用户的家目录建在/home中          </span>
- <span class="token assign-left variable">INACTIVE</span><span class="token operator">=</span>-1 <span class="token comment">#是否启用帐号过期停权，-1表示不启用</span>
- <span class="token assign-left variable">EXPIRE</span><span class="token operator">=</span> <span class="token comment">#帐号终止日期，不设置表示不启用</span>
- <span class="token assign-left variable"><span class="token environment constant">SHELL</span></span><span class="token operator">=</span>/bin/bash <span class="token comment">#新用户默认所用的shell类型</span>
- <span class="token assign-left variable">SKEL</span><span class="token operator">=</span>/etc/skel <span class="token comment">#配置新用户家目录的默认存放路径。当我们用useradd添加用户时，</span>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[root@centos7 ~]#cat /etc/default/useradd 
+ # useradd defaults file
+ GROUP=100                        
+ HOME=/home #把用户的家目录建在/home中          
+ INACTIVE=-1 #是否启用帐号过期停权，-1表示不启用
+ EXPIRE= #帐号终止日期，不设置表示不启用
+ SHELL=/bin/bash #新用户默认所用的shell类型
+ SKEL=/etc/skel #配置新用户家目录的默认存放路径。当我们用useradd添加用户时，
  用户家目录下的文件，都是从这里配置的目录中复制过去的。下面会详细解释一下/etc/skel
- <span class="token assign-left variable">CREATE_MAIL_SPOOL</span><span class="token operator">=</span>yes <span class="token comment">#创建mail文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ CREATE_MAIL_SPOOL=yes #创建mail文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>组帐号管理命令 </p>
 </blockquote>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">groupadd</span>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">groupadd
 -g 创建指定gid的组
--r 创建系统组 CentOS <span class="token number">6</span>: ID<span class="token operator">&lt;</span><span class="token number">500</span>
-CentOS <span class="token number">7</span>: ID<span class="token operator">&lt;</span><span class="token number">1000</span>
+-r 创建系统组 CentOS 6: ID&lt;500
+CentOS 7: ID&lt;1000
 
-<span class="token function">groupmod</span> 
+groupmod 
 -n newgrpname oldgrpname  修改组名
 -g  newgid groupname  修改gid
 
-<span class="token function">groupdel</span>
-<span class="token function">groupdel</span> 组名 删除组
+groupdel
+groupdel 组名 删除组
 
 gpasswd
 -a user 将user添加至指定组中
 -d user 从指定组中移除用户user
-例如： <span class="token punctuation">[</span>root@centos7 ~<span class="token punctuation">]</span><span class="token comment">#gpasswd -a ma -g zhu</span>
-Adding user ma to group zhu <span class="token comment">#将用户ma添加到组zhu中</span>
-<span class="token punctuation">[</span>root@centos7 ~<span class="token punctuation">]</span><span class="token comment">#gpasswd -d ma -g zhu </span>
-Removing user ma from group zhu <span class="token comment">#将用户ma从组zhu中删除</span>
+例如： [root@centos7 ~]#gpasswd -a ma -g zhu
+Adding user ma to group zhu #将用户ma添加到组zhu中
+[root@centos7 ~]#gpasswd -d ma -g zhu 
+Removing user ma from group zhu #将用户ma从组zhu中删除
 
-groupmems<span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>action<span class="token punctuation">]</span>
+groupmems[options] [action]
 options
 -g 更改为指定组
 actions
@@ -543,25 +553,25 @@ actions
 -p 从组中清除所有成员
 -l 显示组成员列表
 
- <span class="token function">groups</span> 查看用户所属组列表
-<span class="token punctuation">[</span>root@centos7 ~<span class="token punctuation">]</span><span class="token comment">#groups ma</span>
-ma <span class="token builtin class-name">:</span> ma
-root@centos7 ~<span class="token punctuation">]</span><span class="token comment">#groups zhu</span>
-zhu <span class="token builtin class-name">:</span> zhu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ groups 查看用户所属组列表
+[root@centos7 ~]#groups ma
+ma : ma
+root@centos7 ~]#groups zhu
+zhu : zhu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><h4 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 通过ls -li可查看文件的长格式信息，我们取出一个进行解释</span>
- <span class="token punctuation">[</span>root@centos7 /<span class="token punctuation">]</span><span class="token comment">#ls -li</span>
- <span class="token number">64</span> dr-xr-xr-x.  <span class="token number">4</span> root root <span class="token number">4</span>.0K Jul <span class="token number">14</span> <span class="token number">11</span>:33 boot
-<span class="token comment"># 第1列：inode号</span>
-<span class="token comment"># 第2列：第1个字符代表文件的类型（-是普通文件，d是目录等等）</span>
-<span class="token comment">#第2-10个字符代表文件权限，前三个是用户的权限、中间三个用户组的、后面其他用户的权限</span>
-<span class="token comment">#第11个字符.与SELINUX相关，暂时不做描述</span>
-<span class="token comment"># 第3列：文件的硬连接数</span>
-<span class="token comment"># 第4列：文件对应的属主或者用户</span>
-<span class="token comment"># 第5列：文件对应的属组或者用户组</span>
-<span class="token comment"># 第6列：文件大小</span>
-<span class="token comment"># 第7列：文件最后的修改的时间</span>
-<span class="token comment"># 第8列：文件名</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><h4 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 通过ls -li可查看文件的长格式信息，我们取出一个进行解释
+ [root@centos7 /]#ls -li
+ 64 dr-xr-xr-x.  4 root root 4.0K Jul 14 11:33 boot
+# 第1列：inode号
+# 第2列：第1个字符代表文件的类型（-是普通文件，d是目录等等）
+#第2-10个字符代表文件权限，前三个是用户的权限、中间三个用户组的、后面其他用户的权限
+#第11个字符.与SELINUX相关，暂时不做描述
+# 第3列：文件的硬连接数
+# 第4列：文件对应的属主或者用户
+# 第5列：文件对应的属组或者用户组
+# 第6列：文件大小
+# 第7列：文件最后的修改的时间
+# 第8列：文件名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
