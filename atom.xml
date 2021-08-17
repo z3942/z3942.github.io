@@ -6,7 +6,7 @@
   <link href="https://z3942.github.io/atom.xml" rel="self"/>
   
   <link href="https://z3942.github.io/"/>
-  <updated>2021-08-15T12:31:01.963Z</updated>
+  <updated>2021-08-17T19:45:35.262Z</updated>
   <id>https://z3942.github.io/</id>
   
   <author>
@@ -15,6 +15,109 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>主从数据库</title>
+    <link href="https://z3942.github.io/2021/08/18/zhu-cong-shu-ju-ku/"/>
+    <id>https://z3942.github.io/2021/08/18/zhu-cong-shu-ju-ku/</id>
+    <published>2021-08-17T19:37:07.000Z</published>
+    <updated>2021-08-17T19:45:35.262Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;主从数据库&quot;&gt;&lt;a href=&quot;#主从数据库&quot; class=&quot;headerlink&quot; title=&quot;主从数据库&quot;&gt;&lt;/a&gt;主从数据库&lt;/h1&gt;&lt;p&gt;主数据库： &lt;/p&gt;
+&lt;p&gt;1、ip地址配置、主机名修改、主机映射；</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="https://z3942.github.io/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenStack</title>
+    <link href="https://z3942.github.io/2021/08/18/openstack/"/>
+    <id>https://z3942.github.io/2021/08/18/openstack/</id>
+    <published>2021-08-17T19:36:35.000Z</published>
+    <updated>2021-08-17T19:44:05.472Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;OpenStack&quot;&gt;&lt;a href=&quot;#OpenStack&quot; class=&quot;headerlink&quot; title=&quot;OpenStack&quot;&gt;&lt;/a&gt;OpenStack&lt;/h1&gt;&lt;h1 id=&quot;一、keystone&quot;&gt;&lt;a href=&quot;#一、keystone&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="OpenStack" scheme="https://z3942.github.io/categories/OpenStack/"/>
+    
+    <category term="云计算" scheme="https://z3942.github.io/categories/OpenStack/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    
+    
+    <category term="OpenStack" scheme="https://z3942.github.io/tags/OpenStack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LNMP搭建</title>
+    <link href="https://z3942.github.io/2021/08/18/lnmp-da-jian/"/>
+    <id>https://z3942.github.io/2021/08/18/lnmp-da-jian/</id>
+    <published>2021-08-17T19:36:05.000Z</published>
+    <updated>2021-08-17T19:42:41.150Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;lnmp搭建&quot;&gt;&lt;a href=&quot;#lnmp搭建&quot; class=&quot;headerlink&quot; title=&quot;lnmp搭建&quot;&gt;&lt;/a&gt;lnmp搭建&lt;/h1&gt;&lt;h2 id=&quot;一、Linux安装&quot;&gt;&lt;a href=&quot;#一、Linux安装&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker简介</title>
+    <link href="https://z3942.github.io/2021/08/18/docker-jian-jie/"/>
+    <id>https://z3942.github.io/2021/08/18/docker-jian-jie/</id>
+    <published>2021-08-17T19:35:52.000Z</published>
+    <updated>2021-08-17T19:40:59.116Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、容器&quot;&gt;&lt;a href=&quot;#一、容器&quot; class=&quot;headerlink&quot; title=&quot;一、容器&quot;&gt;&lt;/a&gt;一、容器&lt;/h1&gt;&lt;h2 id=&quot;1、基本概念&quot;&gt;&lt;a href=&quot;#1、基本概念&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Docker" scheme="https://z3942.github.io/categories/Docker/"/>
+    
+    
+    <category term="Docker" scheme="https://z3942.github.io/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Git</title>
@@ -422,115 +525,6 @@
     
     
     <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>云计算面试题</title>
-    <link href="https://z3942.github.io/2021/08/14/yun-ji-suan-mian-shi-ti/"/>
-    <id>https://z3942.github.io/2021/08/14/yun-ji-suan-mian-shi-ti/</id>
-    <published>2021-08-14T08:44:27.000Z</published>
-    <updated>2021-08-16T17:42:39.832Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h5 id=&quot;1、简述raid0、raid1、raid5三种工作模式的工作原理及特点&quot;&gt;&lt;a href=&quot;#1、简述raid0、raid1、raid5三种工作模式的工作原理及特点&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
-    
-    <category term="面试题" scheme="https://z3942.github.io/categories/Linux/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
-    
-    <category term="云计算" scheme="https://z3942.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown语法</title>
-    <link href="https://z3942.github.io/2021/08/14/markdown-yu-fa/"/>
-    <id>https://z3942.github.io/2021/08/14/markdown-yu-fa/</id>
-    <published>2021-08-14T08:44:15.000Z</published>
-    <updated>2021-08-14T12:53:31.306Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;markdown语法&quot;&gt;&lt;a href=&quot;#markdown语法&quot; class=&quot;headerlink&quot; title=&quot;markdown语法&quot;&gt;&lt;/a&gt;markdown语法&lt;/h1&gt;&lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Typora" scheme="https://z3942.github.io/categories/Typora/"/>
-    
-    
-    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
-    
-    <category term="Typora" scheme="https://z3942.github.io/tags/Typora/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux基础优化</title>
-    <link href="https://z3942.github.io/2021/08/14/linux-ji-chu-you-hua/"/>
-    <id>https://z3942.github.io/2021/08/14/linux-ji-chu-you-hua/</id>
-    <published>2021-08-14T08:43:59.000Z</published>
-    <updated>2021-08-14T12:53:09.044Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;Linux&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;基础优化&quot;&gt;&lt;a href=&quot;#基础优化&quot; class=&quot;headerlink&quot; title=&quot;基础优化&quot;&gt;&lt;/a&gt;基础优化&lt;/h1&gt;&lt;p&gt;安装centos7</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux</title>
-    <link href="https://z3942.github.io/2021/08/14/linux/"/>
-    <id>https://z3942.github.io/2021/08/14/linux/</id>
-    <published>2021-08-14T08:43:51.000Z</published>
-    <updated>2021-08-14T12:50:20.706Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux-https-www-linuxprobe-com-basic-learning-00-html&quot;&gt;&lt;a href=&quot;#Linux-https-www-linuxprobe-com-basic-learning-00-html&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
     
   </entry>
   
