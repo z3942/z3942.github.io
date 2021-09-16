@@ -6,7 +6,7 @@
   <link href="https://z3942.github.io/atom.xml" rel="self"/>
   
   <link href="https://z3942.github.io/"/>
-  <updated>2021-08-17T19:45:35.262Z</updated>
+  <updated>2021-09-16T13:03:18.154Z</updated>
   <id>https://z3942.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LNMP</title>
+    <link href="https://z3942.github.io/2021/09/17/lnmp/"/>
+    <id>https://z3942.github.io/2021/09/17/lnmp/</id>
+    <published>2021-09-16T20:57:38.000Z</published>
+    <updated>2021-09-16T13:03:18.154Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;LNMP&quot;&gt;&lt;a href=&quot;#LNMP&quot; class=&quot;headerlink&quot; title=&quot;LNMP&quot;&gt;&lt;/a&gt;LNMP&lt;/h2&gt;&lt;h3 id=&quot;nginx部署&quot;&gt;&lt;a href=&quot;#nginx部署&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zabbix</title>
+    <link href="https://z3942.github.io/2021/08/30/zabbix/"/>
+    <id>https://z3942.github.io/2021/08/30/zabbix/</id>
+    <published>2021-08-29T20:51:02.000Z</published>
+    <updated>2021-09-16T13:05:53.321Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h5 id=&quot;安装-Zabbix-存储库&quot;&gt;&lt;a href=&quot;#安装-Zabbix-存储库&quot; class=&quot;headerlink&quot; title=&quot;安装 Zabbix 存储库&quot;&gt;&lt;/a&gt;安装 Zabbix 存储库&lt;/h5&gt;&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/categories/Linux/"/>
+    
+    <category term="Zabbix" scheme="https://z3942.github.io/categories/Linux/Zabbix/"/>
+    
+    
+    <category term="Linux" scheme="https://z3942.github.io/tags/Linux/"/>
+    
+    <category term="Zabbix" scheme="https://z3942.github.io/tags/Zabbix/"/>
+    
+  </entry>
   
   <entry>
     <title>主从数据库</title>
@@ -466,56 +520,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;DML语言&quot;&gt;&lt;a href=&quot;#DML语言&quot; class=&quot;headerlink&quot; title=&quot;DML语言&quot;&gt;&lt;/a&gt;DML语言&lt;/h2&gt;&lt;h3 id=&quot;外键&quot;&gt;&lt;a href=&quot;#外键&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="MySQL" scheme="https://z3942.github.io/categories/MySQL/"/>
-    
-    
-    <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库操作</title>
-    <link href="https://z3942.github.io/2021/08/14/shu-ju-ku-cao-zuo/"/>
-    <id>https://z3942.github.io/2021/08/14/shu-ju-ku-cao-zuo/</id>
-    <published>2021-08-14T12:06:05.000Z</published>
-    <updated>2021-08-14T12:20:16.731Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;数据库操作&quot;&gt;&lt;a href=&quot;#数据库操作&quot; class=&quot;headerlink&quot; title=&quot;数据库操作&quot;&gt;&lt;/a&gt;数据库操作&lt;/h2&gt;&lt;h3 id=&quot;结构化查询语句分类&quot;&gt;&lt;a href=&quot;#结构化查询语句分类&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="MySQL" scheme="https://z3942.github.io/categories/MySQL/"/>
-    
-    
-    <category term="MySQL" scheme="https://z3942.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初识MySQL</title>
-    <link href="https://z3942.github.io/2021/08/14/chu-shi-mysql/"/>
-    <id>https://z3942.github.io/2021/08/14/chu-shi-mysql/</id>
-    <published>2021-08-14T12:04:27.000Z</published>
-    <updated>2021-08-14T21:33:51.362Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;初识MySQL&quot;&gt;&lt;a href=&quot;#初识MySQL&quot; class=&quot;headerlink&quot;</summary>
         
       
     

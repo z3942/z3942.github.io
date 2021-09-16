@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="权限及如何设计数据库, 一只云辰">
+    <meta name="keywords" content="Zabbix, 一只云辰">
     <meta name="description" content="本网站是个人兴趣爱好，记录生活点滴的平台">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>权限及如何设计数据库 | 一只云辰</title>
+    <title>Zabbix | 一只云辰</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -306,7 +306,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">权限及如何设计数据库</h1>
+                    <h1 class="description center-align post-title">Zabbix</h1>
                 </div>
             </div>
         </div>
@@ -422,8 +422,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MySQL/">
-                                <span class="chip bg-color">MySQL</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/Zabbix/">
+                                <span class="chip bg-color">Zabbix</span>
                             </a>
                         
                     </div>
@@ -434,8 +438,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/MySQL/" class="post-category">
-                                MySQL
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                            <a href="/categories/Linux/Zabbix/" class="post-category">
+                                Zabbix
                             </a>
                         
                     </div>
@@ -447,28 +455,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-14
+                    2021-08-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-15
+                    2021-09-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    9 分
                 </div>
                 
 
@@ -491,206 +499,320 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="权限及如何设计数据库"><a href="#权限及如何设计数据库" class="headerlink" title="权限及如何设计数据库"></a>权限及如何设计数据库</h2><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><blockquote>
-<p>基本命令</p>
-</blockquote>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">/* 用户和权限管理 */ ------------------
-用户信息表：mysql.user
+                <h5 id="安装-Zabbix-存储库"><a href="#安装-Zabbix-存储库" class="headerlink" title="安装 Zabbix 存储库"></a>安装 Zabbix 存储库</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm
+ yum clean all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
--- 刷新权限
-FLUSH PRIVILEGES
+<h5 id="安装-Zabbix-服务器和代理"><a href="#安装-Zabbix-服务器和代理" class="headerlink" title="安装 Zabbix 服务器和代理"></a>安装 Zabbix 服务器和代理</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> zabbix-server-mysql zabbix-agent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
--- 增加用户 CREATE USER kuangshen IDENTIFIED BY '123456'
-CREATE USER 用户名 IDENTIFIED BY [PASSWORD] 密码(字符串)
-  - 必须拥有mysql数据库的全局CREATE USER权限，或拥有INSERT权限。
-  - 只能创建用户，不能赋予权限。
-  - 用户名，注意引号：如 'user_name'@'192.168.1.1'
-  - 密码也需引号，纯数字密码也要加引号
-  - 要在纯文本中指定密码，需忽略PASSWORD关键词。要把密码指定为由PASSWORD()函数返回的混编值，需包含关键字PASSWORD
+<h5 id="C。安装-Zabbix-前端"><a href="#C。安装-Zabbix-前端" class="headerlink" title="C。安装 Zabbix 前端"></a>C。安装 Zabbix 前端</h5><p>启用红帽软件集合</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> centos-release-scl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
--- 重命名用户 RENAME USER kuangshen TO kuangshen2
-RENAME USER old_user TO new_user
+<p>编辑文件 /etc/yum.repos.d/zabbix.repo 并启用 zabbix-frontend 存储库。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>zabbix-frontend<span class="token punctuation">]</span>
+<span class="token punctuation">..</span>.
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
--- 设置密码
-SET PASSWORD = PASSWORD('密码')    -- 为当前用户设置密码
-SET PASSWORD FOR 用户名 = PASSWORD('密码')    -- 为指定用户设置密码
+<p>安装 Zabbix 前端包。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> zabbix-web-mysql-scl zabbix-nginx-conf-scl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
--- 删除用户 DROP USER kuangshen2
-DROP USER 用户名
+<p>安装数据库</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> mariadb-server
+systemctl start mariadb
+<span class="token punctuation">[</span>root@centos7 ~<span class="token punctuation">]</span><span class="token comment"># systemctl enable mariadb</span>
+Created symlink from /etc/systemd/system/multi-user.target.wants/mariadb.service to /usr/lib/systemd/system/mariadb.service.
+<span class="token punctuation">[</span>root@centos7 ~<span class="token punctuation">]</span><span class="token comment"># mysql_secure_installation</span>
 
--- 分配权限/添加用户
-GRANT 权限列表 ON 表名 TO 用户名 [IDENTIFIED BY [PASSWORD] 'password']
-  - all privileges 表示所有权限
-  - *.* 表示所有库的所有表
-  - 库名.表名 表示某库下面的某表
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE<span class="token operator">!</span>  PLEASE READ EACH STEP CAREFULLY<span class="token operator">!</span>
 
--- 查看权限   SHOW GRANTS FOR root@localhost;
-SHOW GRANTS FOR 用户名
-   -- 查看当前用户权限
-  SHOW GRANTS; 或 SHOW GRANTS FOR CURRENT_USER; 或 SHOW GRANTS FOR CURRENT_USER();
+In order to log into MariaDB to secure it, we<span class="token string">'ll need the current
+password for the root user.  If you'</span>ve just installed MariaDB, and
+you haven<span class="token string">'t set the root password yet, the password will be blank,
+so you should just press enter here.
 
--- 撤消权限
-REVOKE 权限列表 ON 表名 FROM 用户名
-REVOKE ALL PRIVILEGES, GRANT OPTION FROM 用户名    -- 撤销所有权限<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
 
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n] y
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from '</span>localhost<span class="token string">'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] n
+ ... skipping.
+
+By default, MariaDB comes with a database named '</span><span class="token builtin class-name">test</span><span class="token string">' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you'</span>ve completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks <span class="token keyword">for</span> using MariaDB<span class="token operator">!</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="d-创建初始数据库"><a href="#d-创建初始数据库" class="headerlink" title="d. 创建初始数据库"></a>d. 创建初始数据库</h5><p>确保您已启动并运行数据库服务器。</p>
+<p>在您的数据库主机上运行以下命令。</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># mysql -uroot -p
+password
+mysql&gt; create database zabbix character set utf8 collate utf8_bin;
+mysql&gt; create user zabbix@localhost identified by 'password';
+mysql&gt; grant all privileges on zabbix.* to zabbix@localhost;
+mysql&gt; quit;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在 Zabbix 服务器主机上导入初始模式和数据。系统将提示您输入新创建的密码。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz <span class="token operator">|</span> mysql -uzabbix -p zabbix<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="e-为-Zabbix-服务器配置数据库"><a href="#e-为-Zabbix-服务器配置数据库" class="headerlink" title="e. 为 Zabbix 服务器配置数据库"></a>e. 为 Zabbix 服务器配置数据库</h5><p>编辑文件 </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">DBPassword</span><span class="token operator">=</span>password<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="为Zabbix前端配置PHP"><a href="#为Zabbix前端配置PHP" class="headerlink" title="为Zabbix前端配置PHP"></a>为Zabbix前端配置PHP</h5><p>编辑配置文件 /etc/opt/rh/rh-nginx116/nginx/conf.d/zabbix.conf, uncomment and set ‘listen’ and ‘server_name’ directives.</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">listen <span class="token number">80</span><span class="token punctuation">;</span>
+server_name example.com<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>编辑配置文件 /etc/opt/rh/rh-php72/php-fpm.d/zabbix.conf, add nginx to listen.acl_users directive.</p>
+<pre class="line-numbers language-none"><code class="language-none">listen.acl_users = apache,nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Then uncomment and set the right timezone for you.</p>
+<pre class="line-numbers language-none"><code class="language-none">; php_value[date.timezone] = Rsia/Shanghai<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="启动Zabbix-server和agent进程"><a href="#启动Zabbix-server和agent进程" class="headerlink" title="启动Zabbix server和agent进程"></a>启动Zabbix server和agent进程</h5><p>启动Zabbix server和agent进程，并为它们设置开机自启：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl restart zabbix-server zabbix-agent rh-nginx116-nginx rh-php72-php-fpm
+systemctl <span class="token builtin class-name">enable</span> zabbix-server zabbix-agent rh-nginx116-nginx rh-php72-php-fpm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+<p><strong>zabbix-agent2</strong></p>
+<p>安装 zabbix rpm 源,鉴于国内网络情况，使用阿里云 zabbix 源</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -Uvh https://mirrors.aliyun.com/zabbix/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm
+<span class="token function">sed</span> -i <span class="token string">'s#http://repo.zabbix.com#https://mirrors.aliyun.com/zabbix#'</span> /etc/yum.repos.d/zabbix.repo
+yum clean all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>安装 Zabbix Agent2</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> zabbix-agent2 -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>默认配置文件为</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/zabbix/zabbix_agent2.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>默认二进制文件为</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/sbin/zabbix_agent2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>使用以下命令启动 Agent2 并配置开机启动</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl <span class="token builtin class-name">enable</span> --now zabbix-agent2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>配置</strong></p>
+<p>zabbix agent2 的配置与之前的 zabbix agent 配置基本一致</p>
+<pre class="line-numbers language-none"><code class="language-none">Server=172.16.66.11
+ServerActive=172.16.66.11
+Hostname=node16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>Server 和 ServerActive 配置为 zabibx server 或 zabbix proxy 地址，Hostname 配置为主机名即可。 Agent2 没有组件依赖，可直接拷贝编译好的二进制文件和配置文件在其他主机上运行即可。</p>
+<p>服务端安装测试工具</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> -y zabbix-get
+zabbix_get -s <span class="token string">'192.168.100.51'</span> -p10050 -k <span class="token string">'system.hostname'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>解决zabbix-server查看乱码问题</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#找个 windows 系统的电脑， C:\Windows\Fonts 目录找个中文字体文件</span>
+<span class="token comment">#下载后上传到 zabbix server 服务器上的zabbix WEB 网站目录</span>
+<span class="token comment">#找到 Zabbix WEB 字库目录</span>
+<span class="token builtin class-name">cd</span> /usr/share/zabbix/assets/fonts
+ <span class="token function">mv</span> graphfont.ttf graphfont.ttf.bak
+ <span class="token function">ln</span> -s simhei.ttf graphfont.ttf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="自定义监控内容"><a href="#自定义监控内容" class="headerlink" title="自定义监控内容"></a>自定义监控内容</h3><p>自定义监控服务器登录的人数</p>
+<p>需求：限制登录人数不超过三个，超过三个就发出报警。</p>
+<h4 id="命令行角度"><a href="#命令行角度" class="headerlink" title="命令行角度"></a>命令行角度</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#明确需要执行的linux命令</span>
+<span class="token function">who</span> <span class="token operator">|</span> <span class="token function">wc</span> -l
+<span class="token comment">##手动创建zabbix的配置文件，用于自定义key</span>
+/etc/zabbix/zabbix_agent2.conf
+<span class="token comment">###创建配置文件，内容如下</span>
+<span class="token assign-left variable">UserParameter</span><span class="token operator">=</span>login.user,who<span class="token operator">|</span><span class="token function">wc</span> -l<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="在页面添加zabbix-server的自定义监控项模板"><a href="#在页面添加zabbix-server的自定义监控项模板" class="headerlink" title="在页面添加zabbix-server的自定义监控项模板"></a>在页面添加zabbix-server的自定义监控项模板</h3><p>添加流程：</p>
+<ul>
+<li><p>创建模板</p>
+</li>
+<li><p>创建应用集</p>
+</li>
+<li><p>创建监控项，自定义item,你具体想监控的内容</p>
+</li>
+<li><p>创建触发器，当监控项获取到值的时候，进行和触发器比较，判断决定是否报警</p>
+</li>
+<li><p>创建图形</p>
+</li>
+<li><p>将具体的主机和该模板链接，关联</p>
+</li>
+</ul>
+<h3 id="邮件报警"><a href="#邮件报警" class="headerlink" title="邮件报警"></a>邮件报警</h3><h3 id="全网监控方案"><a href="#全网监控方案" class="headerlink" title="全网监控方案"></a>全网监控方案</h3><p>聚合图形</p>
+<p>自动添加主机监控</p>
+<ul>
+<li>克隆监控模板</li>
+<li>自动注册和自动发现</li>
+<li>使用zabbix的api接口，利用curl语言，或者开发自己的编程脚本如Python等</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/z3942/images/image-20210819184807840.png" alt="image-20210819184807840"></p>
+<h3 id="监控实施方案"><a href="#监控实施方案" class="headerlink" title="监控实施方案"></a>监控实施方案</h3><p>硬件监控</p>
+<p>应用服务监控</p>
+<p>互联网有大量的开源模板可以使用</p>
 <blockquote>
-<p>权限解释</p>
+<p>rsync服务监控</p>
+<p>​    监控服务器的873端口是存活的</p>
+<p>​    有关端口的监控，使用zabbix自带的 key net . tcp. port[ ,873]</p>
+<p>​    进行数据推拉，检测效果</p>
+<p>监控NFS服务是否正常</p>
+<p>​    通过key检测111端口net . tcp. port[ ,111]</p>
+<p>​    showmount -e ip| wc -l</p>
+<p>监控mysq1数据库是否正常</p>
+<p>​    通过端口net. tcp . port[ , 3306]</p>
+<p>​    mysql -uroot -p</p>
+<p>​    zabbix自带了mysql的监控模板</p>
+<p>web服务器监控</p>
+<p>​    net.tcp.port[,80]</p>
+<p>​    zabbix也提供了对web服务器的监控模板</p>
 </blockquote>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 权限列表
-ALL [PRIVILEGES]    -- 设置除GRANT OPTION之外的所有简单权限
-ALTER    -- 允许使用ALTER TABLE
-ALTER ROUTINE    -- 更改或取消已存储的子程序
-CREATE    -- 允许使用CREATE TABLE
-CREATE ROUTINE    -- 创建已存储的子程序
-CREATE TEMPORARY TABLES        -- 允许使用CREATE TEMPORARY TABLE
-CREATE USER        -- 允许使用CREATE USER, DROP USER, RENAME USER和REVOKE ALL PRIVILEGES。
-CREATE VIEW        -- 允许使用CREATE VIEW
-DELETE    -- 允许使用DELETE
-DROP    -- 允许使用DROP TABLE
-EXECUTE        -- 允许用户运行已存储的子程序
-FILE    -- 允许使用SELECT...INTO OUTFILE和LOAD DATA INFILE
-INDEX     -- 允许使用CREATE INDEX和DROP INDEX
-INSERT    -- 允许使用INSERT
-LOCK TABLES        -- 允许对您拥有SELECT权限的表使用LOCK TABLES
-PROCESS     -- 允许使用SHOW FULL PROCESSLIST
-REFERENCES    -- 未被实施
-RELOAD    -- 允许使用FLUSH
-REPLICATION CLIENT    -- 允许用户询问从属服务器或主服务器的地址
-REPLICATION SLAVE    -- 用于复制型从属服务器（从主服务器中读取二进制日志事件）
-SELECT    -- 允许使用SELECT
-SHOW DATABASES    -- 显示所有数据库
-SHOW VIEW    -- 允许使用SHOW CREATE VIEW
-SHUTDOWN    -- 允许使用mysqladmin shutdown
-SUPER    -- 允许使用CHANGE MASTER, KILL, PURGE MASTER LOGS和SET GLOBAL语句，mysqladmin debug命令；允许您连接（一次），即使已达到max_connections。
-UPDATE    -- 允许使用UPDATE
-USAGE    -- “无权限”的同义词
-GRANT OPTION    -- 允许授予权限
+<p><strong>监控服务的具体方法</strong></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">端口检测的命令
+<span class="token function">netstat</span>
+ss
+<span class="token function">lsof</span>
+结合grep查看端口是否存活
 
+在服务端
+<span class="token punctuation">[</span>root@centos7 ~<span class="token punctuation">]</span><span class="token comment"># zabbix_get -s '192.168.100.51' -p 10050 -k 'net.tcp.port[,80]'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-/* 表维护 */
+<p>查询进程信息</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
--- 分析和存储表的关键字分布
-ANALYZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE 表名 ...
--- 检查一个或多个表是否有错误
-CHECK TABLE tbl_name [, tbl_name] ... [option] ...
-option = {QUICK | FAST | MEDIUM | EXTENDED | CHANGED}
--- 整理数据文件的碎片
-OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>通过客户端连接</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">web服务器 curl查询
+mysql  用sql语句连接验证
+缓存数据库服务  数据读写验证<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="自动发现，自动注册"><a href="#自动发现，自动注册" class="headerlink" title="自动发现，自动注册"></a>自动发现，自动注册</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#什么是自动发现</span>
+zabbix server 主动地去发现所有的客户端，然后将客户端的信息，登记在服务器的机器上
+
+缺点：zabbix-server压力较大
+耗时较久，且压力大
+
+<span class="token comment">#自动注册</span>
+zabbix agent2主动上报自己的信息，发给zabbix-server
+缺点agent2可能找不到server（配置文件写错，网络不通）
+
+<span class="token comment">#被动模式，主动模式区别（站在agent2立场）</span>
+<span class="token comment">#被动模式，对于agent2来说，就是server来找agent2拿数据</span>
+<span class="token comment">#主动模式，agent2主动把信息发给server</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h3 id="MySQL备份"><a href="#MySQL备份" class="headerlink" title="MySQL备份"></a>MySQL备份</h3><p>数据库备份必要性</p>
+
+
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
+<span class="token comment">#配置hosts解析</span>
+<span class="token function">vim</span> /etc/hosts
+
+<span class="token number">127.0</span>.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+<span class="token number">192.168</span>.100.50 centos7
+<span class="token number">192.168</span>.100.51 zbx-agent01
+
+<span class="token comment">#自动发现配置</span>
+
+<span class="token comment">#自动注册</span>
+<span class="token number">1</span>准备机器
+server
+agent2
+<span class="token number">2</span>修改agent2 的配置文件
+<span class="token punctuation">[</span>root@zbx-agent01 zabbix_agent2.d<span class="token punctuation">]</span><span class="token comment"># grep -Ev '^#|^$' /etc/zabbix/zabbix_agent2.conf</span>
+<span class="token assign-left variable">PidFile</span><span class="token operator">=</span>/var/run/zabbix/zabbix_agent2.pid
+<span class="token assign-left variable">LogFile</span><span class="token operator">=</span>/var/log/zabbix/zabbix_agent2.log
+<span class="token assign-left variable">LogFileSize</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">Server</span><span class="token operator">=</span><span class="token number">192.168</span>.100.50 <span class="token comment">#写入服务端配置</span>
+<span class="token assign-left variable">ServerActive</span><span class="token operator">=</span><span class="token number">192.168</span>.100.50	<span class="token comment">#写入服务端地址</span>
+<span class="token assign-left variable">Hostname</span><span class="token operator">=</span>zbx-agent01	<span class="token comment">#agent2主机名</span>
+<span class="token assign-left variable">Include</span><span class="token operator">=</span>/etc/zabbix/zabbix_agent2.d/*.conf
+<span class="token assign-left variable">ControlSocket</span><span class="token operator">=</span>/tmp/agent.sock
+
+<span class="token number">3</span>创建动作
+自动注册<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/z3942/images/image-20210819193340879.png" alt="image-20210819193340879"></p>
+<h3 id="分布式监控——负载均衡"><a href="#分布式监控——负载均衡" class="headerlink" title="分布式监控——负载均衡"></a>分布式监控——负载均衡</h3><blockquote>
+<p>分布式监控作用</p>
 <ul>
-<li>保证重要数据不丢失</li>
-<li>数据转移</li>
-</ul>
-<p>MySQL数据库备份方法</p>
-<ul>
-<li>mysqldump备份工具</li>
-<li>数据库管理工具,如SQLyog</li>
-<li>直接拷贝数据库文件和相关配置文件</li>
-</ul>
-<p><strong>mysqldump客户端</strong></p>
-<p>作用 :</p>
-<ul>
-<li>转储数据库</li>
-<li>搜集数据库进行备份</li>
-<li>将数据转移到另一个SQL服务器,不一定是MySQL服务器</li>
-</ul>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 导出
-1. 导出一张表 -- mysqldump -uroot -p123456 school student &gt;D:/a.sql
-　　mysqldump -u用户名 -p密码 库名 表名 &gt; 文件名(D:/a.sql)
-2. 导出多张表 -- mysqldump -uroot -p123456 school student result &gt;D:/a.sql
-　　mysqldump -u用户名 -p密码 库名 表1 表2 表3 &gt; 文件名(D:/a.sql)
-3. 导出所有表 -- mysqldump -uroot -p123456 school &gt;D:/a.sql
-　　mysqldump -u用户名 -p密码 库名 &gt; 文件名(D:/a.sql)
-4. 导出一个库 -- mysqldump -uroot -p123456 -B school &gt;D:/a.sql
-　　mysqldump -u用户名 -p密码 -B 库名 &gt; 文件名(D:/a.sql)
-
-可以-w携带备份条件
-
--- 导入
-1. 在登录mysql的情况下：-- source D:/a.sql
-　　source 备份文件
-2. 在不登录的情况下
-　　mysql -u用户名 -p密码 库名 &lt; 备份文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="规范化数据库设计"><a href="#规范化数据库设计" class="headerlink" title="规范化数据库设计"></a>规范化数据库设计</h2><h3 id="为什么需要数据库设计"><a href="#为什么需要数据库设计" class="headerlink" title="为什么需要数据库设计"></a>为什么需要数据库设计</h3><p><strong>当数据库比较复杂时我们需要设计数据库</strong></p>
-<p><strong>糟糕的数据库设计 :</strong> </p>
-<ul>
-<li>数据冗余,存储空间浪费</li>
-<li>数据更新和插入的异常</li>
-<li>程序性能差</li>
-</ul>
-<p><strong>良好的数据库设计 :</strong> </p>
-<ul>
-<li>节省数据的存储空间</li>
-<li>能够保证数据的完整性</li>
-<li>方便进行数据库应用系统的开发</li>
-</ul>
-<p> <strong>软件项目开发周期中数据库设计 :</strong></p>
-<ul>
-<li>需求分析阶段: 分析客户的业务和数据处理需求</li>
-<li>概要设计阶段:设计数据库的E-R模型图 , 确认需求信息的正确和完整.</li>
-</ul>
-<p><strong>设计数据库步骤</strong></p>
-<ul>
-<li><p>收集信息</p>
-</li>
-<li><ul>
-<li>与该系统有关人员进行交流 , 座谈 , 充分了解用户需求 , 理解数据库需要完成的任务.</li>
+<li>分担server的集中式压力<ul>
+<li>Agent &gt; proxy &gt; server</li>
 </ul>
 </li>
-<li><p>标识实体[Entity]</p>
-</li>
-<li></li>
-<li><ul>
-<li>标识数据库要管理的关键对象或实体,实体一般是名词</li>
-</ul>
-</li>
-<li><p>标识每个实体需要存储的详细信息[Attribute]</p>
-</li>
-<li><p>标识实体之间的关系[Relationship]</p>
-</li>
-</ul>
-<h3 id="三大范式"><a href="#三大范式" class="headerlink" title="三大范式"></a>三大范式</h3><p><strong>问题 : 为什么需要数据规范化?</strong></p>
-<p>不合规范的表设计会导致的问题：</p>
-<ul>
-<li><p>信息重复</p>
-</li>
-<li><p>更新异常</p>
-</li>
-<li><p>插入异常</p>
-</li>
-<li><ul>
-<li>无法正确表示信息</li>
-</ul>
-</li>
-<li><p>删除异常</p>
-</li>
-<li><ul>
-<li>丢失有效信息</li>
+<li>多机房之间的网络延迟问题<ul>
+<li>上海机房 &gt; proxy &gt; server</li>
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>三大范式</p>
 </blockquote>
-<p><strong>第一范式 (1st NF)</strong></p>
-<p>第一范式的目标是确保每列的原子性,如果每列都是不可再分的最小数据单元,则满足第一范式</p>
-<p><strong>第二范式(2nd NF)</strong></p>
-<p>第二范式（2NF）是在第一范式（1NF）的基础上建立起来的，即满足第二范式（2NF）必须先满足第一范式（1NF）。</p>
-<p>第二范式要求每个表只描述一件事情</p>
-<p><strong>第三范式(3rd NF)</strong></p>
-<p>如果一个关系满足第二范式,并且除了主键以外的其他列都不传递依赖于主键列,则满足第三范式.</p>
-<p>第三范式需要确保数据表中的每一列数据都和主键直接相关，而不能间接相关。</p>
-<p><strong>规范化和性能的关系</strong></p>
-<p>为满足某种商业目标 , 数据库性能比规范化数据库更重要</p>
-<p>在数据规范化的同时 , 要综合考虑数据库的性能</p>
-<p>通过在给定的表中添加额外的字段,以大量减少需要从中搜索信息所需的时间</p>
-<p>通过在给定的表中插入计算列,以方便查询</p>
+<h4 id="部署分布式监控"><a href="#部署分布式监控" class="headerlink" title="部署分布式监控"></a>部署分布式监控</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">``<span class="token variable"><span class="token variable">`</span>
+
+<span class="token comment">### SNMP监控</span>
+
+简单网络管理协议
+
+<span class="token variable">`</span></span>``shell
+服务端安装snmp监控程序
+yum <span class="token function">install</span> -y net-snmp net-snmp-utils
+
+开启snmp的配置
+<span class="token function">sed</span> -i.ori <span class="token string">'57a view systemview   included  .1'</span> /etc/snmp/snmp.conf
+systemctl start snmpd.service
+
+使用snmp命令
+ -v 指定协议版本   -c  指定暗号   sysname snmp的key
+ snmpwalk -v 2c  -c  public <span class="token number">127.9</span>.9.1 sysname
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
                 
             </div>
@@ -717,7 +839,7 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...<span aria-
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://z3942.github.io/2021/08/14/quan-xian-ji-ru-he-she-ji-shu-ju-ku/">https://z3942.github.io/2021/08/14/quan-xian-ji-ru-he-she-ji-shu-ju-ku/</a>
+                    <a href="https://z3942.github.io/2021/08/30/zabbix/">https://z3942.github.io/2021/08/30/zabbix/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -755,8 +877,12 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...<span aria-
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MySQL/">
-                                    <span class="chip bg-color">MySQL</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Zabbix/">
+                                    <span class="chip bg-color">Zabbix</span>
                                 </a>
                             
                         </div>
@@ -932,13 +1058,13 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...<span aria-
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/15/nginx/">
+                <a href="/2021/09/17/lnmp/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Nginx">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="LNMP">
                         
-                        <span class="card-title">Nginx</span>
+                        <span class="card-title">LNMP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -949,7 +1075,7 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...<span aria-
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-17
                         </span>
                         <span class="publish-author">
                             
@@ -957,10 +1083,6 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...<span aria-
                             
                             <a href="/categories/Linux/" class="post-category">
                                     Linux
-                                </a>
-                            
-                            <a href="/categories/Linux/Nginx/" class="post-category">
-                                    Nginx
                                 </a>
                             
                             
@@ -974,10 +1096,6 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...<span aria-
                         <span class="chip bg-color">Linux</span>
                     </a>
                     
-                    <a href="/tags/Nginx/">
-                        <span class="chip bg-color">Nginx</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -989,13 +1107,13 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...<span aria-
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/14/shi-wu-he-suo-yin/">
+                <a href="/2021/08/18/zhu-cong-shu-ju-ku/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="事务和索引">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="主从数据库">
                         
-                        <span class="card-title">事务和索引</span>
+                        <span class="card-title">主从数据库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1006,7 +1124,7 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...<span aria-
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-18
                             </span>
                         <span class="publish-author">
                             
